@@ -1,0 +1,27 @@
+.label-title {
+    border: 1px solid;
+    padding: 0px 4px;
+    margin-left: 2px;
+}
+
+.label-new {
+    border-color: var(--bs-primary);
+    color: var(--bs-primary);
+    &::after {
+        content: "New";
+    }
+}
+.label-hot {
+    border-color: var(--bs-red);
+    color: var(--bs-red);
+    &::after {
+        content: "Hot";
+    }
+}
+.label-full {
+    border-color: limegreen;
+    color: limegreen;
+    &::after {
+        content: "Full";
+    }
+}

@@ -1,0 +1,84 @@
+$chapter-nav-primary-color: rgb(34 202 0 / 67%);
+#chapter-container {
+    .change-chapter-container {
+        a.btn,
+        select {
+            border-color: $chapter-nav-primary-color;
+            box-shadow: none !important;
+            outline: none !important;
+            padding: 10px 20px;
+            cursor: pointer;
+            &:hover {
+                border-color: rgb(128, 255, 1);
+                color: rgb(128, 255, 1);
+            }
+        }
+    }
+    .chapter-content {
+        margin-top: 50px;
+        p {
+            font-size: 25px;
+            line-height: 40px;
+            font-family: Georgia, "Times New Roman", Times, serif;
+        }
+    }
+}
+
+// Dark-Theme
+body {
+    &.dark-theme {
+        #chapter-container {
+            .chapter-order {
+                color: $text-color;
+            }
+            .change-chapter-container {
+                a.btn,
+                select {
+                    color: $text-color;
+                    background-color: transparent;
+                }
+                select {
+                    option {
+                        background-color: var(--bs-dark);
+                        color: $text-color;
+                    }
+                }
+            }
+
+            .chapter-content {
+                p {
+                    color: $text-secondary-color;
+                }
+            }
+        }
+    }
+
+    &.light-theme {
+        #chapter-container {
+            .chapter-order {
+                color: $text-dark-color;
+            }
+            .change-chapter-container {
+                a.btn,
+                select {
+                    background-color: $chapter-nav-primary-color;
+                    color: white !important;
+                    text-shadow: 1px 1px 2px #00000080;
+                }
+                select {
+                    background-color: $chapter-nav-primary-color !important;
+                    option {
+                        background-color: var(--bs-light);
+                        color: $text-dark-color;
+                    }
+                }
+            }
+
+            .chapter-content {
+                p {
+                    color: $text-dark-color;
+                }
+            }
+        }
+    }
+}

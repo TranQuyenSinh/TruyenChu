@@ -1,0 +1,16 @@
+@{
+    Layout = "_Layout";
+}
+
+<div class="row">
+    <div class="col-lg-8 col-md-12">
+        @RenderBody()
+    </div>
+    <div class="col-lg-4 d-none d-lg-block">
+        <partial name="_CategoriesSidebarPartial">
+    </div>
+</div>
+
+@section Scripts {
+    @await RenderSectionAsync("Scripts", required: false)
+}

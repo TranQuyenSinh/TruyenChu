@@ -1,0 +1,80 @@
+@{
+    ViewData["Title"] = "Xin chào ABX";
+    Layout="_DetailLayout";
+}
+
+<div class="detail-story">
+    <div class="list-title">
+        <h2>        
+            Thông tin truyện
+        </h2>
+    </div>
+</div>
+<div class="mt-2 clearfix">
+    <h4 class="text-center mb-4 d-inline-block float-end m-auto detail-title">Ánh Trăng Soi Sáng Lòng Anh</h4>
+    <div class="col-md-3 col-sm-12 float-start px-2">
+        <partial name="_BookThumbPartial" />
+        <div class="story-info my-4">
+            <div>
+                <strong>Tác giả: </strong>
+                <a href="#">Kim họa</a>
+            </div>
+            <div>
+                <strong>Thể loại: </strong>
+                <a href="#">Phiêu lưu</a>,
+                <a href="#">Hài hước</a>
+            </div>
+            <div>
+                <strong>Nguồn: </strong>
+                <span>wattpad.com/user/PHC_teamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span>
+            </div>
+            <div>
+                <strong>Trạng thái: </strong> 
+                <span class="text-success">Full/Đang ra</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9 col-sm-12 float-end px-2">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure similique, unde odio iusto recusandae, cumque sint, exercitationem iste rem pariatur magni tempore mollitia quos ea a magnam maxime perspiciatis in.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat fuga voluptates nesciunt, reiciendis deleniti voluptate commodi aut nostrum porro itaque vel voluptas totam eos sapiente odio sint sed voluptatibus non.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, ea!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat fuga voluptates nesciunt, reiciendis deleniti voluptate commodi aut nostrum porro itaque vel voluptas totam eos sapiente odio sint sed voluptatibus non.</p>
+    </div>
+</div>
+
+<div class="list-title">
+    <h2>        
+        Danh sách chương
+    </h2>
+</div>
+<div class="row mb-4">
+    <div class="col-sm-6 col-xs-12">
+        <ul class="list-chapter">
+            @for (var i = 0; i < 25;i++) {
+                <li>
+                    <a asp-action="Chapter" asp-route-storySlug="xin-chao-quoc-vuong" asp-route-chapter="@(i+1)">Chương @(i+1): Lorem, ipsum.</a>
+                </li>
+            }   
+        </ul>   
+    </div>
+    <div class="col-sm-6 col-xs-12">
+        <ul class="list-chapter">
+            @for (var i = 25; i < 50;i++) {
+                <li>
+                    <a asp-action="Chapter" asp-route-storySlug="xin-chao-quoc-vuong" asp-route-chapter="@(i+1)">Chương @(i+1): Lorem, ipsum.</a>
+                </li>
+            }   
+        </ul> 
+    </div>
+</div>
+
+@* Model paging sau này lấy từ viewbag *@
+@await Component.InvokeAsync(nameof(truyenchu.Components.Paging.Paging), new truyenchu.Components.Paging.Paging.PagingOptions() {
+    countpages = 10,
+    currentpage = 2,
+    generateUrl = (trang) => $"trang-{trang}"
+})
+
+<div class="comment">
+    Phần comment
+</div>

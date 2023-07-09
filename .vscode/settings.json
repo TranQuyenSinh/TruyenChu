@@ -1,0 +1,9 @@
+{
+  "dotnet.defaultSolution": "truyenchu.sln",
+  "files.exclude": {
+    "truyenchu.csproj": true,
+    "truyenchu.sln": true,
+    "bin": true,
+    "obj": true
+  }
+}

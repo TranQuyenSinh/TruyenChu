@@ -1,0 +1,100 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@* Danh sách truyện *@
+<div class="list-title border-bottom">
+    <h2>
+        <a href="#">Truyện hot</a>
+    </h2>
+    <select name="" id="" class="form-select w-auto rounded-0">
+        <option value="0">Tất cả</option>
+        <option value="1">Hài hước</option>
+        <option value="2">Chính văn</option>
+        <option value="3">Khoa học</option>
+    </select>
+</div>
+<partial name="_StoryPartial"/>
+
+@* Truyện mới cập nhật *@
+<div class="row">
+    <div class="col-xl-4 col-lg-12 order-xl-2">
+        <div class="row">
+            <div class="col-12 reading-story">
+                <div class="list-title border-bottom">
+                    <h2>        
+                        <a href="#">Truyện đang đọc</a>
+                    </h2>
+                </div>
+                <table class="story-table table table-borderless table-striped table-dark">
+                    <tbody>
+                        @for (var i = 0; i <5;i++) {
+                            <tr>
+                                <td>
+                                    <a asp-action="DetailStory" asp-route-storySlug="xin-chao-quoc-vuong">Ánh Trăng Soi Sáng Lòng Anh</a>
+                                </td>
+                                <td>
+                                    <a href="#" class="text-success">Đọc tiếp Chương 30</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-12 d-none d-xl-block">
+                <partial name="_CategoriesSidebarPartial" />
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-8 col-lg-12 order-xl-1">
+        <div class="list-title">
+            <h2>        
+                <a href="#">Truyện mới cập nhật</a>
+            </h2>
+            <select name="" id="" class="form-select w-auto rounded-0">
+                <option value="0">Tất cả</option>
+                <option value="1">Hài hước</option>
+                <option value="2">Chính văn</option>
+                <option value="3">Khoa học</option>
+            </select>
+        </div>
+        <table class="story-table table table-borderless table-striped table-dark">
+            <tbody>
+                @for (var i = 0; i <20;i++) {
+                    <tr>
+                        <td>
+                            <a asp-action="DetailStory" asp-route-storySlug="xin-chao-quoc-vuong">Ánh Trăng Soi Sáng Lòng Anh</a>
+                            <span class="label-title label-new"></span>
+                            <span class="label-title label-full"></span>
+                            <span class="label-title label-hot"></span>
+                        </td>
+                        <td class="d-none d-sm-table-cell">
+                            <a href="#">Ngôn Tình</a>,
+                            <a href="#">Hài hước</a>
+                        </td>
+                        <td>
+                            <a href="#" class="text-success">Chương 30</a>
+                        </td>
+                        <td class="d-none d-lg-table-cell">
+                            <p>3 phút trước</p>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+@* TRuyện đã hoàn thành *@
+<div class="list-title border-bottom">
+    <h2>
+        <a href="#">Truyện đã hoàn thành</a>
+    </h2>
+    <select name="" id="" class="form-select w-auto rounded-0">
+        <option value="0">Tất cả</option>
+        <option value="1">Hài hước</option>
+        <option value="2">Chính văn</option>
+        <option value="3">Khoa học</option>
+    </select>
+</div>
+<partial name="_StoryPartial"/>

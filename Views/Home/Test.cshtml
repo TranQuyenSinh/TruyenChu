@@ -1,0 +1,44 @@
+@using truyenchu.Models.Home
+@using truyenchu.Utilities
+@using Newtonsoft.Json
+@{
+    var themes = new ThemeModel[] {
+        new ThemeModel() {Name="mautoi", ClassTheme = "dark-theme",UrlBgImage = "https://static.8cache.com/img/bg_dark.gif", DisplayName="Màu tối" },
+        new ThemeModel() {Name="mausang", ClassTheme = "light-theme",UrlBgImage = "https://static.8cache.com/img/bg_op.png", DisplayName="Màu sáng"}
+    };
+
+    var theme_json = Context.Request.Cookies["theme"];
+}
+
+@if (theme_json !=null) {
+    var bytes = Convert.FromBase64String(theme_json);
+    var cookieStr = System.Text.Encoding.UTF8.GetString(bytes);
+    ThemeModel currentTheme = JsonConvert.DeserializeObject<ThemeModel>(cookieStr);
+
+    <h4 class="text-danger">@currentTheme.DisplayName</h4>
+}
+@{
+}
+@for (var i=0;i<themes.Length;i++) {
+    string base64Str = AppUtilities.Base64EncodeObject(themes[i]);
+    <button value="@base64Str" class="test btn btn-warning">Click me</button>
+}
+
+@section Scripts {  
+    <script>
+        function setTheme(theme, UrlBg) {
+            $("body").removeClass("light-theme dark-theme").addClass(theme).css("background-image", "url(" + UrlBg + ")");
+        }
+        function addEventClick() {
+            $(".test").click(function() {
+                var base64Str=$(this).val()
+                var themeObject = JSON.parse(atob(base64Str))
+                setTheme(themeObject.Theme, themeObject.UrlBgImage)
+                setCookie("theme", base64Str, 30);
+            })
+        }
+       $(document).ready(function () {
+            addEventClick()
+       })
+    </script>
+}

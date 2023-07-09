@@ -1,0 +1,40 @@
+@using truyenchu.Components.DetailSidebar
+@model DetailSidebar.DetailSidebarData
+
+<div class="list-title border-bottom">
+    <h2>        
+        <a href="#">Truyện cùng tác giả</a>
+    </h2>
+</div>
+<table class="story-table table table-borderless table-striped table-dark">
+    <tbody>
+        @for (var i = 0; i <5;i++) {
+            <tr>
+                <td>
+                    <a class="fw-semibold" asp-action="DetailStory" asp-route-storySlug="xin-chao-quoc-vuong">Ánh Trăng Soi Sáng Lòng Anh</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="list-title border-bottom">
+    <h2>        
+        <a href="#">Truyện cùng thể loại</a>
+    </h2>
+</div>
+<table class="story-table table table-borderless table-striped table-dark">
+    <tbody>
+        @for (var i = 0; i <5;i++) {
+            <tr>
+                <td>
+                    <a class="fw-medium text-success" asp-action="DetailStory" asp-route-storySlug="xin-chao-quoc-vuong">Ánh Trăng Soi Sáng Lòng Anh</a>
+                    <small class="d-block">
+                        <a href="#">Tiên hiệp</a>,
+                        <a href="#">Huyền huyễn</a>
+                    </small>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

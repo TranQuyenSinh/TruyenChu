@@ -1,0 +1,57 @@
+@{
+    ViewData["Title"] = "Xin chào ABX - Chương 1";
+    TempData["ShowSettingMenu"] = true;
+}
+
+<div id="chapter-container" class="row justify-content-center">
+    @* Title *@
+    <div class="text-center mt-4">
+        <a asp-action="DetailStory" asp-route-storySlug="xin-chao-abc" class="fs-3 fw-bold text-uppercase text-success text-decoration-none">Ánh Trăng Soi Sáng Lòng Anh</a>
+    </div>
+    <p class="chapter-order text-center mb-4">Chương 1</p>
+
+
+    @* Navigation *@
+    <div class="text-center change-chapter-container d-flex align-items-center justify-content-center gap-2">
+        <a href="#" class="btn"><strong class="fw-bolder"><</strong> Chương trước</a>
+        <select name="" id="" class="">
+            <option value="1">Chương 1</option>
+            <option value="2">Chương 2</option>
+            <option value="3">Chương 3</option>
+            <option value="4">Chương 4</option>
+        </select>
+        <a href="#" class="btn">Chương sau <strong class="fw-bolder">></strong></a>
+    </div>
+
+    @* Content *@
+    <div class="chapter-content">
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum ipsum ut similique est iusto vero distinctio maxime quisquam, eaque neque asperiores optio harum vel quaerat? Debitis sed magnam distinctio, dolores enim, deserunt expedita nisi illo laborum quisquam necessitatibus. Possimus deleniti repellendus quibusdam enim pariatur ducimus ut error praesentium ipsa mollitia doloribus in provident alias, esse architecto earum. Minima qui voluptatum corporis suscipit non, dolor nam asperiores illo est pariatur explicabo facere maxime possimus eum optio nesciunt ipsum ex nisi aperiam ipsa officia? Laborum enim sint dolore eius voluptatem quia atque vero temporibus labore reiciendis dolores, maiores officia! Provident, porro quo!</p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum ipsum ut similique est iusto vero distinctio maxime quisquam, eaque neque asperiores optio harum vel quaerat? Debitis sed magnam distinctio, dolores enim, deserunt expedita nisi illo laborum quisquam necessitatibus. Possimus deleniti repellendus quibusdam enim pariatur ducimus ut error praesentium ipsa mollitia doloribus in provident alias, esse architecto earum. Minima qui voluptatum corporis suscipit non, dolor nam asperiores illo est pariatur explicabo facere maxime possimus eum optio nesciunt ipsum ex nisi aperiam ipsa officia? Laborum enim sint dolore eius voluptatem quia atque vero temporibus labore reiciendis dolores, maiores officia! Provident, porro quo!</p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum ipsum ut similique est iusto vero distinctio maxime quisquam, eaque neque asperiores optio harum vel quaerat? Debitis sed magnam distinctio, dolores enim, deserunt expedita nisi illo laborum quisquam necessitatibus. Possimus deleniti repellendus quibusdam enim pariatur ducimus ut error praesentium ipsa mollitia doloribus in provident alias, esse architecto earum. Minima qui voluptatum corporis suscipit non, dolor nam asperiores illo est pariatur explicabo facere maxime possimus eum optio nesciunt ipsum ex nisi aperiam ipsa officia? Laborum enim sint dolore eius voluptatem quia atque vero temporibus labore reiciendis dolores, maiores officia! Provident, porro quo!</p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum ipsum ut similique est iusto vero distinctio maxime quisquam, eaque neque asperiores optio harum vel quaerat? Debitis sed magnam distinctio, dolores enim, deserunt expedita nisi illo laborum quisquam necessitatibus. Possimus deleniti repellendus quibusdam enim pariatur ducimus ut error praesentium ipsa mollitia doloribus in provident alias, esse architecto earum. Minima qui voluptatum corporis suscipit non, dolor nam asperiores illo est pariatur explicabo facere maxime possimus eum optio nesciunt ipsum ex nisi aperiam ipsa officia? Laborum enim sint dolore eius voluptatem quia atque vero temporibus labore reiciendis dolores, maiores officia! Provident, porro quo!</p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum ipsum ut similique est iusto vero distinctio maxime quisquam, eaque neque asperiores optio harum vel quaerat? Debitis sed magnam distinctio, dolores enim, deserunt expedita nisi illo laborum quisquam necessitatibus. Possimus deleniti repellendus quibusdam enim pariatur ducimus ut error praesentium ipsa mollitia doloribus in provident alias, esse architecto earum. Minima qui voluptatum corporis suscipit non, dolor nam asperiores illo est pariatur explicabo facere maxime possimus eum optio nesciunt ipsum ex nisi aperiam ipsa officia? Laborum enim sint dolore eius voluptatem quia atque vero temporibus labore reiciendis dolores, maiores officia! Provident, porro quo!</p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum ipsum ut similique est iusto vero distinctio maxime quisquam, eaque neque asperiores optio harum vel quaerat? Debitis sed magnam distinctio, dolores enim, deserunt expedita nisi illo laborum quisquam necessitatibus. Possimus deleniti repellendus quibusdam enim pariatur ducimus ut error praesentium ipsa mollitia doloribus in provident alias, esse architecto earum. Minima qui voluptatum corporis suscipit non, dolor nam asperiores illo est pariatur explicabo facere maxime possimus eum optio nesciunt ipsum ex nisi aperiam ipsa officia? Laborum enim sint dolore eius voluptatem quia atque vero temporibus labore reiciendis dolores, maiores officia! Provident, porro quo!</p>
+    </div>
+
+     @* Navigation *@
+    <div class="text-center change-chapter-container d-flex align-items-center justify-content-center gap-2 mt-5">
+        <a href="#" class="btn"><strong class="fw-bolder"><</strong> Chương trước</a>
+        <select name="" id="" class="bg-dark">
+            <option value="1">Chương 1</option>
+            <option value="2">Chương 2</option>
+            <option value="3">Chương 3</option>
+            <option value="4">Chương 4</option>
+        </select>
+        <a href="#" class="btn">Chương sau <strong class="fw-bolder">></strong></a>
+    </div>
+
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            RetrieveTheme();
+            setEventSelectChange();
+        })
+    </script>
+}

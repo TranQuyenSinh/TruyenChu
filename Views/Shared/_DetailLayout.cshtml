@@ -1,0 +1,12 @@
+@{
+    Layout="_Layout";
+}
+
+<div class="row">
+    <div class="col-lg-9 col-md-12">
+        @RenderBody()
+    </div>
+    <div class="col-lg-3 d-none d-lg-block">
+        @await Component.InvokeAsync(nameof(truyenchu.Components.DetailSidebar.DetailSidebar))
+    </div>
+</div>

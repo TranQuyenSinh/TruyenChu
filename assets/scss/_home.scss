@@ -1,0 +1,57 @@
+.list-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    h1, h2, h3, h4, h5, h6 {
+        padding: 10px 0;
+        margin: 12px 0 0 0;
+        font-size: 20px;
+        color: white !important;
+        text-transform: uppercase;
+        font-weight: 600 !important;
+        a {
+            text-shadow: 1px 1px 2px black;
+            color: white !important;
+            text-transform: uppercase;
+            font-weight: 600 !important;
+            text-decoration: none !important;
+            &:hover {
+                text-decoration: none !important;
+            }
+        }
+    }
+    select {
+        background-color: #124c70;
+        color: white;
+        box-shadow: none !important;
+        border: none;
+        outline: none;
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 15px;
+        letter-spacing: 1px;
+    }
+}
+
+.story-table {
+    a {
+        text-decoration: none;
+        color: $text-color;
+        font-weight: 500;
+        &:hover {
+            text-decoration: underline !important;
+        }
+    }
+}
+
+.story-category {
+    a {
+        text-decoration: none;
+        color: $text-color;
+        font-weight: 500;
+        line-height: 32px;
+        &:hover {
+            text-decoration: underline !important;
+        }
+    }
+}
