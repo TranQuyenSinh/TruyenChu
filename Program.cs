@@ -1,8 +1,17 @@
+using Microsoft.EntityFrameworkCore;
+using truyenchu.Data;
+using truyenchu.ExtendMethods;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+
+/* ================ DbContext ================ */
+builder.Services.AddDbContext<AppDbContext>(options => {
+    options.UseSqlServer(builder.Configuration.GetConnectionString("TruyenChu"));
+});
 
 var app = builder.Build();
 
@@ -20,12 +29,15 @@ app.UseStaticFiles();
 app.UseCookiePolicy();
 
 app.UseRouting();
-
+app.AddStatusCodePage(); 
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapAreaControllerRoute(
+    name: "default2",
+    pattern: "{controller=ViewStory}/{action=Index}/{id?}",areaName: "ViewStory");
 
 app.MapRazorPages();
 

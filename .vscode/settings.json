@@ -4,6 +4,9 @@
     "truyenchu.csproj": true,
     "truyenchu.sln": true,
     "bin": true,
-    "obj": true
+    "obj": true,
+    "ExtendMethods": true,
+    "Utilities": true,
+    "node_modules": true
   }
 }

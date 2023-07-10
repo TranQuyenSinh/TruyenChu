@@ -1,0 +1,65 @@
+@model List<truyenchu.Area.ViewStory.Model.SearchViewModel>
+@{
+    Layout = "_SearchLayout";
+    var currentCategory = ViewBag.currentCategory as Category;
+}
+
+@* Title *@
+<div class="list-title">
+    <h2>@ViewData["Title"]</h2>
+</div>
+
+@* Description *@
+@if (currentCategory !=null) {
+    <div class="py-4 mb-4 bg-dark">
+        <div class="container-fluid">
+            <span class="category-discription text-mute">
+                @currentCategory.Description
+            </span>
+        </div>
+    </div>
+}
+
+@* Story list *@
+<table class="story-table table table-borderless table-striped table-dark">
+    <tbody>
+        @foreach (var story in Model) {
+            <tr>
+                <td>
+                    <div class="story-image py-1">
+                        <img class="img-fluid img-thumb" src="https://imgv3.fotor.com/images/cover-photo-image/a-beautiful-girl-with-gray-hair-and-lucxy-neckless-generated-by-Fotor-AI.jpg" alt=""/>
+                    </div>
+                </td>
+                <td>
+                    <a class="fw-bold" asp-action="DetailStory" asp-route-storySlug="xin-chao-quoc-vuong">@story.StoryName</a>
+                    @if (story.StoryState == true) {
+                        <span class="label-title label-full"></span>
+                    }
+                    <div>
+                        <a class="fw-normal" href="#">@story.Author.AuthorName</a>
+                    </div>
+                    @* test here *@
+                    <div>
+                        Thể loại: 
+                        @foreach (var cate in story.StoryCategories) {
+                            <p class="text-warning">@cate.Category.CategoryName</p>
+                        }
+                    </div>
+                    @* end test *@
+                </td>
+                <td>
+                    <a href="#" class="text-success">
+                        Chương @story.LatestChapter
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@* Model paging sau này lấy từ viewbag *@
+@await Component.InvokeAsync(nameof(truyenchu.Components.Paging.Paging), new truyenchu.Components.Paging.Paging.PagingOptions() {
+    countpages = 10,
+    currentpage = 2,
+    generateUrl = (trang) => $"trang-{trang}"
+})
