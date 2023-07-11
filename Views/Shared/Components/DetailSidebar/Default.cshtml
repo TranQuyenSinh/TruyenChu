@@ -1,5 +1,7 @@
-@using truyenchu.Components.DetailSidebar
-@model DetailSidebar.DetailSidebarData
+@{
+    var relatedStory = ViewBag.relatedStories as List<Story>;
+}
+
 
 <div class="list-title border-bottom">
     <h2>        
@@ -8,7 +10,8 @@
 </div>
 <table class="story-table table table-borderless table-striped table-dark">
     <tbody>
-        @for (var i = 0; i <5;i++) {
+        @for (var i = 0; i <5;i++) 
+        {
             <tr>
                 <td>
                     <a class="fw-semibold" asp-action="DetailStory" asp-route-storySlug="xin-chao-quoc-vuong">Ánh Trăng Soi Sáng Lòng Anh</a>
@@ -23,18 +26,23 @@
         <a href="#">Truyện cùng thể loại</a>
     </h2>
 </div>
-<table class="story-table table table-borderless table-striped table-dark">
-    <tbody>
-        @for (var i = 0; i <5;i++) {
-            <tr>
-                <td>
-                    <a class="fw-medium text-success" asp-action="DetailStory" asp-route-storySlug="xin-chao-quoc-vuong">Ánh Trăng Soi Sáng Lòng Anh</a>
-                    <small class="d-block">
-                        <a href="#">Tiên hiệp</a>,
-                        <a href="#">Huyền huyễn</a>
-                    </small>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+@if (relatedStory != null) 
+{
+    <table class="story-table table table-borderless table-striped table-dark">
+        <tbody>
+            @foreach(var story in relatedStory) {
+                <tr>
+                    <td>
+                        <a class="fw-medium text-success" asp-action="DetailStory" asp-route-storySlug="@story.StorySlug">@story.StoryName</a>
+                        <small class="d-block">
+                            @foreach (var c in story.StoryCategories)
+                            {
+                                <a asp-action="SearchStory" asp-route-categorySlug="@c.Category.CategorySlug">@c.Category.CategoryName</a>
+                            }
+                        </small>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

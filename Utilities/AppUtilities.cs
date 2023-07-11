@@ -80,5 +80,38 @@ namespace truyenchu.Utilities
                 slug = slug.Substring(Math.Min(slug.IndexOf("-") + 1, slug.Length));
             return slug;
         }
+        public static string TimeSince(DateTime input)
+        {
+            TimeSpan span = DateTime.Now.Subtract(input);
+
+            if (span.TotalDays > 365)
+            {
+                int years = (int)(span.TotalDays / 365);
+                return String.Format("{0} năm trước", years);
+            }
+
+            if (span.TotalDays > 30)
+            {
+                int months = (int)(span.TotalDays / 30);
+                return String.Format("{0} tháng trước", months);
+            }
+
+            if (span.TotalDays > 0)
+            {
+                return String.Format("{0} ngày trước", (int)span.TotalDays);
+            }
+
+            if (span.TotalHours > 0)
+            {
+                return String.Format("{0} giờ trước", (int)span.TotalHours);
+            }
+
+            if (span.TotalMinutes > 0)
+            {
+                return String.Format("{0} phút trước", (int)span.TotalMinutes);
+            }
+
+            return "Vừa xong";
+        }
     }
 }

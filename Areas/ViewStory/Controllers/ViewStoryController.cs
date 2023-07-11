@@ -29,7 +29,21 @@ namespace truyenchu.Area.ViewStory.Controllers
         [Route("{storySlug}")]
         public IActionResult DetailStory([FromRoute] string storySlug)
         {
-            return View();
+            _logger.LogInformation(storySlug);
+            if (storySlug == null)
+                return NotFound();
+            var story = _dbContext.Stories
+                        .Where(x=>x.StorySlug == storySlug)
+                        .Include(x => x.StoryCategories)
+                        .ThenInclude(x => x.Category)
+                        .AsQueryable()
+                        .FirstOrDefault();
+            _logger.LogInformation(story?.Description);
+            if (story == null)
+                return NotFound();
+
+            ViewBag.relatedStories = GetRelatedStories(story);
+            return View(story);
         }
 
         [Route("{storySlug}/chuong-{chapter:int}")]
@@ -41,27 +55,34 @@ namespace truyenchu.Area.ViewStory.Controllers
         [Route("tim-kiem/{searchString?}")]
         public async Task<IActionResult> SearchStory(string searchString)
         {
-            var searchSlug = AppUtilities.GenerateSlug(searchString);
-            _logger.LogInformation(searchSlug);
-            var stories = await _dbContext.Stories.Where(story => story.StorySlug.Contains(searchSlug))
-                                                .Include(x => x.Author)
-                                                .Include(x => x.Photo)
-                                                .Include(x => x.StoryCategories)
-                                                .ThenInclude(sc => sc.Category).ToListAsync();
             List<SearchViewModel> model = new List<SearchViewModel>();
-            foreach (var story in stories)
+            if (!string.IsNullOrEmpty(searchString))
             {
-                model.Add(new SearchViewModel()
+                var searchSlug = AppUtilities.GenerateSlug(searchString);
+                var stories = await _dbContext.Stories.Where(story => story.StorySlug.Contains(searchSlug))
+                                                    .Include(x => x.Author)
+                                                    .Include(x => x.Photo)
+                                                    .Include(x => x.StoryCategories)
+                                                    .ThenInclude(sc => sc.Category).ToListAsync();
+                foreach (var story in stories)
                 {
-                    Photo = story.Photo,
-                    StoryName = story.StoryName,
-                    Author = story.Author,
-                    StoryCategories = story.StoryCategories,
-                    StoryState = story.StoryState,
-                    LatestChapter = _dbContext.Chapters.Where(chapter => chapter.StoryId == story.StoryId).OrderByDescending(x => x.Order).FirstOrDefault().Order
-                });
+                    model.Add(new SearchViewModel()
+                    {
+                        Photo = story.Photo,
+                        StoryName = story.StoryName,
+                        Author = story.Author,
+                        StoryCategories = story.StoryCategories,
+                        StoryState = story.StoryState,
+                        LatestChapter = _dbContext.Chapters.Where(chapter => chapter.StoryId == story.StoryId).OrderByDescending(x => x.Order).FirstOrDefault().Order
+                    });
+                }
             }
-            ViewData["Title"] = "TÌM TRUYỆN VỚI TỪ KHOÁ: " + searchString.ToUpper();
+
+            ViewBag.breadcrumbs = new List<BreadCrumbModel>(){
+                new BreadCrumbModel() {},
+                new BreadCrumbModel() {DisplayName = "Tìm truyện với từ khóa: "+searchString, IsActive = true}
+            };
+            ViewData["Title"] = "TÌM TRUYỆN VỚI TỪ KHOÁ: " + searchString?.ToUpper();
             return View(nameof(SearchStory), model);
         }
 
@@ -97,6 +118,10 @@ namespace truyenchu.Area.ViewStory.Controllers
                 });
             }
 
+            ViewBag.breadcrumbs = new List<BreadCrumbModel>(){
+                new BreadCrumbModel() {},
+                new BreadCrumbModel() {DisplayName = category.CategoryName,  IsActive = true}
+            };
             ViewBag.currentCategory = category;
             ViewData["Title"] = "TRUYỆN " + category.CategoryName.ToUpper();
             return View(nameof(SearchStory), model);
@@ -112,6 +137,21 @@ namespace truyenchu.Area.ViewStory.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        private List<Story> GetRelatedStories(Story story)
+        {
+            var selectedStory = _dbContext.Stories
+                                .Include(s => s.StoryCategories)
+                                .ThenInclude(sc => sc.Category)
+                                .Single(s => s.StoryCategories.Where(x => x.StoryId == story.StoryId).Any());
+
+            var relatedStories = _dbContext.Stories
+                                .Include(s => s.StoryCategories)
+                                .ThenInclude(sc => sc.Category)
+                                .Where(s => s.StoryCategories.Any(c => selectedStory.StoryCategories.Contains(c)))
+                                .ToList();
+            return relatedStories;
         }
     }
 }

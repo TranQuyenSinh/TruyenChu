@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@inject truyenchu.Data.AppDbContext dbContext
+@{
+    var categories  = dbContext.Categories.ToList();
+    var breadcrumbs = ViewBag.breadcrumbs as List<BreadCrumbModel>;
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -40,9 +45,9 @@
                                 Thể loại
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                @foreach (var category in categories) {
+                                    <li><a asp-area="ViewStory" asp-controller="ViewStory" asp-action="SearchCatgory" asp-route-categorySlug="@category.CategorySlug" class="dropdown-item">@category.CategoryName</a></li>
+                                }
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -64,7 +69,7 @@
                     </ul>
                     @* Tìm kiếm *@
                     <form method="get" asp-area="ViewStory" asp-controller="ViewStory" asp-action="SearchStory" id="navbar-search" class="d-flex" role="search">
-                        <input name="searchString"  class="form-control rounded-0 bg-dark" type="search" placeholder="Tìm kiếm ..." aria-label="Search">
+                        <input name="searchString"  class="form-control rounded-0 bg-dark" type="search" placeholder="Tìm kiếm ..." aria-label="Search" required>
                         <button class="btn btn-outline-success rounded-0" type="submit">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
@@ -79,9 +84,23 @@
             <div class="container">
                 <nav aria-label="breadcrumb pt-2">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Main</a></li>
-                        <li class="breadcrumb-item"><a href="#">Sub</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Active</li>
+                        @if (breadcrumbs?.Count > 0) 
+                        {
+                            @foreach (var b in breadcrumbs) 
+                            {
+                                if (b.IsActive)
+                                {
+                                    <li class="breadcrumb-item active" aria-current="page">@b.DisplayName</li>
+                                }
+                                else 
+                                {
+                                    <li class="breadcrumb-item"><a href="@b.Url">@b.DisplayName</a></li>
+                                }
+                            }
+                        } else 
+                        {
+                            <li class="breadcrumb-item active" aria-current="page">Đọc truyện online hoàn toàn miễn phí tại TruyenChu.com</li>
+                        }
                     </ol>
                 </nav>
         </div>
