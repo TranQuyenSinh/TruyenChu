@@ -1,0 +1,27 @@
+@model truyenchu.Components.ChapterNavigation.ChapterNavigationData
+@{
+    var disableNext = Model.NextChapter == 0? "anchor-disabled":null;
+    var disablePrevious = Model.PreviousChapter == 0? "anchor-disabled":null;
+}
+<div class="text-center change-chapter-container d-flex align-items-center justify-content-center gap-2">
+    <a asp-action="Chapter" asp-route-storySlug="@Model.Story.StorySlug" asp-route-chapterOrder="@Model.PreviousChapter" class="btn @disablePrevious"><strong class="fw-bolder"><</strong> Chương trước</a>
+    <select class="switchChapterSelect" asp-items="@Model.selectListItems"></select>
+    <a asp-action="Chapter" asp-route-storySlug="@Model.Story.StorySlug" asp-route-chapterOrder="@Model.NextChapter" class="btn @disableNext">Chương sau <strong class="fw-bolder">></strong></a>
+</div>
+
+<script>
+    function RedirectToChapter(chapterOrder) {
+        if (chapterOrder != "") {
+            window.location.href =  `@Url.Action("Chapter", nameof(truyenchu.Area.ViewStory), new {
+                area = "ViewStory",
+                storySlug = Model.Story.StorySlug,
+                chapterOrder = -1
+            })`.replace('-1', chapterOrder);
+        }
+    }
+    $(document).ready(function() {
+        $('.switchChapterSelect').change(function() {
+            RedirectToChapter($(this).val())
+        })
+    })
+</script>

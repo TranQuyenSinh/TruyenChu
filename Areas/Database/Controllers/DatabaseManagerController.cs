@@ -81,7 +81,8 @@ namespace truyenchu.Controllers
             for (int i = 0; i < 100; i++)
             {
                 var author = fakerAuthor.Generate();
-                author.AuthorSlug = AppUtilities.GenerateSlug(author.AuthorName)+i;
+                author.AuthorName += i;
+                author.AuthorSlug = AppUtilities.GenerateSlug(author.AuthorName);
                 authors.Add(author);
             }
 
@@ -89,7 +90,8 @@ namespace truyenchu.Controllers
             await _dbContext.SaveChangesAsync();
         }
 
-        private async Task SeedCategory() {
+        private async Task SeedCategory()
+        {
             // xóa các categories, post cũ trước khi seed
             _dbContext.Categories.RemoveRange(_dbContext.Categories);
             await _dbContext.SaveChangesAsync();
@@ -135,12 +137,26 @@ namespace truyenchu.Controllers
             for (var i = 0; i < 100; i++)
             {
                 var story = storyFaker.Generate();
-                story.StorySlug = AppUtilities.GenerateSlug(story.StoryName)+i;
+                story.StoryName += i;
+                story.StorySlug = AppUtilities.GenerateSlug(story.StoryName);
                 story.DateUpdated = story.DateCreated;
                 stories.Add(story);
-                var randomIndex = rand.Next(categoriesArr.Count() - 1);
-                storyCategories.Add(new StoryCategory() { Story = story, Category = categoriesArr[randomIndex] });
+
+                var addedCates = new List<int>();
+                var catesCount = rand.Next(1, 5);
+                var y = 0;
+                var randomIndex = 0;
+                while ( y < catesCount)
+                {
+                    randomIndex = rand.Next(categoriesArr.Count() - 1);
+                    if (addedCates.Contains(randomIndex))
+                        continue;
+                    storyCategories.Add(new StoryCategory() { Story = story, Category = categoriesArr[randomIndex] });
+                    addedCates.Add(randomIndex);
+                    y++;
+                }
             }
+
 
             _dbContext.Stories.AddRange(stories);
             _dbContext.StoryCategories.AddRange(storyCategories);
@@ -159,9 +175,9 @@ namespace truyenchu.Controllers
             fakerChapter.RuleFor(c => c.Content, fk =>
             {
                 var content = "";
-                for (var i = 0; i < 20; i++)
+                for (var i = 0; i < 10; i++)
                 {
-                    content += "<p>" + fk.Lorem.Paragraphs(5, "") + "</p>";
+                    content += "<p>" + fk.Lorem.Paragraph() + "</p>";
                 }
                 return content;
             });
@@ -170,7 +186,7 @@ namespace truyenchu.Controllers
             List<Story> stories = await _dbContext.Stories.ToListAsync();
             foreach (var story in stories)
             {
-                var sochuong = rand.Next(100);
+                var sochuong = rand.Next(20);
                 for (var i = 0; i < sochuong; i++)
                 {
                     var chapter = fakerChapter.Generate();

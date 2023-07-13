@@ -62,7 +62,8 @@ namespace truyenchu.Models
         [DisplayName("Ngày cập nhật")]
         public DateTime DateUpdated { get; set;}
 
-        public List<StoryCategory>? StoryCategories { get; set; }
-        public List<Chapter>? Chapters { get; set; }
+        
+        public ICollection<StoryCategory>? StoryCategory { get; set; }
+        public ICollection<Chapter>? Chapters { get; set; }
     }
 }

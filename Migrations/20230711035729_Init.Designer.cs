@@ -12,8 +12,8 @@ using truyenchu.Data;
 namespace truyenchu.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230710084554_UpdateStorySchema_ListChapter")]
-    partial class UpdateStorySchema_ListChapter
+    [Migration("20230711035729_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -228,13 +228,13 @@ namespace truyenchu.Migrations
             modelBuilder.Entity("truyenchu.Models.StoryCategory", b =>
                 {
                     b.HasOne("truyenchu.Models.Category", "Category")
-                        .WithMany()
+                        .WithMany("StoryCategory")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("truyenchu.Models.Story", "Story")
-                        .WithMany("StoryCategories")
+                        .WithMany("StoryCategory")
                         .HasForeignKey("StoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -244,11 +244,16 @@ namespace truyenchu.Migrations
                     b.Navigation("Story");
                 });
 
+            modelBuilder.Entity("truyenchu.Models.Category", b =>
+                {
+                    b.Navigation("StoryCategory");
+                });
+
             modelBuilder.Entity("truyenchu.Models.Story", b =>
                 {
                     b.Navigation("Chapters");
 
-                    b.Navigation("StoryCategories");
+                    b.Navigation("StoryCategory");
                 });
 #pragma warning restore 612, 618
         }

@@ -225,13 +225,13 @@ namespace truyenchu.Migrations
             modelBuilder.Entity("truyenchu.Models.StoryCategory", b =>
                 {
                     b.HasOne("truyenchu.Models.Category", "Category")
-                        .WithMany()
+                        .WithMany("StoryCategory")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("truyenchu.Models.Story", "Story")
-                        .WithMany("StoryCategories")
+                        .WithMany("StoryCategory")
                         .HasForeignKey("StoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -241,11 +241,16 @@ namespace truyenchu.Migrations
                     b.Navigation("Story");
                 });
 
+            modelBuilder.Entity("truyenchu.Models.Category", b =>
+                {
+                    b.Navigation("StoryCategory");
+                });
+
             modelBuilder.Entity("truyenchu.Models.Story", b =>
                 {
                     b.Navigation("Chapters");
 
-                    b.Navigation("StoryCategories");
+                    b.Navigation("StoryCategory");
                 });
 #pragma warning restore 612, 618
         }

@@ -44,10 +44,16 @@
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Thể loại
                             </a>
-                            <ul class="dropdown-menu">
-                                @foreach (var category in categories) {
-                                    <li><a asp-area="ViewStory" asp-controller="ViewStory" asp-action="SearchCatgory" asp-route-categorySlug="@category.CategorySlug" class="dropdown-item">@category.CategoryName</a></li>
-                                }
+                            <ul class="dropdown-menu pe-2" style="min-width: 400px;" >
+                                <div>
+                                    <div class="row">
+                                        @foreach (var category in categories) {
+                                            <div class="col-md-4">
+                                                <li><a asp-area="ViewStory" asp-controller="ViewStory" asp-action="SearchCategory" asp-route-categorySlug="@category.CategorySlug" class="dropdown-item">@category.CategoryName</a></li>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">

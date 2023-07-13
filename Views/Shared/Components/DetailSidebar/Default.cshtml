@@ -1,43 +1,50 @@
-@{
-    var relatedStory = ViewBag.relatedStories as List<Story>;
+@using truyenchu.Components.DetailSidebar
+@model DetailSidebar.DetailSidebarViewModel
+
+@if (Model.sameAuthorStories.Any())
+{
+    <div class="list-title border-bottom">
+        <h2>        
+            <a href="#">Truyện cùng tác giả</a>
+        </h2>
+    </div>
+    <table class="story-table table table-borderless">
+        <tbody>
+            @foreach (var story in Model.sameAuthorStories)
+            {
+                <tr><td><a class="fw-semibold" asp-action="DetailStory" asp-route-storySlug="@story.StorySlug">
+                    @story.StoryName
+                </a></td></tr>
+            }
+        </tbody>
+    </table>
 }
 
-
-<div class="list-title border-bottom">
-    <h2>        
-        <a href="#">Truyện cùng tác giả</a>
-    </h2>
-</div>
-<table class="story-table table table-borderless table-striped table-dark">
-    <tbody>
-        @for (var i = 0; i <5;i++) 
-        {
-            <tr>
-                <td>
-                    <a class="fw-semibold" asp-action="DetailStory" asp-route-storySlug="xin-chao-quoc-vuong">Ánh Trăng Soi Sáng Lòng Anh</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-
-<div class="list-title border-bottom">
-    <h2>        
-        <a href="#">Truyện cùng thể loại</a>
-    </h2>
-</div>
-@if (relatedStory != null) 
+@if (Model.relatedStories != null) 
 {
-    <table class="story-table table table-borderless table-striped table-dark">
+    <div class="list-title border-bottom">
+        <h2>        
+            <a href="#">Truyện cùng thể loại</a>
+        </h2>
+    </div>
+    <table class="story-table table table-borderless">
         <tbody>
-            @foreach(var story in relatedStory) {
+            @foreach(var story in Model.relatedStories) {
                 <tr>
                     <td>
-                        <a class="fw-medium text-success" asp-action="DetailStory" asp-route-storySlug="@story.StorySlug">@story.StoryName</a>
+                        <a class="fw-medium text-green" asp-action="DetailStory" asp-route-storySlug="@story.StorySlug">@story.StoryName</a>
                         <small class="d-block">
-                            @foreach (var c in story.StoryCategories)
+                            @{
+                                var cates = story.StoryCategory.Select(x=>x.Category).ToList();
+                            }
+                            
+                            @for (var i = 0; i < cates.Count;i++)
                             {
-                                <a asp-action="SearchStory" asp-route-categorySlug="@c.Category.CategorySlug">@c.Category.CategoryName</a>
+                                <a asp-action="SearchCategory" asp-route-categorySlug="@cates[i].CategorySlug">
+                                    @cates[i].CategoryName
+                                </a>
+                                @(i == cates.Count - 1 ? "" : Html.Raw("<text>, </text>"))
+                                
                             }
                         </small>
                     </td>

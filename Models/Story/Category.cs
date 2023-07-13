@@ -20,5 +20,7 @@ namespace truyenchu.Models {
 
         [StringLength(255)]
         public string CategorySlug { get; set;}
+
+        public IEnumerable<StoryCategory>? StoryCategory { get; set;}
     }
 }

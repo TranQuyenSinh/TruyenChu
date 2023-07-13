@@ -32,6 +32,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGF0YWJhc2VcVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Code/Web/truyenchu/Areas/ViewStory/Views/Shared/Components/ChapterNavigation/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVmlld1N0b3J5XFZpZXdzXFNoYXJlZFxDb21wb25lbnRzXENoYXB0ZXJOYXZpZ2F0aW9uXERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Code/Web/truyenchu/Areas/ViewStory/Views/Shared/_BookThumbPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVmlld1N0b3J5XFZpZXdzXFNoYXJlZFxfQm9va1RodW1iUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

@@ -1,6 +1,6 @@
-@model Story
+@model DetailViewModel
 @{
-    ViewData["Title"] = "Xin chào ABX";
+    ViewData["Title"] = Model.Story.StoryName;
     Layout="_DetailLayout";
 }
 
@@ -12,34 +12,36 @@
     </div>
 </div>
 <div class="mt-2 clearfix">
-    <h4 class="text-center mb-4 d-inline-block float-end m-auto detail-title">Ánh Trăng Soi Sáng Lòng Anh</h4>
+    <h4 class="text-center mb-4 d-inline-block float-end m-auto detail-title">@Model.Story.StoryName</h4>
     <div class="col-md-3 col-sm-12 float-start px-2">
         <partial name="_BookThumbPartial" />
         <div class="story-info my-4">
-            <div>
+            <div class="mb-1">
                 <strong>Tác giả: </strong>
-                <a href="#">Kim họa</a>
+                <a href="#">@Model.Story.Author.AuthorName</a>
             </div>
-            <div>
+            <div class="mb-1">
                 <strong>Thể loại: </strong>
-                <a href="#">Phiêu lưu</a>,
-                <a href="#">Hài hước</a>
+                @foreach (var cate in Model.Story.StoryCategory) {
+                    <a asp-action="SearchCategory" asp-route-categorySlug="@cate.Category.CategorySlug">@cate.Category.CategoryName</a><text>, </text>
+                }
             </div>
-            <div>
+            <div class="mb-1">
                 <strong>Nguồn: </strong>
-                <span>wattpad.com/user/PHC_teamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span>
+                <span>
+                    @(Model.Story.StorySource != null ? Model.Story.StorySource : "Sưu tầm")
+                </span>
             </div>
-            <div>
+            <div class="mb-1">
                 <strong>Trạng thái: </strong> 
-                <span class="text-success">Full/Đang ra</span>
+                <span class="text-green">
+                    @(Model.Story.StoryState == true? "Full":"Đang ra")
+                </span>
             </div>
         </div>
     </div>
     <div class="col-md-9 col-sm-12 float-end px-2">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure similique, unde odio iusto recusandae, cumque sint, exercitationem iste rem pariatur magni tempore mollitia quos ea a magnam maxime perspiciatis in.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat fuga voluptates nesciunt, reiciendis deleniti voluptate commodi aut nostrum porro itaque vel voluptas totam eos sapiente odio sint sed voluptatibus non.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, ea!</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat fuga voluptates nesciunt, reiciendis deleniti voluptate commodi aut nostrum porro itaque vel voluptas totam eos sapiente odio sint sed voluptatibus non.</p>
+        @Model.Story.Description
     </div>
 </div>
 
@@ -51,18 +53,18 @@
 <div class="row mb-4">
     <div class="col-sm-6 col-xs-12">
         <ul class="list-chapter">
-            @for (var i = 0; i < 25;i++) {
+            @foreach (var chapter in Model.Chapters.Take(5)) {
                 <li>
-                    <a asp-action="Chapter" asp-route-storySlug="xin-chao-quoc-vuong" asp-route-chapter="@(i+1)">Chương @(i+1): Lorem, ipsum.</a>
+                    <a asp-action="Chapter" asp-route-storySlug="@Model.Story.StorySlug" asp-route-chapterOrder="@chapter.Order">Chương @chapter.Order: @chapter.Title.</a>
                 </li>
             }   
         </ul>   
     </div>
     <div class="col-sm-6 col-xs-12">
         <ul class="list-chapter">
-            @for (var i = 25; i < 50;i++) {
+            @foreach (var chapter in Model.Chapters.Skip(5).Take(5)) {
                 <li>
-                    <a asp-action="Chapter" asp-route-storySlug="xin-chao-quoc-vuong" asp-route-chapter="@(i+1)">Chương @(i+1): Lorem, ipsum.</a>
+                    <a asp-action="Chapter" asp-route-storySlug="@Model.Story.StorySlug" asp-route-chapterOrder="@chapter.Order">Chương @chapter.Order: @chapter.Title.</a>
                 </li>
             }   
         </ul> 

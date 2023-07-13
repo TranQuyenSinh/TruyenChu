@@ -7,6 +7,6 @@
         @RenderBody()
     </div>
     <div class="col-lg-3 d-none d-lg-block">
-        @await Component.InvokeAsync(nameof(truyenchu.Components.DetailSidebar.DetailSidebar))
+        @await Component.InvokeAsync(nameof(truyenchu.Components.DetailSidebar.DetailSidebar), ViewBag.Story)
     </div>
 </div>

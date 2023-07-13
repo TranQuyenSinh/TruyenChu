@@ -1,4 +1,7 @@
-﻿@{
+﻿@using Microsoft.EntityFrameworkCore
+@using truyenchu.Utilities
+@inject truyenchu.Data.AppDbContext context
+@{
     ViewData["Title"] = "Home Page";
 }
 @* Danh sách truyện *@
@@ -57,25 +60,45 @@
                 <option value="3">Khoa học</option>
             </select>
         </div>
-        <table class="story-table table table-borderless table-striped table-dark">
+        <table class="story-table table table-borderless">
             <tbody>
-                @for (var i = 0; i <20;i++) {
+                @{
+                    var new_story = context.Stories.Include(x=>x.StoryCategory).Take(20).OrderByDescending(x=>x.DateUpdated).ToList();
+                }
+                @foreach(var story in new_story) {
                     <tr>
                         <td>
-                            <a asp-action="DetailStory" asp-route-storySlug="xin-chao-quoc-vuong">Ánh Trăng Soi Sáng Lòng Anh</a>
+                            <a asp-action="DetailStory" asp-route-storySlug="@story.StorySlug">@story.StoryName</a>
+                            @if (@story.StoryState) {
+                                <span class="label-title label-full"></span>
+                            }
                             <span class="label-title label-new"></span>
-                            <span class="label-title label-full"></span>
                             <span class="label-title label-hot"></span>
                         </td>
                         <td class="d-none d-sm-table-cell">
-                            <a href="#">Ngôn Tình</a>,
-                            <a href="#">Hài hước</a>
+                            @{
+                                var catesOfStory = story.StoryCategory?.Select(x=>x.Category).ToList();
+                            }
+                            @if (catesOfStory != null) 
+                            {
+                                @foreach (var cate in catesOfStory)
+                                {
+                                    <a asp-action="SearchCategory" asp-route-categorySlug="@cate.CategorySlug">@cate.CategoryName</a><text>, </text>
+                                }
+                            }
                         </td>
                         <td>
+                             @* @if (story.LatestChapter != null) {
+                                <a href="#" class="text-success">
+                                    Chương @story.LatestChapter 
+                                </a>
+                            }else {
+                                <span class="text-success">Chưa có chương</span>
+                            } *@
                             <a href="#" class="text-success">Chương 30</a>
                         </td>
                         <td class="d-none d-lg-table-cell">
-                            <p>3 phút trước</p>
+                            <p>@AppUtilities.TimeSince(@story.DateUpdated)</p>
                         </td>
                     </tr>
                 }

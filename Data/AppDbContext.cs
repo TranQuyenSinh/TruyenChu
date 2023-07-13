@@ -21,10 +21,10 @@ namespace truyenchu.Data
             });
 
             builder.Entity<Story>(builder =>
-            {
-                builder.HasIndex(x => x.StorySlug)
-                        .IsUnique();
-            });
+                {
+                    builder.HasIndex(x => x.StorySlug)
+                            .IsUnique();
+                });
 
             builder.Entity<Category>(builder =>
             {

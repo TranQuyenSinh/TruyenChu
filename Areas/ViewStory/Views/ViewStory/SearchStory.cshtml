@@ -31,8 +31,8 @@
                             <img class="img-fluid img-thumb" src="https://imgv3.fotor.com/images/cover-photo-image/a-beautiful-girl-with-gray-hair-and-lucxy-neckless-generated-by-Fotor-AI.jpg" alt=""/>
                         </div>
                     </td>
-                    <td>
-                        <a class="fw-bold" asp-action="DetailStory" asp-route-storySlug="xin-chao-quoc-vuong">@story.StoryName</a>
+                    <td> 
+                        <a class="fw-bold" asp-action="DetailStory" asp-route-storySlug="@story.StorySlug">@story.StoryName</a>
                         @if (story.StoryState == true) {
                             <span class="label-title label-full"></span>
                         }
@@ -41,17 +41,25 @@
                         </div>
                         @* test here *@
                         <div>
+                            @{
+                                var cateOfStory = story.StoryCategory.Select(x=>x.Category).ToList();
+                            }
                             Thể loại: 
-                            @foreach (var cate in story.StoryCategories) {
-                                <p class="text-warning">@cate.Category.CategoryName</p>
+                            @foreach (var cate in cateOfStory) {
+                                <span class="text-warning">@cate?.CategoryName</span><text>, </text>
                             }
                         </div>
                         @* end test *@
                     </td>
                     <td>
-                        <a href="#" class="text-success">
-                            Chương @story.LatestChapter
-                        </a>
+                        @if (story.LatestChapter != null) {
+                            <a href="#" class="text-success">
+                                Chương @story.LatestChapter 
+                            </a>
+                        }else {
+                            <span class="text-success">Chưa có chương</span>
+                        }
+                       
                     </td>
                 </tr>
             }

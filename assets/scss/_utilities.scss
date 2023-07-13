@@ -25,3 +25,12 @@
         content: "Full";
     }
 }
+.text-green {
+    color: #92bb35 !important;
+}
+
+.anchor-disabled {
+    cursor: default;
+    pointer-events: none;
+    opacity: .6;
+}
