@@ -1,8 +1,10 @@
 ﻿using System.Diagnostics;
+using System.Text.Json.Serialization;
 using Bogus.DataSets;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using truyenchu.Area.ViewStory.Model;
 using truyenchu.Data;
 using truyenchu.Models;
@@ -25,7 +27,13 @@ namespace truyenchu.Area.ViewStory.Controllers
         [Route("/")]
         public IActionResult Index()
         {
-            return View();
+            var vm = new IndexViewModel();
+            if (Request.Cookies[Const.READING_STORY_COOKIE_NAME] != null)
+            {
+                var list = JsonConvert.DeserializeObject<List<ReadingStory>>(Request.Cookies[Const.READING_STORY_COOKIE_NAME]);
+                vm.ReadingStories = list.OrderByDescending(x => x.LatestReading).ToList();
+            }
+            return View(vm);
         }
 
         [Route("{storySlug?}")]
@@ -77,7 +85,10 @@ namespace truyenchu.Area.ViewStory.Controllers
                 return RedirectToAction(nameof(DetailStory), new { storySlug = story.StorySlug });
             }
 
-            
+            var json = GenerateCookieJson(story, chapter);
+            Response.Cookies.Append(Const.READING_STORY_COOKIE_NAME, json);
+
+
             vm.Story = story;
             vm.Chapter = chapter;
             ViewBag.breadcrumbs = new List<BreadCrumbModel>(){
@@ -88,7 +99,42 @@ namespace truyenchu.Area.ViewStory.Controllers
 
             return View(vm);
         }
-        // comment
+
+        private string GenerateCookieJson(Story story, Chapter chapter)
+        {
+            var cookieItem = new ReadingStory()
+            {
+                StoryName = story.StoryName,
+                StorySlug = story.StorySlug,
+                ChapterOrder = chapter.Order,
+                LatestReading = DateTime.Now
+            };
+
+            var cookie = Request.Cookies[Const.READING_STORY_COOKIE_NAME];
+            if (cookie == null)
+                return JsonConvert.SerializeObject(new List<ReadingStory>() { cookieItem });
+
+            var list = JsonConvert.DeserializeObject<List<ReadingStory>>(cookie);
+            if (list.Any(x => x.StorySlug == story.StorySlug)){
+                var updateItem = list.FirstOrDefault(x => x.StorySlug == story.StorySlug);
+                updateItem.ChapterOrder = chapter.Order;
+                updateItem.LatestReading = DateTime.Now;
+            }
+            else
+            {
+                list.Add(cookieItem);
+                // max length is 5 story reading recently
+                if (list.Count() > 5)
+                {
+                    var removeItem = list.OrderBy(x => x.LatestReading).FirstOrDefault();
+                    list.Remove(removeItem);
+                }
+
+            }
+            return JsonConvert.SerializeObject(list);
+        }
+
+
         [Route("tim-kiem/{searchString?}")]
         public async Task<IActionResult> SearchStory(string searchString)
         {
@@ -173,6 +219,7 @@ namespace truyenchu.Area.ViewStory.Controllers
         {
             return View();
         }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
