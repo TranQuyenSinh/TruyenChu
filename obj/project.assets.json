@@ -59,6 +59,22 @@
           }
         }
       },
+      "elFinder.NetCore/1.3.6": {
+        "type": "package",
+        "dependencies": {
+          "System.Drawing.Common": "4.7.0",
+          "System.Text.Json": "4.7.0"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/elFinder.NetCore.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/elFinder.NetCore.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Humanizer/2.14.1": {
         "type": "package",
         "dependencies": {
@@ -4033,6 +4049,18 @@
         "lib/netstandard1.3/Bogus.xml",
         "lib/netstandard2.0/Bogus.dll",
         "lib/netstandard2.0/Bogus.xml"
+      ]
+    },
+    "elFinder.NetCore/1.3.6": {
+      "sha512": "IRonnEAryYn8o7g8cwcHWFFDk652KOVC47Mn23HvOPxCyYbdJS9gQeE3UY4ZeQGe0yIqno/WWWw/OfMeL2nKSA==",
+      "type": "package",
+      "path": "elfinder.netcore/1.3.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "elfinder.netcore.1.3.6.nupkg.sha512",
+        "elfinder.netcore.nuspec",
+        "lib/netcoreapp3.1/elFinder.NetCore.dll"
       ]
     },
     "Humanizer/2.14.1": {
@@ -11583,7 +11611,8 @@
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 7.0.7",
       "Newtonsoft.Json >= 13.0.3",
       "System.Data.SqlClient >= 4.8.5",
-      "bogus >= 34.0.2"
+      "bogus >= 34.0.2",
+      "elFinder.NetCore >= 1.3.6"
     ]
   },
   "packageFolders": {
@@ -11668,6 +11697,10 @@
           "bogus": {
             "target": "Package",
             "version": "[34.0.2, )"
+          },
+          "elFinder.NetCore": {
+            "target": "Package",
+            "version": "[1.3.6, )"
           }
         },
         "imports": [

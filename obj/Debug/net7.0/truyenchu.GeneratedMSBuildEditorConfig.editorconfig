@@ -9,117 +9,133 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = truyenchu
 build_property.RootNamespace = truyenchu
-build_property.ProjectDir = D:\Code\Web\truyenchu\
+build_property.ProjectDir = d:\Code\Web\truyenchu\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Code\Web\truyenchu
+build_property.MSBuildProjectDirectory = d:\Code\Web\truyenchu
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Code/Web/truyenchu/Areas/Database/Views/DatabaseManager/DeleteDb.cshtml]
+[d:/Code/Web/truyenchu/Areas/Database/Views/DatabaseManager/DeleteDb.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGF0YWJhc2VcVmlld3NcRGF0YWJhc2VNYW5hZ2VyXERlbGV0ZURiLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code/Web/truyenchu/Areas/Database/Views/DatabaseManager/Index.cshtml]
+[d:/Code/Web/truyenchu/Areas/Database/Views/DatabaseManager/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGF0YWJhc2VcVmlld3NcRGF0YWJhc2VNYW5hZ2VyXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code/Web/truyenchu/Areas/Database/Views/_ViewImports.cshtml]
+[d:/Code/Web/truyenchu/Areas/Database/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGF0YWJhc2VcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code/Web/truyenchu/Areas/Database/Views/_ViewStart.cshtml]
+[d:/Code/Web/truyenchu/Areas/Database/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGF0YWJhc2VcVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code/Web/truyenchu/Areas/ViewStory/Views/Shared/Components/ChapterNavigation/Default.cshtml]
+[d:/Code/Web/truyenchu/Areas/File/Views/File/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRmlsZVxWaWV3c1xGaWxlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Code/Web/truyenchu/Areas/File/Views/Shared/_LayoutFileManager.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRmlsZVxWaWV3c1xTaGFyZWRcX0xheW91dEZpbGVNYW5hZ2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Code/Web/truyenchu/Areas/File/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRmlsZVxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Code/Web/truyenchu/Areas/File/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRmlsZVxWaWV3c1xfVmlld1N0YXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/Code/Web/truyenchu/Areas/ViewStory/Views/Shared/Components/ChapterNavigation/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVmlld1N0b3J5XFZpZXdzXFNoYXJlZFxDb21wb25lbnRzXENoYXB0ZXJOYXZpZ2F0aW9uXERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code/Web/truyenchu/Areas/ViewStory/Views/Shared/_BookThumbPartial.cshtml]
+[d:/Code/Web/truyenchu/Areas/ViewStory/Views/Shared/_BookThumbPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVmlld1N0b3J5XFZpZXdzXFNoYXJlZFxfQm9va1RodW1iUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code/Web/truyenchu/Areas/ViewStory/Views/Shared/_CategoriesSidebarPartial.cshtml]
+[d:/Code/Web/truyenchu/Areas/ViewStory/Views/Shared/_CategoriesSidebarPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVmlld1N0b3J5XFZpZXdzXFNoYXJlZFxfQ2F0ZWdvcmllc1NpZGViYXJQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code/Web/truyenchu/Areas/ViewStory/Views/Shared/_SearchLayout.cshtml]
+[d:/Code/Web/truyenchu/Areas/ViewStory/Views/Shared/_SearchLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVmlld1N0b3J5XFZpZXdzXFNoYXJlZFxfU2VhcmNoTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code/Web/truyenchu/Areas/ViewStory/Views/Shared/_StoryPartial.cshtml]
+[d:/Code/Web/truyenchu/Areas/ViewStory/Views/Shared/_StoryPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVmlld1N0b3J5XFZpZXdzXFNoYXJlZFxfU3RvcnlQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code/Web/truyenchu/Areas/ViewStory/Views/ViewStory/Chapter.cshtml]
+[d:/Code/Web/truyenchu/Areas/ViewStory/Views/ViewStory/Chapter.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVmlld1N0b3J5XFZpZXdzXFZpZXdTdG9yeVxDaGFwdGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code/Web/truyenchu/Areas/ViewStory/Views/ViewStory/DetailStory.cshtml]
+[d:/Code/Web/truyenchu/Areas/ViewStory/Views/ViewStory/DetailStory.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVmlld1N0b3J5XFZpZXdzXFZpZXdTdG9yeVxEZXRhaWxTdG9yeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code/Web/truyenchu/Areas/ViewStory/Views/ViewStory/Index.cshtml]
+[d:/Code/Web/truyenchu/Areas/ViewStory/Views/ViewStory/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVmlld1N0b3J5XFZpZXdzXFZpZXdTdG9yeVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code/Web/truyenchu/Areas/ViewStory/Views/ViewStory/SearchStory.cshtml]
+[d:/Code/Web/truyenchu/Areas/ViewStory/Views/ViewStory/SearchStory.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVmlld1N0b3J5XFZpZXdzXFZpZXdTdG9yeVxTZWFyY2hTdG9yeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code/Web/truyenchu/Areas/ViewStory/Views/ViewStory/Test.cshtml]
+[d:/Code/Web/truyenchu/Areas/ViewStory/Views/ViewStory/Test.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVmlld1N0b3J5XFZpZXdzXFZpZXdTdG9yeVxUZXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code/Web/truyenchu/Areas/ViewStory/Views/_ViewImports.cshtml]
+[d:/Code/Web/truyenchu/Areas/ViewStory/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVmlld1N0b3J5XFZpZXdzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code/Web/truyenchu/Areas/ViewStory/Views/_ViewStart.cshtml]
+[d:/Code/Web/truyenchu/Areas/ViewStory/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVmlld1N0b3J5XFZpZXdzXF9WaWV3U3RhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code/Web/truyenchu/Views/Shared/Components/DetailSidebar/Default.cshtml]
+[d:/Code/Web/truyenchu/Views/Shared/Components/DetailSidebar/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcRGV0YWlsU2lkZWJhclxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code/Web/truyenchu/Views/Shared/Components/Paging/Default.cshtml]
+[d:/Code/Web/truyenchu/Views/Shared/Components/Paging/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcUGFnaW5nXERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code/Web/truyenchu/Views/Shared/Error.cshtml]
+[d:/Code/Web/truyenchu/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code/Web/truyenchu/Views/Shared/_CategoriesSidebarPartial.cshtml]
+[d:/Code/Web/truyenchu/Views/Shared/_CategoriesSidebarPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9DYXRlZ29yaWVzU2lkZWJhclBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code/Web/truyenchu/Views/Shared/_DetailLayout.cshtml]
+[d:/Code/Web/truyenchu/Views/Shared/_DetailLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9EZXRhaWxMYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code/Web/truyenchu/Views/Shared/_SettingPartial.cshtml]
+[d:/Code/Web/truyenchu/Views/Shared/_SettingPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TZXR0aW5nUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code/Web/truyenchu/Views/Shared/_StatusMessage.cshtml]
+[d:/Code/Web/truyenchu/Views/Shared/_StatusMessage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TdGF0dXNNZXNzYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code/Web/truyenchu/Views/Shared/_ValidationScriptsPartial.cshtml]
+[d:/Code/Web/truyenchu/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code/Web/truyenchu/Views/_ViewImports.cshtml]
+[d:/Code/Web/truyenchu/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code/Web/truyenchu/Views/_ViewStart.cshtml]
+[d:/Code/Web/truyenchu/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Code/Web/truyenchu/Views/Shared/_Layout.cshtml]
+[d:/Code/Web/truyenchu/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-aavun0uk5x

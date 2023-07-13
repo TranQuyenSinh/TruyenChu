@@ -260,3 +260,6 @@ D:\Code\Web\truyenchu\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Drawing.Co
 D:\Code\Web\truyenchu\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 D:\Code\Web\truyenchu\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 D:\Code\Web\truyenchu\bin\Debug\net7.0\Bogus.dll
+D:\Code\Web\truyenchu\bin\Debug\net7.0\libman.json
+D:\Code\Web\truyenchu\bin\Debug\net7.0\elFinder.NetCore.dll
+D:\Code\Web\truyenchu\obj\Debug\net7.0\truyenchu.MvcApplicationPartsAssemblyInfo.cs

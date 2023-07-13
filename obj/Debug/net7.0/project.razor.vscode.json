@@ -18881,6 +18881,26 @@
       "FilePath": "d:\\Code\\Web\\truyenchu\\Areas\\ViewStory\\Views\\Shared\\Components\\ChapterNavigation\\Default.cshtml",
       "TargetPath": "Areas\\ViewStory\\Views\\Shared\\Components\\ChapterNavigation\\Default.cshtml",
       "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Code\\Web\\truyenchu\\Areas\\File\\Views\\Shared\\_LayoutFileManager.cshtml",
+      "TargetPath": "Areas\\File\\Views\\Shared\\_LayoutFileManager.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Code\\Web\\truyenchu\\Areas\\File\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Areas\\File\\Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Code\\Web\\truyenchu\\Areas\\File\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Areas\\File\\Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Code\\Web\\truyenchu\\Areas\\File\\Views\\File\\Index.cshtml",
+      "TargetPath": "Areas\\File\\Views\\File\\Index.cshtml",
+      "FileKind": "mvc"
     }
   ],
   "SerializationFormat": "0.3"

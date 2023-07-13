@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "+iVpiDfz3BdQjKzswlYO3yefQOdfuC+FWZxUm3MxayYwt3WmwHpcS8ouGsD4LSsCtJQBVNAZ7S1GzFMi3dW2QA==",
+  "dgSpecHash": "zhT5hWxZsAwBUvDTXPzuFPhJXYvczQzR6Ph35adNNWC2W1EmKLY3oomEzRbNLETGeX8IQMhG+U7O3iyhax8Iyw==",
   "success": true,
   "projectFilePath": "D:\\Code\\Web\\truyenchu\\truyenchu.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ACER\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\bogus\\34.0.2\\bogus.34.0.2.nupkg.sha512",
+    "C:\\Users\\ACER\\.nuget\\packages\\elfinder.netcore\\1.3.6\\elfinder.netcore.1.3.6.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",
