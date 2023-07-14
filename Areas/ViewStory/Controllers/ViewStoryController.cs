@@ -249,26 +249,6 @@ namespace truyenchu.Area.ViewStory.Controllers
         [Route("test.html")]
         public IActionResult Test()
         {
-            // var imgs = new List<string>() {
-            //     "1.jpg", "2.jpg", "3.webp", "4.jpg", "5.webp", "6.jpg", "7.webp"
-            // };
-            // imgs.ForEach(img =>
-            // {
-            //     _dbContext.StoryPhotos.Add(new StoryPhoto()
-            //     {
-            //         FileName = img
-            //     });
-            // });
-            // _dbContext.SaveChanges();
-            // var rand = new Random();
-            // var photos = _dbContext.StoryPhotos.ToList();
-            // stories.ForEach(story => story.Photo = photos[rand.Next(0, photos.Count - 1)]);
-            // _dbContext.SaveChanges();
-
-            // var rand = new Random();
-            // var stories = _dbContext.Stories.ToList();
-            // stories.ForEach(story => story.ViewCount = rand.Next(0, 20000));
-            // _dbContext.SaveChanges();
 
             return View();
         }

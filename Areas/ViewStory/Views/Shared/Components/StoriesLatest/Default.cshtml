@@ -1,41 +1,48 @@
-@* <table class="story-table table table-borderless">
-            <tbody>
-                @foreach(var story in new_story) {
-                    <tr>
-                        <td>
-                            <a asp-action="DetailStory" asp-route-storySlug="@story.StorySlug">@story.StoryName</a>
-                            @if (@story.StoryState) {
-                                <span class="label-title label-full"></span>
-                            }
-                            <span class="label-title label-new"></span>
-                            <span class="label-title label-hot"></span>
-                        </td>
-                        <td class="d-none d-sm-table-cell">
-                            @{
-                                var catesOfStory = story.StoryCategory?.Select(x=>x.Category).ToList();
-                            }
-                            @if (catesOfStory != null) 
-                            {
-                                @foreach (var cate in catesOfStory)
-                                {
-                                    <a asp-action="SearchCategory" asp-route-categorySlug="@cate.CategorySlug">@cate.CategoryName</a><text>, </text>
-                                }
-                            }
-                        </td>
-                        <td>
-                             @if (story.LatestChapter != null) {
-                                <a href="#" class="text-success">
-                                    Chương @story.LatestChapter 
-                                </a>
-                            }else {
-                                <span class="text-success">Chưa có chương</span>
-                            }
-                            <a class="text-success">Chương 30</a>
-                        </td>
-                        <td class="d-none d-lg-table-cell">
-                            <p>@truyenchu.Utilities.AppUtilities.TimeSince(@story.DateUpdated)</p>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table> *@
+@model List<StoryChapterModel>
+<table class="story-table table table-borderless">
+    <tbody>
+        @foreach(var item in Model) {
+            <tr>
+                <td>
+                    <a asp-action="DetailStory" asp-route-storySlug="@item.Story.StorySlug">@item.Story.StoryName</a>
+                    @if (@item.Story.StoryState) {
+                        <span class="label-title label-full"></span>
+                    }
+                    @if (DateTime.Now.Subtract(item.Story.DateCreated).TotalDays < 30) {
+                        <span class="label-title label-new"></span>
+                    }
+                    @if (item.Story.ViewCount > 3000) {
+                        <span class="label-title label-hot"></span>
+                    }
+                </td>
+                <td class="d-none d-sm-table-cell">
+                    @{
+                        var catesOfStory = item.Story.StoryCategory?.Select(x=>x.Category).ToList();
+                    }
+                    @if (catesOfStory != null) 
+                    {
+                        @for (var i = 0; i < catesOfStory.Count;i++)
+                        {
+                            <a asp-action="SearchCategory" asp-route-categorySlug="@catesOfStory[i].CategorySlug">
+                                @catesOfStory[i].CategoryName
+                            </a>
+                            @(i == catesOfStory.Count - 1 ? "" : Html.Raw("<text>, </text>"))
+                        }
+                    }
+                </td>
+                <td>
+                    @if (item.LatestChapter != null && item.LatestChapter != 0) {
+                        <a asp-action="Chapter" asp-route-storySlug="@item.Story.StorySlug" asp-route-chapterOrder="@item.LatestChapter" class="text-success">
+                            Chương @item.LatestChapter 
+                        </a>
+                    }else {
+                        <span class="text-success">Chưa có chương</span>
+                    }
+                </td>
+                <td class="d-none d-lg-table-cell">
+                    <p>@truyenchu.Utilities.AppUtilities.TimeSince(@item.Story.DateUpdated)</p>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

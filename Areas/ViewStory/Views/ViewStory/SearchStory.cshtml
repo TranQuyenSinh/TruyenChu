@@ -21,7 +21,7 @@
 }
 
 @* Story list *@
-<table class="story-table table table-borderless table-striped table-dark">
+<table class="story-table table table-borderless">
     <tbody>
         @if(Model?.Count() >0) {
             @foreach (var item in Model) {
@@ -39,17 +39,6 @@
                         <div>
                             <a class="fw-normal" asp-action="SearchAuthor" asp-route-authorSlug="@item.Story.Author.AuthorSlug" >@item.Story.Author.AuthorName</a>
                         </div>
-                        @* test here *@
-                        <div>
-                            @{
-                                var cateOfStory = @item.Story.StoryCategory.Select(x=>x.Category).ToList();
-                            }
-                            Thể loại: 
-                            @foreach (var cate in cateOfStory) {
-                                <span class="text-warning">@cate?.CategoryName</span><text>, </text>
-                            }
-                        </div>
-                        @* end test *@
                     </td>
                     <td>
                         @if (item.LatestChapter != null && item.LatestChapter != 0) {

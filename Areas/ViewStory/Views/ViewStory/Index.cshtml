@@ -51,18 +51,14 @@
         </div>
     </div>
     <div class="col-xl-8 col-lg-12 order-xl-1">
-        <div class="list-title">
+        <div class="list-title border-bottom">
             <h2>        
-                <a>Truyện mới cập nhật</a>
+                Truyện mới cập nhật
             </h2>
-            <select name="" id="" class="form-select w-auto rounded-0">
-                <option value="0">Tất cả</option>
-                <option value="1">Hài hước</option>
-                <option value="2">Chính văn</option>
-                <option value="3">Khoa học</option>
-            </select>
         </div>
-        @await Component.InvokeAsync(nameof(truyenchu.Components.StoriesLatest))
+        <div>
+            @await Component.InvokeAsync(nameof(truyenchu.Components.StoriesLatest))
+        </div>
     </div>
 </div>
 
