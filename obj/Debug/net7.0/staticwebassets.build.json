@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tapaARCfQdhHBtXi+9mfjOb4nHj09CtPVe45+sWIHls=",
+  "Hash": "SmBkW0DIsoUqi0rbwaYZ++iyuBU8cJdGKhCjq84wCV8=",
   "Source": "truyenchu",
   "BasePath": "_content/truyenchu",
   "Mode": "Default",
@@ -440,6 +440,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\header.js"
+    },
+    {
+      "Identity": "D:\\Code\\Web\\truyenchu\\wwwroot\\js\\home.js",
+      "SourceId": "truyenchu",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Code\\Web\\truyenchu\\wwwroot\\",
+      "BasePath": "_content/truyenchu",
+      "RelativePath": "js/home.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\home.js"
     },
     {
       "Identity": "D:\\Code\\Web\\truyenchu\\wwwroot\\js\\site.js",

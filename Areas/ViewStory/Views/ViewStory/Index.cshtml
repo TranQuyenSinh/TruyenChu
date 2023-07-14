@@ -8,16 +8,14 @@
 @* Danh sách truyện *@
 <div class="list-title border-bottom">
     <h2>
-        <a href="#">Truyện hot</a>
+        <a id="hot-select-link" asp-action="SearchCategory">Truyện hot</a>
     </h2>
-    <select name="" id="" class="form-select w-auto rounded-0">
-        <option value="0">Tất cả</option>
-        <option value="1">Hài hước</option>
-        <option value="2">Chính văn</option>
-        <option value="3">Khoa học</option>
+    <select id="hot-select" asp-items="@Model.SelectListItems" class="form-select w-auto rounded-0">
+        <option value="" selected>Tất cả</option>
     </select>
 </div>
-<partial name="_StoryPartial"/>
+<div id="box-hot-select" class="row mt-2 justify-content-start"></div>
+
 
 @* Truyện mới cập nhật *@
 <div class="row">
@@ -48,14 +46,14 @@
                 </div>
             }
             <div class="col-12 d-none d-xl-block">
-                <partial name="_CategoriesSidebarPartial" />
+                @await Component.InvokeAsync(nameof(truyenchu.Components.CategoriesSidebar))
             </div>
         </div>
     </div>
     <div class="col-xl-8 col-lg-12 order-xl-1">
         <div class="list-title">
             <h2>        
-                <a href="#">Truyện mới cập nhật</a>
+                <a>Truyện mới cập nhật</a>
             </h2>
             <select name="" id="" class="form-select w-auto rounded-0">
                 <option value="0">Tất cả</option>
@@ -64,64 +62,87 @@
                 <option value="3">Khoa học</option>
             </select>
         </div>
-        <table class="story-table table table-borderless">
-            <tbody>
-                @{
-                    var new_story = context.Stories.Include(x=>x.StoryCategory).Take(20).OrderByDescending(x=>x.DateUpdated).ToList();
-                }
-                @foreach(var story in new_story) {
-                    <tr>
-                        <td>
-                            <a asp-action="DetailStory" asp-route-storySlug="@story.StorySlug">@story.StoryName</a>
-                            @if (@story.StoryState) {
-                                <span class="label-title label-full"></span>
-                            }
-                            <span class="label-title label-new"></span>
-                            <span class="label-title label-hot"></span>
-                        </td>
-                        <td class="d-none d-sm-table-cell">
-                            @{
-                                var catesOfStory = story.StoryCategory?.Select(x=>x.Category).ToList();
-                            }
-                            @if (catesOfStory != null) 
-                            {
-                                @foreach (var cate in catesOfStory)
-                                {
-                                    <a asp-action="SearchCategory" asp-route-categorySlug="@cate.CategorySlug">@cate.CategoryName</a><text>, </text>
-                                }
-                            }
-                        </td>
-                        <td>
-                             @* @if (story.LatestChapter != null) {
-                                <a href="#" class="text-success">
-                                    Chương @story.LatestChapter 
-                                </a>
-                            }else {
-                                <span class="text-success">Chưa có chương</span>
-                            } *@
-                            <a href="#" class="text-success">Chương 30</a>
-                        </td>
-                        <td class="d-none d-lg-table-cell">
-                            <p>@AppUtilities.TimeSince(@story.DateUpdated)</p>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+        @await Component.InvokeAsync(nameof(truyenchu.Components.StoriesLatest))
     </div>
 </div>
-
 
 @* TRuyện đã hoàn thành *@
 <div class="list-title border-bottom">
     <h2>
-        <a href="#">Truyện đã hoàn thành</a>
+        <a id="full-select-link" asp-action="SearchCategory" asp-route-isFull="true">Truyện đã hoàn thành</a>
     </h2>
-    <select name="" id="" class="form-select w-auto rounded-0">
-        <option value="0">Tất cả</option>
-        <option value="1">Hài hước</option>
-        <option value="2">Chính văn</option>
-        <option value="3">Khoa học</option>
+    <select id="full-select" asp-items="@Model.SelectListItems" class="form-select w-auto rounded-0">
+        <option value="" selected>Tất cả</option>
     </select>
 </div>
-<partial name="_StoryPartial"/>
+<div id="box-full-select" class="row mt-2 justify-content-start"></div>
+
+@section Scripts {
+    <script>
+        function LoadStories(type, categorySlug = "all", count = 12, container) {
+            $.ajax({
+                url: "@Url.Action("GetStoriesByCategorySlug", new {area = "ViewStory"})",
+                method: "GET",
+                data: {
+                    categorySlug: categorySlug,
+                    type: type,
+                    count: count,
+                },
+                success: function (res) {
+                    var box = $(container);
+                    box.empty();
+                    box.hide();
+                    if (res == null) return;
+                    
+                    for (var item of res) {
+                        var url =
+                            `@Url.Action("DetailStory", new {area = "ViewStory", storySlug="replacethis"})`.replace(
+                                "replacethis",
+                                item.storySlug
+                            );
+                        var full = item.storyState
+                            ? `<span class=" translate-middle badge bg-success">
+                                    Full
+                                    <span class="visually-hidden">unread messages</span>
+                                </span>`
+                            : "";
+                        box.append(
+                            $(`
+                        <div class=" col-xl-2 col-lg-3 col-md-3 col-sm-4 col-6">
+                            <a href="${url}" class="story d-block">
+                                ${full}
+                                <img class="img-fluid w-100" src="/contents/story_thumb/${item.photo.fileName}" alt="">
+                                <div class="story-title position-absolute bottom-0 start-0 w-100 text-center">
+                                    <p>${item.storyName} </p>
+                                </div>
+                            </a>
+                        </div>`)
+                        ).fadeIn(500);
+                    }
+                },
+    });
+        }
+
+        function SetEventSelect() {
+            $("#hot-select").change(function () {
+                let categorySlug = $(this).val();
+                let newUrl = `@Url.Action("SearchCategory", new {area = "ViewStory", categorySlug="replaceMe"})`.replace('replaceMe', categorySlug)
+                LoadStories("hot_select", categorySlug, 12, "#box-hot-select");
+                $("#hot-select-link").attr("href", newUrl);
+                                        
+            });
+            $("#full-select").change(function () {
+                let categorySlug = $(this).val();
+                let newUrl =`@Url.Action("SearchCategory", new {area = "ViewStory",isFull="true", categorySlug="replaceMe"})`.replace('replaceMe', categorySlug)
+                LoadStories("full_select", categorySlug, 12, "#box-full-select");
+                $("#full-select-link").attr("href",newUrl )
+            });
+        }
+        $(document).ready(function () {
+            LoadStories("hot_select", null, 12, "#box-hot-select");
+            LoadStories("full_select", null, 12, "#box-full-select");
+            SetEventSelect();
+        });
+
+    </script>
+}

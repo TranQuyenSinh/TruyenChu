@@ -1,4 +1,4 @@
-@model List<truyenchu.Area.ViewStory.Model.SearchViewModel>
+@model List<truyenchu.Area.ViewStory.Model.StoryChapterModel>
 @{
     Layout = "_SearchLayout";
     var currentCategory = ViewBag.currentCategory as Category;
@@ -23,26 +23,26 @@
 @* Story list *@
 <table class="story-table table table-borderless table-striped table-dark">
     <tbody>
-        @if(Model != null) {
-            @foreach (var story in Model) {
+        @if(Model?.Count() >0) {
+            @foreach (var item in Model) {
                 <tr>
                     <td>
                         <div class="story-image py-1">
-                            <img class="img-fluid img-thumb" src="https://imgv3.fotor.com/images/cover-photo-image/a-beautiful-girl-with-gray-hair-and-lucxy-neckless-generated-by-Fotor-AI.jpg" alt=""/>
+                            <img class="img-fluid img-thumb" src="/contents/story_thumb/@item.Story.Photo.FileName" alt="@item.Story.StoryName"/>
                         </div>
                     </td>
                     <td> 
-                        <a class="fw-bold" asp-action="DetailStory" asp-route-storySlug="@story.StorySlug">@story.StoryName</a>
-                        @if (story.StoryState == true) {
+                        <a class="fw-bold" asp-action="DetailStory" asp-route-storySlug="@item.Story.StorySlug">@item.Story.StoryName</a>
+                        @if (item.Story.StoryState == true) {
                             <span class="label-title label-full"></span>
                         }
                         <div>
-                            <a class="fw-normal" href="#">@story.Author.AuthorName</a>
+                            <a class="fw-normal" asp-action="SearchAuthor" asp-route-authorSlug="@item.Story.Author.AuthorSlug" >@item.Story.Author.AuthorName</a>
                         </div>
                         @* test here *@
                         <div>
                             @{
-                                var cateOfStory = story.StoryCategory.Select(x=>x.Category).ToList();
+                                var cateOfStory = @item.Story.StoryCategory.Select(x=>x.Category).ToList();
                             }
                             Thể loại: 
                             @foreach (var cate in cateOfStory) {
@@ -52,9 +52,9 @@
                         @* end test *@
                     </td>
                     <td>
-                        @if (story.LatestChapter != null) {
-                            <a href="#" class="text-success">
-                                Chương @story.LatestChapter 
+                        @if (item.LatestChapter != null && item.LatestChapter != 0) {
+                            <a asp-action="Chapter" asp-route-storySlug="@item.Story.StorySlug" asp-route-chapterOrder="@item.LatestChapter" class="text-success">
+                                Chương @item.LatestChapter 
                             </a>
                         }else {
                             <span class="text-success">Chưa có chương</span>

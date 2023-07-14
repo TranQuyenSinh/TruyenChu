@@ -1,8 +1,9 @@
 using truyenchu.Models;
 
 namespace truyenchu.Area.ViewStory.Model {
-    public class SearchViewModel:Story
+    public class StoryChapterModel
     {
+        public Story Story { get; set; }
         public int? LatestChapter { get; set; }
     }
 }

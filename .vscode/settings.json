@@ -1,12 +1,12 @@
 {
   "dotnet.defaultSolution": "truyenchu.sln",
   "files.exclude": {
-    "truyenchu.csproj": true,
     "truyenchu.sln": true,
     "bin": true,
     "obj": true,
     "ExtendMethods": true,
     "Utilities": true,
     "node_modules": true
-  }
+  },
+  "csharp.suppressBuildAssetsNotification": false
 }

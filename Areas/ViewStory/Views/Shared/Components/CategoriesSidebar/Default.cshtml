@@ -1,0 +1,17 @@
+@model List<Category>
+
+<div class="story-category">
+    <div class="list-title border-bottom">
+        <h2>        
+            <a href="#">Thể loại</a>
+        </h2>
+    </div>
+    <div class="box-the-loai row p-2">
+        @foreach (var category in Model) 
+        {
+            <div class="col-6 ps-4">
+                <a asp-controller="ViewStory" asp-action="SearchCategory" asp-route-categorySlug="@category.CategorySlug">@category.CategoryName</a>
+            </div>
+        }
+    </div>
+</div>

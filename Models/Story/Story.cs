@@ -42,6 +42,10 @@ namespace truyenchu.Models
         [DisplayName("Nguồn truyện")]
         public string? StorySource { get; set; }
 
+        /* ================ Lượt xem ================ */
+        [DisplayName("Lượt xem")]
+        public int ViewCount { get; set; }
+
 
         /* ================ Trạng thái: Full/Đang ra ================ */
         [DisplayName("Trạng thái")]
@@ -65,5 +69,7 @@ namespace truyenchu.Models
         
         public ICollection<StoryCategory>? StoryCategory { get; set; }
         public ICollection<Chapter>? Chapters { get; set; }
+
+        
     }
 }

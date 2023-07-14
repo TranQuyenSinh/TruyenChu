@@ -26,11 +26,15 @@ namespace truyenchu.Components.DetailSidebar
                                 .Include(s => s.StoryCategory)
                                 .ThenInclude(x => x.Category)
                                 .Where(s => s.StoryId != story.StoryId && s.StoryCategory.Select(c => c.Category).Any(c => catesOfStory.Contains(c)))
+                                .Take(10)
+                                .OrderByDescending(x=> x.ViewCount)
                                 .ToList();
             vm.sameAuthorStories = _context.Stories
                                 .Include(s => s.StoryCategory)
                                 .ThenInclude(x => x.Category)
                                 .Where(s => s.StoryId != story.StoryId && s.AuthorId == story.AuthorId)
+                                .Take(10)
+                                .OrderByDescending(x=> x.ViewCount)
                                 .ToList();
 
             return View(vm);

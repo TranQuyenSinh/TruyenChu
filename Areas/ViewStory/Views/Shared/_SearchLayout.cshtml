@@ -7,7 +7,7 @@
         @RenderBody()
     </div>
     <div class="col-lg-4 d-none d-lg-block">
-        <partial name="_CategoriesSidebarPartial">
+        @await Component.InvokeAsync(nameof(truyenchu.Components.CategoriesSidebar))
     </div>
 </div>
 
