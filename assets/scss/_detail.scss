@@ -16,12 +16,23 @@
 }
 
 .list-chapter {
-    a {
-        text-decoration: none;
-        color: $text-color;
-        &:hover {
-            text-decoration: underline !important;
+    column-count: 2;
+    column-gap: 20px;
+    overflow: auto;
+    ul {
+        a {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: inline-block;
+            max-width: 40ch;
+            white-space: nowrap;
+            text-decoration: none;
+            color: $text-color;
+            &:hover {
+                text-decoration: underline !important;
+            }
         }
+
     }
 }
 
@@ -30,6 +41,8 @@
         background-color: #fff0 !important;
         border-color: rgb(255 255 255 / 33%);
         color: $text-color !important;
+        cursor: pointer !important;
+        box-shadow: none !important;
         &:hover {
             border-color: var(--bs-success) !important;
         }

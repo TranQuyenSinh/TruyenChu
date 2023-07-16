@@ -263,3 +263,6 @@ D:\Code\Web\truyenchu\bin\Debug\net7.0\Bogus.dll
 D:\Code\Web\truyenchu\bin\Debug\net7.0\libman.json
 D:\Code\Web\truyenchu\bin\Debug\net7.0\elFinder.NetCore.dll
 D:\Code\Web\truyenchu\obj\Debug\net7.0\truyenchu.MvcApplicationPartsAssemblyInfo.cs
+D:\Code\Web\truyenchu\bin\Debug\net7.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\Code\Web\truyenchu\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\Code\Web\truyenchu\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll

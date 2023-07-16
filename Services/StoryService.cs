@@ -8,9 +8,11 @@ namespace truyenchu.Service
     public class StoryService
     {
         private readonly AppDbContext _context;
-        public StoryService(AppDbContext context)
+        private readonly ILogger<StoryService> _logger;
+        public StoryService(AppDbContext context, ILogger<StoryService> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         public List<Story> GetStoriesInCategory(Category category, bool isFull = false)
@@ -53,14 +55,16 @@ namespace truyenchu.Service
                             .ToList();
             return stories;
         }
-        public int? GetLatestChapter(Story story)
+        public List<Story> FindStoryByRangeChapter(int start, int end = int.MaxValue)
         {
-            var latestChap = (from chapter in _context.Chapters
-                              where chapter.StoryId == story.StoryId
-                              orderby chapter.Order descending
-                              select chapter.Order
-                    ).FirstOrDefault();
-            return latestChap;
+            var stories = _context.Stories.Where(x => x.LatestChapterOrder >= start && x.LatestChapterOrder <= end)
+                                            .Include(x => x.Author)
+                                            .Include(x => x.Photo)
+                                            .Include(x => x.StoryCategory)
+                                            .ThenInclude(sc => sc.Category)
+                                            .AsQueryable()
+                                            .ToList();
+            return stories;
         }
 
     }

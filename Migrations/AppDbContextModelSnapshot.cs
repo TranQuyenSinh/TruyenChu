@@ -131,6 +131,9 @@ namespace truyenchu.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("LatestChapterOrder")
+                        .HasColumnType("int");
+
                     b.Property<int?>("PhotoId")
                         .HasColumnType("int");
 

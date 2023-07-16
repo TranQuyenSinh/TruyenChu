@@ -48,6 +48,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRmlsZVxWaWV3c1xfVmlld1N0YXJ0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Code/Web/truyenchu/Areas/ViewStory/Views/SearchStory/SearchStory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVmlld1N0b3J5XFZpZXdzXFNlYXJjaFN0b3J5XFNlYXJjaFN0b3J5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Code/Web/truyenchu/Areas/ViewStory/Views/Shared/Components/CategoriesSidebar/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVmlld1N0b3J5XFZpZXdzXFNoYXJlZFxDb21wb25lbnRzXENhdGVnb3JpZXNTaWRlYmFyXERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -62,6 +66,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Code/Web/truyenchu/Areas/ViewStory/Views/Shared/Components/StoriesLatest/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVmlld1N0b3J5XFZpZXdzXFNoYXJlZFxDb21wb25lbnRzXFN0b3JpZXNMYXRlc3RcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Code/Web/truyenchu/Areas/ViewStory/Views/Shared/Components/Trash/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVmlld1N0b3J5XFZpZXdzXFNoYXJlZFxDb21wb25lbnRzXFRyYXNoXERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Code/Web/truyenchu/Areas/ViewStory/Views/Shared/_BookThumbPartial.cshtml]
@@ -94,10 +102,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Code/Web/truyenchu/Areas/ViewStory/Views/ViewStory/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVmlld1N0b3J5XFZpZXdzXFZpZXdTdG9yeVxJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Code/Web/truyenchu/Areas/ViewStory/Views/ViewStory/SearchStory.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVmlld1N0b3J5XFZpZXdzXFZpZXdTdG9yeVxTZWFyY2hTdG9yeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Code/Web/truyenchu/Areas/ViewStory/Views/ViewStory/Test.cshtml]

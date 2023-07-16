@@ -10,3 +10,7 @@
         @await Component.InvokeAsync(nameof(truyenchu.Components.DetailSidebar.DetailSidebar), ViewBag.Story)
     </div>
 </div>
+
+@section Scripts {
+    @await RenderSectionAsync("Scripts", required: false)
+}

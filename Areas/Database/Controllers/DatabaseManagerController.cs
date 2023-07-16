@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
+using Microsoft.IdentityModel.Tokens;
 using truyenchu.Data;
 using truyenchu.Models;
 using truyenchu.Utilities;
@@ -59,18 +60,18 @@ namespace truyenchu.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> SeedDataAsync()
         {
-            await SeedAuthor();
-            await SeedCategory();
-            await SeedCategoryAndStory();
-            await SeedChapter();
+            // await SeedAuthor();
+            //await SeedCategory();
+            // await SeedCategoryAndStory();
+            // await SeedChapter();
             StatusMessage = "Seed database thành công";
             return RedirectToAction(nameof(Index));
         }
 
         private async Task SeedAuthor()
         {
-            _dbContext.Authors.RemoveRange(_dbContext.Authors);
-            await _dbContext.SaveChangesAsync();
+            // _dbContext.Authors.RemoveRange(_dbContext.Authors);
+            // await _dbContext.SaveChangesAsync();
 
             // Phát sinh categories mẫu
             var fakerAuthor = new Faker<Author>();
@@ -78,7 +79,7 @@ namespace truyenchu.Controllers
             fakerAuthor.RuleFor(c => c.AuthorName, fk => fk.Commerce.ProductName().ToString());
 
             List<Author> authors = new List<Author>();
-            for (int i = 0; i < 100; i++)
+            for (int i = 100; i < 200; i++)
             {
                 var author = fakerAuthor.Generate();
                 author.AuthorName += i;
@@ -122,24 +123,28 @@ namespace truyenchu.Controllers
             await _dbContext.SaveChangesAsync();
 
             var storyFaker = new Faker<Story>();
+            var photos = await _dbContext.StoryPhotos.ToListAsync();
             var authors = _dbContext.Authors.ToListAsync().Result;
             storyFaker.RuleFor(c => c.StoryName, fk => fk.Commerce.ProductName());
             storyFaker.RuleFor(c => c.Author, fk => fk.PickRandom(authors));
             storyFaker.RuleFor(c => c.Description, fk => fk.Lorem.Paragraphs(7));
             storyFaker.RuleFor(c => c.StorySource, fk => fk.Internet.UrlWithPath());
             storyFaker.RuleFor(c => c.StoryState, fk => fk.Random.Bool());
-            storyFaker.RuleFor(c => c.DateCreated, fk => fk.Date.Between(new DateTime(2010, 1, 1), DateTime.Now));
-
+            storyFaker.RuleFor(c => c.DateCreated, fk => fk.Date.Between(new DateTime(2023, 1, 1), DateTime.Now.Subtract(new TimeSpan(90, 0 , 0))));
+            storyFaker.RuleFor(c => c.Photo, fk => fk.PickRandom(photos));
+            
             var rand = new Random();
             List<Story> stories = new List<Story>();
             List<StoryCategory> storyCategories = new List<StoryCategory>();
             var categoriesArr = await _dbContext.Categories.ToArrayAsync();
-            for (var i = 0; i < 100; i++)
+            for (var i = 0; i < 300; i++)
             {
                 var story = storyFaker.Generate();
                 story.StoryName += i;
                 story.StorySlug = AppUtilities.GenerateSlug(story.StoryName);
-                story.DateUpdated = story.DateCreated;
+                story.DateUpdated = story.DateCreated.AddDays(rand.Next(2)).AddHours(rand.Next(24)).AddMinutes(rand.Next(60)).AddSeconds(rand.Next(60));
+                story.ViewCount = rand.Next(0, 20000);
+                story.LatestChapterOrder = 0;
                 stories.Add(story);
 
                 var addedCates = new List<int>();
@@ -175,7 +180,7 @@ namespace truyenchu.Controllers
             fakerChapter.RuleFor(c => c.Content, fk =>
             {
                 var content = "";
-                for (var i = 0; i < 10; i++)
+                for (var i = 0; i < 3; i++)
                 {
                     content += "<p>" + fk.Lorem.Paragraph() + "</p>";
                 }
@@ -186,15 +191,16 @@ namespace truyenchu.Controllers
             List<Story> stories = await _dbContext.Stories.ToListAsync();
             foreach (var story in stories)
             {
-                var sochuong = rand.Next(20);
+                var sochuong = rand.Next(100);
                 for (var i = 0; i < sochuong; i++)
                 {
                     var chapter = fakerChapter.Generate();
                     chapter.Order = i + 1;
                     chapter.Story = story;
-                    chapter.DateCreated = story.DateCreated.AddDays(i);
+                    chapter.DateCreated = story.DateCreated.AddHours(rand.Next(100)).AddMinutes(rand.Next(60)).AddSeconds(rand.Next(60));
                     _dbContext.Chapters.Add(chapter);
                 }
+                story.LatestChapterOrder = sochuong;
             }
             await _dbContext.SaveChangesAsync();
         }

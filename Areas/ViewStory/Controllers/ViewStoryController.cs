@@ -1,15 +1,16 @@
 ﻿using System.Diagnostics;
-using System.Text.Json.Serialization;
-using Bogus.DataSets;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using truyenchu.Area.ViewStory.Model;
+using truyenchu.Components;
+using truyenchu.Components.Paging;
 using truyenchu.Data;
 using truyenchu.Models;
 using truyenchu.Service;
 using truyenchu.Utilities;
+using static truyenchu.Components.Paging.Paging;
 
 namespace truyenchu.Area.ViewStory.Controllers
 {
@@ -60,6 +61,7 @@ namespace truyenchu.Area.ViewStory.Controllers
             var vm = new DetailViewModel();
             var chapters = await (from chapter in _context.Chapters
                                   where chapter.StoryId == story.StoryId
+                                  orderby chapter.Order
                                   select new Chapter
                                   {
                                       Order = chapter.Order,
@@ -76,8 +78,8 @@ namespace truyenchu.Area.ViewStory.Controllers
             return View(vm);
         }
 
-        [Route("{storySlug?}/chuong-{chapterOrder:int}")]
-        public async Task<IActionResult> Chapter([FromRoute] string storySlug, [FromRoute] int chapterOrder)
+        [Route("{storySlug?}/chuong-{chapterOrder}")]
+        public async Task<IActionResult> Chapter(string storySlug, int chapterOrder)
         {
             var vm = new ChapterViewModel();
             var story = _context.Stories.FirstOrDefault(x => x.StorySlug == storySlug);
@@ -87,7 +89,6 @@ namespace truyenchu.Area.ViewStory.Controllers
             var chapter = _context.Chapters.FirstOrDefault(x => x.StoryId == story.StoryId && x.Order == chapterOrder);
             if (chapter == null)
             {
-                _logger.LogInformation("chapter null");
                 return RedirectToAction(nameof(DetailStory), new { storySlug = story.StorySlug });
             }
 
@@ -104,6 +105,24 @@ namespace truyenchu.Area.ViewStory.Controllers
             };
 
             return View(vm);
+        }
+
+        [Route("api/get-chapter")]
+        [HttpGet]
+        public async Task<IActionResult> GetChapterAPI(string storySlug, int pageNumber = 1)
+        {
+            var story = await _context.Stories.FirstOrDefaultAsync(x => x.StorySlug == storySlug);
+            if (story == null)
+                return BadRequest();
+
+            var chapters = await _context.Chapters.Where(x => x.StoryId == story.StoryId)
+                            .Select(x => new Chapter { Order = x.Order, Title = x.Title })
+                            .OrderBy(x => x.Order)
+                            .ToListAsync();
+            var pageSize = Const.CHAPTER_PER_PAGE;
+            Pagination.PagingData<Chapter> pagedData = Pagination.PagedResults(chapters, pageNumber, pageSize);
+            return Json(pagedData);
+
         }
 
         private string GenerateCookieJson(Story story, Chapter chapter)
@@ -141,154 +160,12 @@ namespace truyenchu.Area.ViewStory.Controllers
             return JsonConvert.SerializeObject(list);
         }
 
-
-        [Route("tim-kiem/{searchString?}")]
-        public async Task<IActionResult> SearchStory(string searchString)
-        {
-            List<StoryChapterModel> vm = new List<StoryChapterModel>();
-            if (!string.IsNullOrEmpty(searchString))
-            {
-                var stories = _storyService.FindStoriesBySearchString(searchString);
-                foreach (var story in stories)
-                {
-                    vm.Add(new StoryChapterModel()
-                    {
-                        Story = story,
-                        LatestChapter = _storyService.GetLatestChapter(story)
-                    });
-                }
-            }
-
-            ViewBag.breadcrumbs = new List<BreadCrumbModel>(){
-                new BreadCrumbModel() {},
-                new BreadCrumbModel() {DisplayName = "Tìm truyện với từ khóa: "+searchString, IsActive = true}
-            };
-            ViewData["Title"] = "TÌM TRUYỆN VỚI TỪ KHOÁ: " + searchString?.ToUpper();
-            return View(nameof(SearchStory), vm);
-        }
-
-        [HttpGet]
-        [Route("the-loai/{categorySlug?}")]
-        public async Task<IActionResult> SearchCategory(string? categorySlug, bool isFull = false)
-        {
-            List<Story> stories = new List<Story>();
-            Category category = null;
-            if (string.IsNullOrEmpty(categorySlug))
-            {
-                var qr = _context.Stories
-                        .Include(x => x.Author)
-                        .Include(x => x.Photo)
-                        .Include(x => x.StoryCategory)
-                        .ThenInclude(x => x.Category)
-                        .AsQueryable();
-                if (isFull)
-                    qr = qr.Where(x => x.StoryState == true);
-                stories = await qr.OrderByDescending(x => x.ViewCount).ToListAsync();
-            }
-            else
-            {
-                category = _context.Categories.FirstOrDefault(x => x.CategorySlug == categorySlug);
-                if (category == null)
-                    return NotFound();
-
-                stories = _storyService.GetStoriesInCategory(category, isFull);
-            }
-
-            List<StoryChapterModel> vm = new List<StoryChapterModel>();
-            foreach (var story in stories)
-            {
-                vm.Add(new StoryChapterModel()
-                {
-                    Story = story,
-                    LatestChapter = _storyService.GetLatestChapter(story)
-                });
-            }
-
-            ViewBag.breadcrumbs = new List<BreadCrumbModel>(){
-                new BreadCrumbModel() {},
-                new BreadCrumbModel() {
-                    DisplayName = category != null ? category.CategoryName: "Tất cả" ,
-                    IsActive = true}
-            };
-            ViewBag.currentCategory = category;
-            ViewData["Title"] = category != null ? "TRUYỆN " + category.CategoryName.ToUpper() : "THỂ LOẠI";
-            return View(nameof(SearchStory), vm);
-        }
-
-        [HttpGet]
-        [Route("tac-gia/{authorSlug?}")]
-        public async Task<IActionResult> SearchAuthor(string authorSlug)
-        {
-            if (string.IsNullOrEmpty(authorSlug))
-                return NotFound();
-            var author = _context.Authors.FirstOrDefault(x => x.AuthorSlug.Contains(authorSlug));
-
-            List<Story> stories = _storyService.FindStoriesByAuthor(author);
-
-            List<StoryChapterModel> vm = new List<StoryChapterModel>();
-            foreach (var story in stories)
-            {
-                vm.Add(new StoryChapterModel()
-                {
-                    Story = story,
-                    LatestChapter = _storyService.GetLatestChapter(story)
-                });
-            }
-
-            ViewBag.breadcrumbs = new List<BreadCrumbModel>(){
-                new BreadCrumbModel() {},
-                new BreadCrumbModel() {
-                    DisplayName = author.AuthorName ,
-                    IsActive = true}
-            };
-
-            ViewData["Title"] = "Tác giả " + author.AuthorName;
-            return View(nameof(SearchStory), vm);
-        }
-
         [Route("test.html")]
         public IActionResult Test()
         {
 
-            return View();
+            return ViewComponent(nameof(Trash));
         }
-
-        [Route("api/get-stories-by-category-slug")]
-        public async Task<IActionResult> GetStoriesByCategorySlug(string type, int count, string categorySlug = "all")
-        {
-            List<Story> data = null;
-            if (categorySlug == "all")
-            {
-                var qrAll = _context.Stories.Include(x => x.Photo).OrderByDescending(x => x.ViewCount);
-                if (type == "hot_select")
-                {
-                    data = await qrAll.Take(count).ToListAsync();
-                    return Json(data);
-                }
-                else if (type == "full_select")
-                {
-                    data = await qrAll.Where(x => x.StoryState == true).Take(count).ToListAsync();
-                    return Json(data);
-                }
-            }
-
-            var category = await _context.Categories.FirstOrDefaultAsync(x => x.CategorySlug == categorySlug);
-            if (category == null)
-                return BadRequest();
-
-            var qr = _context.Stories.Include(x => x.Photo).Where(s => s.StoryCategory.Any(sc => sc.CategoryId == category.CategoryId));
-
-            if (type == "hot_select")
-            {
-                data = await qr.OrderByDescending(x => x.ViewCount).Take(count).ToListAsync();
-            }
-            else if (type == "full_select")
-            {
-                data = await qr.Where(x => x.StoryState == true).OrderByDescending(x => x.ViewCount).Take(count).ToListAsync();
-            }
-            return Json(data);
-        }
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

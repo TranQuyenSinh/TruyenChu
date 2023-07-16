@@ -1,0 +1,83 @@
+@model List<Story>
+@{
+    Layout = "_SearchLayout";
+    var currentCategory = ViewBag.currentCategory as Category;
+}
+
+@* Title *@
+<div class="list-title">
+    <h2>@ViewData["Title"]</h2>
+</div>
+
+@* Description *@
+@if (currentCategory !=null) {
+    <div class="py-4 mb-4 bg-dark">
+        <div class="container-fluid">
+            <span class="category-discription text-mute">
+                @currentCategory.Description
+            </span>
+        </div>
+    </div>
+}
+
+@* Story list *@
+<table class="story-table table table-borderless">
+    <tbody>
+        @if(Model?.Count() >0) {
+            @foreach (var story in Model) {
+                <tr>
+                    <td>
+                        <div class="story-image py-1">
+                            <img class="img-fluid img-thumb" src="/contents/story_thumb/@story.Photo.FileName" alt="@story.StoryName"/>
+                        </div>
+                    </td>
+                    <td> 
+                        <a class="fw-bold" asp-controller="ViewStory" asp-action="DetailStory" asp-route-storySlug="@story.StorySlug">@story.StoryName</a>
+                        @if (story.StoryState == true) {
+                            <span class="label-title label-full"></span>
+                        }
+                        <div>
+                            <a class="fw-normal" asp-action="SearchAuthor" asp-route-authorSlug="@story.Author.AuthorSlug" >@story.Author.AuthorName</a>
+                        </div>
+                    </td>
+                    <td>
+                        @if (story.LatestChapterOrder != null && story.LatestChapterOrder != 0) {
+                            <a asp-controller="ViewStory" asp-action="Chapter" asp-route-storySlug="@story.StorySlug" asp-route-chapterOrder="@story.LatestChapterOrder" class="text-success">
+                                Chương @story.LatestChapterOrder 
+                            </a>
+                        }else {
+                            <span class="text-success">Chưa có chương</span>
+                        }
+                       
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+@* @section Scripts {
+    <script src="~/js/paging.js"></script>
+    <script>
+        $(document).ready(function() {
+            var url = `@Url.Action("GetChapterAPI", "ViewStory")`;
+            var formData = {
+                    storySlug: "@Model.Story.StorySlug",
+                };
+            Paging.CreatePaging("#paging", ".list-chapter ul", url, formData, (res) => {
+                var html = '';
+                for (var i = 0; i < res.data.length; i++) {
+                    html += `<li>
+                                <a 
+                                href="@Url.Action("Chapter", new { storySlug = Model.Story.StorySlug, chapterOrder = "replaceOrderChapter"})"
+                                data-bs-toggle="tooltip"
+                                data-bs-placement="right"
+                                title="${res.data[i].title}">Chương ${res.data[i].order}: ${res.data[i].title}
+                                </a>
+                            </li>`.replace('replaceOrderChapter', res.data[i].order);
+                }
+                return html;
+            });
+        })
+    </script>
+} *@

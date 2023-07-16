@@ -18,17 +18,17 @@
         <div class="story-info my-4">
             <div class="mb-1">
                 <strong>Tác giả: </strong>
-                <a asp-action="SearchAuthor" asp-route-authorSlug="@Model.Story.Author.AuthorSlug">@Model.Story.Author.AuthorName</a>
+                <a asp-controller="SearchStory" asp-action="SearchAuthor" asp-route-authorSlug="@Model.Story.Author.AuthorSlug">@Model.Story.Author.AuthorName</a>
             </div>
             <div class="mb-1">
                 <strong>Thể loại: </strong>
                 @foreach (var cate in Model.Story.StoryCategory) {
-                    <a asp-action="SearchCategory" asp-route-categorySlug="@cate.Category.CategorySlug">@cate.Category.CategoryName</a><text>, </text>
+                    <a asp-controller="SearchStory" asp-action="SearchCategory" asp-route-categorySlug="@cate.Category.CategorySlug">@cate.Category.CategoryName</a><text>, </text>
                 }
             </div>
             <div class="mb-1">
                 <strong>Nguồn: </strong>
-                <span></span>
+                <span>
                     @(Model.Story.StorySource != null ? Model.Story.StorySource : "Sưu tầm")
                 </span>
             </div>
@@ -51,33 +51,42 @@
     </h2>
 </div>
 <div class="row mb-4">
-    <div class="col-sm-6 col-xs-12">
-        <ul class="list-chapter">
-            @foreach (var chapter in Model.Chapters.Take(5)) {
-                <li>
-                    <a asp-action="Chapter" asp-route-storySlug="@Model.Story.StorySlug" asp-route-chapterOrder="@chapter.Order">Chương @chapter.Order: @chapter.Title.</a>
-                </li>
-            }   
-        </ul>   
-    </div>
-    <div class="col-sm-6 col-xs-12">
-        <ul class="list-chapter">
-            @foreach (var chapter in Model.Chapters.Skip(5).Take(5)) {
-                <li>
-                    <a asp-action="Chapter" asp-route-storySlug="@Model.Story.StorySlug" asp-route-chapterOrder="@chapter.Order">Chương @chapter.Order: @chapter.Title.</a>
-                </li>
-            }   
-        </ul> 
+    <div class="col-12">
+        <div class="list-chapter">
+            <ul>
+            
+            </ul>   
+        </div>
     </div>
 </div>
 
-@* Model paging sau này lấy từ viewbag *@
-@await Component.InvokeAsync(nameof(truyenchu.Components.Paging.Paging), new truyenchu.Components.Paging.Paging.PagingOptions() {
-    countpages = 10,
-    currentpage = 2,
-    generateUrl = (trang) => $"trang-{trang}"
-})
+@* Paging *@
+<ul id="paging" class="pagination justify-content-center">
 
-<div class="comment">
-    Phần comment
-</div>
+<ul>
+
+@section Scripts {
+    <script src="~/js/paging.js"></script>
+    <script>
+        $(document).ready(function() {
+            var url = `@Url.Action("GetChapterAPI", "ViewStory")`;
+            var formData = {
+                    storySlug: "@Model.Story.StorySlug",
+                };
+            Paging.CreatePaging("#paging", ".list-chapter ul", url, formData, (res) => {
+                var html = '';
+                for (var i = 0; i < res.data.length; i++) {
+                    html += `<li>
+                                <a 
+                                href="@Url.Action("Chapter", new { storySlug = Model.Story.StorySlug, chapterOrder = "replaceOrderChapter"})"
+                                data-bs-toggle="tooltip"
+                                data-bs-placement="right"
+                                title="${res.data[i].title}">Chương ${res.data[i].order}: ${res.data[i].title}
+                                </a>
+                            </li>`.replace('replaceOrderChapter', res.data[i].order);
+                }
+                return html;
+            });
+        })
+    </script>
+}

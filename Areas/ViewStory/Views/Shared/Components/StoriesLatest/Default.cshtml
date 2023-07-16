@@ -1,29 +1,29 @@
-@model List<StoryChapterModel>
+@model List<Story>
 <table class="story-table table table-borderless">
     <tbody>
-        @foreach(var item in Model) {
+        @foreach(var story in Model) {
             <tr>
                 <td>
-                    <a asp-action="DetailStory" asp-route-storySlug="@item.Story.StorySlug">@item.Story.StoryName</a>
-                    @if (@item.Story.StoryState) {
+                    <a asp-action="DetailStory" asp-route-storySlug="@story.StorySlug">@story.StoryName</a>
+                    @if (@story.StoryState) {
                         <span class="label-title label-full"></span>
                     }
-                    @if (DateTime.Now.Subtract(item.Story.DateCreated).TotalDays < 30) {
+                    @if (DateTime.Now.Subtract(story.DateCreated).TotalDays < 30) {
                         <span class="label-title label-new"></span>
                     }
-                    @if (item.Story.ViewCount > 3000) {
+                    @if (story.ViewCount > 3000) {
                         <span class="label-title label-hot"></span>
                     }
                 </td>
                 <td class="d-none d-sm-table-cell">
                     @{
-                        var catesOfStory = item.Story.StoryCategory?.Select(x=>x.Category).ToList();
+                        var catesOfStory = story.StoryCategory?.Select(x=>x.Category).ToList();
                     }
                     @if (catesOfStory != null) 
                     {
                         @for (var i = 0; i < catesOfStory.Count;i++)
                         {
-                            <a asp-action="SearchCategory" asp-route-categorySlug="@catesOfStory[i].CategorySlug">
+                            <a asp-controller="SearchStory" asp-action="SearchCategory" asp-route-categorySlug="@catesOfStory[i].CategorySlug">
                                 @catesOfStory[i].CategoryName
                             </a>
                             @(i == catesOfStory.Count - 1 ? "" : Html.Raw("<text>, </text>"))
@@ -31,16 +31,16 @@
                     }
                 </td>
                 <td>
-                    @if (item.LatestChapter != null && item.LatestChapter != 0) {
-                        <a asp-action="Chapter" asp-route-storySlug="@item.Story.StorySlug" asp-route-chapterOrder="@item.LatestChapter" class="text-success">
-                            Chương @item.LatestChapter 
+                    @if (story.LatestChapterOrder != null && story.LatestChapterOrder != 0) {
+                        <a asp-action="Chapter" asp-route-storySlug="@story.StorySlug" asp-route-chapterOrder="@story.LatestChapterOrder" class="text-success">
+                            Chương @story.LatestChapterOrder 
                         </a>
                     }else {
                         <span class="text-success">Chưa có chương</span>
                     }
                 </td>
                 <td class="d-none d-lg-table-cell">
-                    <p>@truyenchu.Utilities.AppUtilities.TimeSince(@item.Story.DateUpdated)</p>
+                    <p>@truyenchu.Utilities.AppUtilities.TimeSince(@story.DateUpdated)</p>
                 </td>
             </tr>
         }

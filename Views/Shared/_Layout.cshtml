@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="~/css/main.min.css" asp-append-version="true" />
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -22,7 +23,10 @@
         <nav id="navbartop" class="navbar navbar-expand-md navbar-toggleable-md navbar-dark bg-white box-shadow">
             <div class="container">
                 @* Logo/Home *@
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TRUYỆN CHỮ</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <i class="bi bi-book-half fs-3"></i>
+                    TRUYỆN CHỮ
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -32,12 +36,12 @@
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Truyện hot
+                                Danh sách
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" asp-action="Test">Test</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item" asp-action="Test">Truyện hot</a></li>
+                                <li><a class="dropdown-item" href="#">Truyện full</a></li>
+                                <li><a class="dropdown-item" href="#">Truyện mới cập nhật</a></li>
                             </ul>
                         </li>
                          <li class="nav-item dropdown">
@@ -49,7 +53,7 @@
                                     <div class="row">
                                         @foreach (var category in categories) {
                                             <div class="col-md-4">
-                                                <li><a asp-area="ViewStory" asp-controller="ViewStory" asp-action="SearchCategory" asp-route-categorySlug="@category.CategorySlug" class="dropdown-item">@category.CategoryName</a></li>
+                                                <li><a asp-area="ViewStory" asp-controller="SearchStory" asp-action="SearchCategory" asp-route-categorySlug="@category.CategorySlug" class="dropdown-item">@category.CategoryName</a></li>
                                             </div>
                                         }
                                     </div>
@@ -61,9 +65,10 @@
                                 Phân loại theo chương
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item" asp-controller="SearchStory" asp-action="SearchRange" asp-route-rangeSlug="duoi-100-chuong">Dưới 100 chương</a></li>
+                                <li><a class="dropdown-item" asp-controller="SearchStory" asp-action="SearchRange" asp-route-rangeSlug="100-500-chuong">Từ 100 đến 500 chương</a></li>
+                                <li><a class="dropdown-item" asp-controller="SearchStory" asp-action="SearchRange" asp-route-rangeSlug="500-1000-chuong">Từ 500 đến 1000 chương</a></li>
+                                <li><a class="dropdown-item" asp-controller="SearchStory" asp-action="SearchRange" asp-route-rangeSlug="tren-1000-chuong">Trên 1000 chương</a></li>
                             </ul>
                         </li>
                          <li class="nav-item">
@@ -71,10 +76,15 @@
                                 Database Manager
                             </a>
                         </li>
+                         <li class="nav-item">
+                            <a class="nav-link" asp-area="ViewStory" asp-controller="ViewStory" asp-action="Test">
+                                Test
+                            </a>
+                        </li>
                         <partial name="_SettingPartial" />
                     </ul>
                     @* Tìm kiếm *@
-                    <form method="get" asp-area="ViewStory" asp-controller="ViewStory" asp-action="SearchStory" id="navbar-search" class="d-flex" role="search">
+                    <form method="get" asp-area="ViewStory" asp-controller="SearchStory" asp-action="SearchStory" id="navbar-search" class="d-flex" role="search">
                         <input name="searchString"  class="form-control rounded-0 bg-dark" type="search" placeholder="Tìm kiếm ..." aria-label="Search" required>
                         <button class="btn btn-outline-success rounded-0" type="submit">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">

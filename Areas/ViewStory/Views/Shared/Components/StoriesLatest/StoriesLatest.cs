@@ -19,21 +19,14 @@ namespace truyenchu.Components
         }
         public IViewComponentResult Invoke()
         {
-            var list = new List<StoryChapterModel>();
-            var stories = _context.Stories
-                            .Include(x=>x.StoryCategory)
-                            .ThenInclude(sc=>sc.Category)
+            List<Story> stories = _context.Stories
+                            .Include(x => x.StoryCategory)
+                            .ThenInclude(sc => sc.Category)
                             .AsQueryable()
-                            .OrderByDescending(x=>x.DateUpdated)
+                            .OrderByDescending(x => x.DateUpdated)
                             .Take(20)
                             .ToList();
-            stories.ForEach(story => {
-                list.Add(new StoryChapterModel() {
-                    Story = story,
-                    LatestChapter = _service.GetLatestChapter(story)
-                });
-            });
-            return View(list);
+            return View(stories);
         }
     }
 }

@@ -4,9 +4,7 @@
     "truyenchu.sln": true,
     "bin": true,
     "obj": true,
-    "ExtendMethods": true,
-    "Utilities": true,
-    "node_modules": true
+    "ExtendMethods": true
   },
   "csharp.suppressBuildAssetsNotification": false
 }

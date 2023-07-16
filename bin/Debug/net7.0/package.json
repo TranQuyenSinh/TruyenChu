@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "bootstrap-icons": "^1.10.5",
     "elfinder-material-theme": "^2.1.15",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",

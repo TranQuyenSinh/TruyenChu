@@ -66,6 +66,10 @@ namespace truyenchu.Models
         [DisplayName("Ngày cập nhật")]
         public DateTime DateUpdated { get; set;}
 
+        /* ================ Chương mới nhất ================ */
+        [DisplayName("Chương mới nhất")]
+        public int LatestChapterOrder { get; set; }
+
         
         public ICollection<StoryCategory>? StoryCategory { get; set; }
         public ICollection<Chapter>? Chapters { get; set; }

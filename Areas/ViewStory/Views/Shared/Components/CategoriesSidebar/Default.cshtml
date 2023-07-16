@@ -10,7 +10,7 @@
         @foreach (var category in Model) 
         {
             <div class="col-6 ps-4">
-                <a asp-controller="ViewStory" asp-action="SearchCategory" asp-route-categorySlug="@category.CategorySlug">@category.CategoryName</a>
+                <a asp-controller="SearchStory" asp-action="SearchCategory" asp-route-categorySlug="@category.CategorySlug">@category.CategoryName</a>
             </div>
         }
     </div>

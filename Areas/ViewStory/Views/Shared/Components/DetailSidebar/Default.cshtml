@@ -40,7 +40,7 @@
                             
                             @for (var i = 0; i < cates.Count;i++)
                             {
-                                <a asp-action="SearchCategory" asp-route-categorySlug="@cates[i].CategorySlug">
+                                <a asp-controller="SearchStory" asp-action="SearchCategory" asp-route-categorySlug="@cates[i].CategorySlug">
                                     @cates[i].CategoryName
                                 </a>
                                 @(i == cates.Count - 1 ? "" : Html.Raw("<text>, </text>"))

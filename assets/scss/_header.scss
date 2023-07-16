@@ -1,5 +1,5 @@
 #navbartop {
-    background-color: $primary-color !important;
+    background-color: $header-bg-color !important;
     a {
         color: $text-color !important;
     }
@@ -63,7 +63,7 @@
 // Breadcrumbs
 #breadcrumb {
     padding: 5px 0px;
-    background-color: #124c70;
+    background-color: $breadcrumb-bg-color;
     a {
         text-decoration: none;
         color: rgba($color: $text-color, $alpha: 0.7);

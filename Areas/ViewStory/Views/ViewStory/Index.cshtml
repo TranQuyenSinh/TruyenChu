@@ -8,7 +8,7 @@
 @* Danh sách truyện *@
 <div class="list-title border-bottom">
     <h2>
-        <a id="hot-select-link" asp-action="SearchCategory">Truyện hot</a>
+        <a id="hot-select-link" asp-controller="SearchStory" asp-action="SearchCategory">Truyện hot</a>
     </h2>
     <select id="hot-select" asp-items="@Model.SelectListItems" class="form-select w-auto rounded-0">
         <option value="" selected>Tất cả</option>
@@ -65,7 +65,7 @@
 @* TRuyện đã hoàn thành *@
 <div class="list-title border-bottom">
     <h2>
-        <a id="full-select-link" asp-action="SearchCategory" asp-route-isFull="true">Truyện đã hoàn thành</a>
+        <a id="full-select-link" asp-controller="SearchStory" asp-action="SearchCategory" asp-route-isFull="true">Truyện đã hoàn thành</a>
     </h2>
     <select id="full-select" asp-items="@Model.SelectListItems" class="form-select w-auto rounded-0">
         <option value="" selected>Tất cả</option>
@@ -77,7 +77,7 @@
     <script>
         function LoadStories(type, categorySlug = "all", count = 12, container) {
             $.ajax({
-                url: "@Url.Action("GetStoriesByCategorySlug", new {area = "ViewStory"})",
+                url: "@Url.Action("GetStoriesByCategorySlug" ,"SearchStory", new {area = "ViewStory"})",
                 method: "GET",
                 data: {
                     categorySlug: categorySlug,
@@ -122,14 +122,14 @@
         function SetEventSelect() {
             $("#hot-select").change(function () {
                 let categorySlug = $(this).val();
-                let newUrl = `@Url.Action("SearchCategory", new {area = "ViewStory", categorySlug="replaceMe"})`.replace('replaceMe', categorySlug)
+                let newUrl = `@Url.Action("SearchCategory" ,"SearchStory", new {area = "ViewStory", categorySlug="replaceMe"})`.replace('replaceMe', categorySlug)
                 LoadStories("hot_select", categorySlug, 12, "#box-hot-select");
                 $("#hot-select-link").attr("href", newUrl);
                                         
             });
             $("#full-select").change(function () {
                 let categorySlug = $(this).val();
-                let newUrl =`@Url.Action("SearchCategory", new {area = "ViewStory",isFull="true", categorySlug="replaceMe"})`.replace('replaceMe', categorySlug)
+                let newUrl =`@Url.Action("SearchCategory" ,"SearchStory", new {area = "ViewStory",isFull="true", categorySlug="replaceMe"})`.replace('replaceMe', categorySlug)
                 LoadStories("full_select", categorySlug, 12, "#box-full-select");
                 $("#full-select-link").attr("href",newUrl )
             });
