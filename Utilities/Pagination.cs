@@ -1,5 +1,3 @@
-using truyenchu.Components.Paging;
-
 namespace truyenchu.Utilities
 {
     public static class Pagination

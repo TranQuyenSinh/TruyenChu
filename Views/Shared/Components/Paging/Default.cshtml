@@ -5,18 +5,17 @@
       - generateUrl:delegate Func<int?, string> trả về URL tương ứng với trang p (1,2,3 ...)
 *@
 
-@model truyenchu.Components.Paging.Paging.PagingOptions
+@model dynamic
 @{
-    int currentPage  = Model.currentpage;
-    int countPages   = Model.countpages;
-    var generateUrl  = Model.generateUrl;
-
+    int currentPage  = Model.CurrentPage;
+    int totalPages   = Model.TotalPages;
+    var generateUrl  = Model.GenerateUrl;
 
     
-    if (currentPage > countPages) 
-      currentPage = countPages;
+    if (currentPage > totalPages) 
+      currentPage = totalPages;
 
-    if (countPages <= 1) return;
+    if (totalPages <= 1) return;
     
 
     int? preview = null;
@@ -25,21 +24,29 @@
     if (currentPage > 1)
         preview = currentPage - 1;
 
-    if (currentPage < countPages)
+    if (currentPage < totalPages)
         next = currentPage + 1;
+
+    int? first = null;
+    int? last = null;
+
+    if (currentPage != totalPages)
+        last = totalPages;
+    if (currentPage > 1)
+        first = 1;
 
     // Các trang hiện thị trong điều hướng
     List<int> pagesRanges = new List<int>();    
 
         
-    int delta      = 5;             // Số trang mở rộng về mỗi bên trang hiện tại     
+    int delta      = 3;             // Số trang mở rộng về mỗi bên trang hiện tại     
     int remain     = delta * 2;     // Số trang hai bên trang hiện tại
 
     pagesRanges.Add(currentPage);
     // Các trang phát triển về hai bên trang hiện tại
     for (int i = 1; i <= delta; i++)
     {
-        if (currentPage + i  <= countPages) {
+        if (currentPage + i  <= totalPages) {
             pagesRanges.Add(currentPage + i); 
             remain --;
         }
@@ -56,7 +63,7 @@
         if (pagesRanges[0] == 1) {
             for (int i = 1; i <= remain; i++)
             {
-                if (pagesRanges.Last() + 1 <= countPages) {
+                if (pagesRanges.Last() + 1 <= totalPages) {
                     pagesRanges.Add(pagesRanges.Last() + 1);
                 }
             }
@@ -76,17 +83,30 @@
 @* PHÁT SINH HTML*@
 
 <ul class="pagination justify-content-center">
-    <!-- Previous page link -->
-    @if (preview != null)
+    <!-- First page link -->
+    @if (first != null)
     {
         <li class="page-item">
-            <a class="page-link" href="@generateUrl(preview)">Trang trước</a>
+            <a class="page-link" href="@generateUrl(first)">Trang đầu</a>
         </li>
     }
     else
     {
         <li class="page-item disabled">
-            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Trang trước</a>
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Trang đầu</a>
+        </li>
+    }
+    <!-- Previous page link -->
+    @if (preview != null)
+    {
+        <li class="page-item">
+            <a class="page-link" href="@generateUrl(preview)">&lt;</a>
+        </li>
+    }
+    else
+    {
+        <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">&lt;</a>
         </li>
     }
       
@@ -113,13 +133,27 @@
     @if (next != null)
     {
         <li class="page-item">
-            <a class="page-link" href="@generateUrl(next)">Trang sau</a>
+            <a class="page-link" href="@generateUrl(next)">></a>
         </li>
     }
     else 
     {
         <li class="page-item disabled">
-            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Trang sau</a>
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">></a>
+        </li>
+    }
+
+    <!-- Last page link -->
+    @if (last != null)
+    {
+        <li class="page-item">
+            <a class="page-link" href="@generateUrl(last)">Trang cuối</a>
+        </li>
+    }
+    else
+    {
+        <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Trang cuối</a>
         </li>
     }
 </ul>

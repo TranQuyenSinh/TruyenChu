@@ -5,12 +5,10 @@ using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using truyenchu.Area.ViewStory.Model;
 using truyenchu.Components;
-using truyenchu.Components.Paging;
 using truyenchu.Data;
 using truyenchu.Models;
 using truyenchu.Service;
 using truyenchu.Utilities;
-using static truyenchu.Components.Paging.Paging;
 
 namespace truyenchu.Area.ViewStory.Controllers
 {
