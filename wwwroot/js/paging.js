@@ -1,5 +1,5 @@
 /**
- * API: GetChapterAPI(string storySlug, int pageNumber = 1)
+ * API: GetChapterAPI(string storySlug, int pageNumber = 1) => pageNumber là bắt buộc
  * Return: {
         data: [...] 
         totalPages 
@@ -9,50 +9,57 @@
  * var url = 'API to get data'
  * var formData = {
  *      abc: xyz,
+ *      *(Ko cần pageNumber here)*
  * }
  * Paging.CreatePaging("#paging", ".list-chapter ul", url, formData, (response) => {
  *      return Your html with data from api
  * })
  */
 class Paging {
-    static CreatePaging(pagingContainer, dataContainer, url, formData, callback) {
-        this.pagingContainer = pagingContainer;
-        this.dataContainer = dataContainer;
-        this.callback = callback;
-        this.url = url;
-        this.formData = formData;
+    static CreatePaging(
+        pagingContainer,
+        dataContainer,
+        url,
+        formData,
+        callback
+    ) {
+        this.pagingContainer = pagingContainer
+        this.dataContainer = dataContainer
+        this.callback = callback
+        this.url = url
+        this.formData = formData
 
-        this.GetPageData();
+        this.GetPageData()
     }
     static PagingTemplate = (totalPage, currentPage) => {
-        var template = "";
+        var template = ''
 
-        var FirstPage = 1;
-        var LastPage = totalPage;
+        var FirstPage = 1
+        var LastPage = totalPage
 
-        if (currentPage > totalPage) currentPage = totalPage;
+        if (currentPage > totalPage) currentPage = totalPage
 
-        var ForwardPage = null;
-        if (currentPage < totalPage) ForwardPage = currentPage + 1;
+        var ForwardPage = null
+        if (currentPage < totalPage) ForwardPage = currentPage + 1
 
-        var BackwardPage = null;
-        if (currentPage > 1) BackwardPage = currentPage - 1;
+        var BackwardPage = null
+        if (currentPage > 1) BackwardPage = currentPage - 1
 
-        var PageNumberArray = Array();
+        var PageNumberArray = Array()
 
-        var delta = 3; // Số trang mở rộng về mỗi bên trang hiện tại
-        var remain = delta * 2; // Số trang hai bên trang hiện tại
-        PageNumberArray.push(currentPage);
+        var delta = 3 // Số trang mở rộng về mỗi bên trang hiện tại
+        var remain = delta * 2 // Số trang hai bên trang hiện tại
+        PageNumberArray.push(currentPage)
         // Các trang phát triển về hai bên trang hiện tại
         for (let i = 1; i <= delta; i++) {
             if (currentPage + i <= totalPage) {
-                PageNumberArray.push(currentPage + i);
-                remain--;
+                PageNumberArray.push(currentPage + i)
+                remain--
             }
 
             if (currentPage - i >= 1) {
-                PageNumberArray = [currentPage - i, ...PageNumberArray];
-                remain--;
+                PageNumberArray = [currentPage - i, ...PageNumberArray]
+                remain--
             }
         }
         if (remain > 0) {
@@ -64,7 +71,7 @@ class Paging {
                     ) {
                         PageNumberArray.push(
                             PageNumberArray[PageNumberArray.length - 1] + 1
-                        );
+                        )
                     }
                 }
             } else {
@@ -73,78 +80,93 @@ class Paging {
                         PageNumberArray = [
                             PageNumberArray[0] - 1,
                             ...PageNumberArray,
-                        ];
+                        ]
                     }
                 }
             }
         }
 
-        template += `<ul class="pagination justify-content-center">`;
+        template += `<ul class="pagination justify-content-center">`
         if (currentPage != 1)
             template += `<li class="page-item">
                             <a class="page-link" data-page=${FirstPage}>Trang đầu</a>
-                        </li>`;
+                        </li>`
 
         if (BackwardPage != null) {
             template += `<li class="page-item">
                             <a class="page-link"  data-page=${BackwardPage}><</a>
-                        </li>`;
+                        </li>`
         }
 
-        var numberingLoop = "";
+        var numberingLoop = ''
         PageNumberArray.forEach((page) => {
-            let isActive = "";
-            let event = "";
+            let isActive = ''
+            let event = ''
             if (page == currentPage) {
-                isActive = "active";
+                isActive = 'active'
             } else {
-                event = `data-page=${page}`;
+                event = `data-page=${page}`
             }
 
             numberingLoop += `<li class="page-item ${isActive}">
                                 <a class="page-link" ${event} tabindex="-1">${page}</a>
-                            </li>`;
-        });
-        template += numberingLoop;
+                            </li>`
+        })
+        template += numberingLoop
 
         if (ForwardPage != null)
             template += `<li class="page-item">
                             <a class="page-link" data-page=${ForwardPage}>></a>
-                        </li>`;
+                        </li>`
 
         if (currentPage != totalPage)
             template += `<li class="page-item">
                             <a class="page-link" data-page=${LastPage}>Trang cuối</a>
-                        </li>`;
+                        </li>`
 
-        template += `</ul>`;
-        $(this.pagingContainer).append(template);
-        var _this = this;
-        $(".page-link").click(function(e)  {
-            e.preventDefault();
-            var page = $(this).data("page");
-            if (page != null) 
-                _this.GetPageData(page);
+        template += `</ul>`
+        $(this.pagingContainer).append(template)
+        var _this = this
+        $('.page-link').click(function (e) {
+            e.preventDefault()
+            var page = $(this).data('page')
+            if (page != null) _this.GetPageData(page)
         })
-    };
+    }
     static GetPageData = (pageNumber = 1) => {
-        if (pageNumber == null) return false;
-        $(this.pagingContainer).empty();
-        $(this.dataContainer).empty();
+        if (pageNumber == null) return false
+        $(this.pagingContainer).empty()
+        $(this.dataContainer)
+            .empty()
+            .append(
+                `
+                    <div class="spinner-grow spinner-grow-sm mr-2 mt-4 text-secondary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <div class="spinner-grow spinner-grow-sm mr-2 mt-4 text-secondary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <div class="spinner-grow spinner-grow-sm mr-2 mt-4 text-secondary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+            `
+            )
 
         $.ajax({
             url: this.url,
             data: {
                 ...this.formData,
-                pageNumber: pageNumber
+                pageNumber: pageNumber,
             },
             success: (res) => {
-                if (res.totalPages === 0) return;
-                var html = this.callback(res);
-                
-                $(this.dataContainer).append(html).hide().fadeIn();
-                this.PagingTemplate(res.totalPages, res.currentPage);
-            },
-        });
-    };
+                if (res.totalPages === 0) {
+                    $(this.dataContainer).empty()
+                    return  
+                } 
+                var html = this.callback(res)
+                $(this.dataContainer).empty().append(html).hide().fadeIn()
+                this.PagingTemplate(res.totalPages, res.currentPage)
+            }
+        })
+    }
 }

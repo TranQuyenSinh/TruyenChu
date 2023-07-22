@@ -1,0 +1,20 @@
+@model truyenchu.Models.Author
+
+@{
+    ViewData["Title"] = "Xóa tác giả";
+    ViewData["ActivePage"] = ManageNavPages.Author;
+}
+
+<h3>Xác nhận xóa tác giả này?</h3>
+<div>
+    <h4 class="fw-bold text-danger">"@Model.AuthorName" <i>(@Model.AuthorSlug)</i></h4>
+    
+    <hr />
+    <form asp-route="Delete">
+        <input type="hidden" asp-for="AuthorId" />
+        <a class="btn btn-secondary" asp-action="Index">
+            <i class="bi bi-caret-left-fill"></i>Quay lại
+        </a>
+        <input type="submit" value="Xác nhận" class="btn btn-danger" />
+    </form>
+</div>

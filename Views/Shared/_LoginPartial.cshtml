@@ -1,0 +1,39 @@
+@using Microsoft.AspNetCore.Identity
+@using truyenchu.Areas.Identity.Controllers
+@using truyenchu.Areas.Admin.Controllers
+@using truyenchu.Components
+@using truyenchu.Models
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+
+    @* 
+    SignInManager.IsSignedIn(this.User);
+    UserManager.GetUserName(this.User); 
+    *@
+
+<ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(this.User)) {
+        <li class="nav-item">
+            <a class="nav-link" asp-area="Identity" asp-controller="Manage" asp-action="Index"> 
+                Xin chào @UserManager.GetUserName(this.User)
+            </a>
+        </li>
+        <li class="nav-item">
+            <button type="button" style="box-shadow: none;" class="btn btn-link nav-link text-light" data-bs-toggle="modal" data-bs-target="#logoff">Đăng xuất</button>
+            @await Component.InvokeAsync(nameof(ConfirmModal), new ConfirmModal.Input() {
+                Id = "logoff",
+                Content = "Xác nhận đăng xuất?",
+                Area = "Identity",
+                Controller = "Account",
+                Action = "LogOff",
+                ReturnUrl = Url.Action("Login", "Account",new {area = "Identity"})
+                
+            })
+        </li>
+    } else {
+        <li class="nav-item">
+            <a class="nav-link text-light" asp-area="Identity" asp-controller="Account" asp-action="Login">Đăng nhập</a>
+        </li>
+    }
+</ul>
+

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Bogus;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
@@ -20,11 +21,15 @@ namespace truyenchu.Controllers
     {
         private readonly AppDbContext _dbContext;
         private readonly ILogger<DatabaseManagerController> _logger;
+        private readonly UserManager<AppUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public DatabaseManagerController(AppDbContext dbContext, ILogger<DatabaseManagerController> logger)
+        public DatabaseManagerController(AppDbContext dbContext, ILogger<DatabaseManagerController> logger, UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             _dbContext = dbContext;
             _logger = logger;
+            _userManager = userManager;
+            _roleManager = roleManager;
         }
 
         [TempData]
@@ -64,8 +69,38 @@ namespace truyenchu.Controllers
             //await SeedCategory();
             // await SeedCategoryAndStory();
             // await SeedChapter();
+            await seedAdmin();
             StatusMessage = "Seed database thành công";
             return RedirectToAction(nameof(Index));
+        }
+
+        private async Task seedAdmin()
+        {
+           var rolenames = typeof(RoleName).GetFields().ToList();
+            foreach (var r in rolenames)
+            {
+                var rolename = r.GetRawConstantValue().ToString();
+                var found = await _roleManager.FindByNameAsync(rolename);
+                if (found is null)
+                {
+                    await _roleManager.CreateAsync(new IdentityRole(rolename));
+                }
+            }
+
+            // tạo user admin
+            var useradmin = await _userManager.FindByNameAsync("admin");
+            if (useradmin == null)
+            {
+                useradmin = new AppUser()
+                {
+                    UserName = "admin",
+                    Email = "admin@example.com",
+                    EmailConfirmed = true
+                };
+
+                await _userManager.CreateAsync(useradmin, "123123");
+                await _userManager.AddToRolesAsync(useradmin, new[] { RoleName.Administrator });
+            }
         }
 
         private async Task SeedAuthor()

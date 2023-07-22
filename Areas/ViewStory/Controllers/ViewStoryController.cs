@@ -30,9 +30,10 @@ namespace truyenchu.Area.ViewStory.Controllers
         public async Task<IActionResult> Index()
         {
             var vm = new IndexViewModel();
-            if (Request.Cookies[Const.READING_STORY_COOKIE_NAME] != null)
+            var cookie = Request.Cookies[Const.READING_STORY_COOKIE_NAME];
+            if (cookie != null)
             {
-                var list = JsonConvert.DeserializeObject<List<ReadingStory>>(Request.Cookies[Const.READING_STORY_COOKIE_NAME]);
+                var list = JsonConvert.DeserializeObject<List<ReadingStory>>(cookie);
                 vm.ReadingStories = list.OrderByDescending(x => x.LatestReading).ToList();
             }
             var categories = await _context.Categories.ToListAsync();

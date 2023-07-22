@@ -4,7 +4,12 @@
     "truyenchu.sln": true,
     "bin": true,
     "obj": true,
-    "ExtendMethods": true
+    "ExtendMethods": true,
+    "Controllers": true,
+    "node_modules": true,
+    "Properties": true,
+    "Services": true,
+    ".vscode": true
   },
   "csharp.suppressBuildAssetsNotification": false
 }

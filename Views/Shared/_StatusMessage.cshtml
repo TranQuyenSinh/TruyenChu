@@ -3,9 +3,19 @@
 }
 @if (!String.IsNullOrEmpty(message))
 {
-    var statusMessageClass = message.StartsWith("Error") ? "danger" : "success";
-    <div class="alert alert-@statusMessageClass alert-dismissible" role="alert">
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        @message
+    <div id="mytoast" data-bs-animation="true" data-bs-autohide="true" data-bs-delay="5000"  class="bg-success mb-0 text-white fs-6 toast fade align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex align-items-center">
+            <div class="toast-body">
+                <i class="bi bi-check-lg"></i>
+                @message
+            </div>
+            <button type="button" class="shadow-none btn-close ml-auto btn-close-white me-2 text-white" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
     </div>
+
+    <script>
+        var toast = new bootstrap.Toast(document.getElementById('mytoast'))
+        toast.show()
+    </script>
 }
+

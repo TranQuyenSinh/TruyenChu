@@ -7,6 +7,10 @@
       "destination": "wwwroot/lib/jqueryui"
     },
     {
+      "library": "jquery-easing@1.4.1",
+      "destination": "wwwroot/lib/jquery-easing"
+    },
+    {
       "library": "elfinder@2.1.62",
       "destination": "wwwroot/lib/elfinder"
     }

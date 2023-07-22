@@ -1,0 +1,54 @@
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService authorizationService
+
+@{
+    var result = await authorizationService.AuthorizeAsync(User, "ViewManageMenu");
+}
+
+@if (result.Succeeded) {
+  <div class="dropdown">
+    <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Manage
+    </button>
+    <ul class="dropdown-menu" style="z-index: 999999;">
+        <li><h6 class="dropdown-header text-primary">Cơ sở dữ liệu</h6></li>
+        <a class="dropdown-item" asp-area="Database" asp-controller="DatabaseManage" asp-action="Index">
+            Database
+        </a>
+        <li><hr class="dropdown-divider"></li>
+        <li><h6 class="dropdown-header text-primary">Liên hệ</h6></li>
+        <a class="dropdown-item" asp-area="Contact" asp-controller="Contact" asp-action="Index">
+            Quản lý liên hệ
+        </a>
+        <li><hr class="dropdown-divider"></li>
+        <li><h6 class="dropdown-header text-primary">Người dùng</h6></li>
+        <a class="dropdown-item" asp-area="Identity" asp-controller="Role" asp-action="Index">
+            Quản lý role (vai trò)
+        </a>
+        <a class="dropdown-item" asp-area="Identity" asp-controller="User" asp-action="Index">
+            Quản lý người dùng
+        </a>
+        <li><hr class="dropdown-divider"></li>
+        <li><h6 class="dropdown-header text-primary">Tin tức</h6></li>
+        <a class="dropdown-item" asp-area="Blog" asp-controller="Category" asp-action="Index">
+            Quản lý chuyên mục Blog
+        </a>
+        <a class="dropdown-item" asp-area="Blog" asp-controller="Post" asp-action="Index">
+            Quản lý bài viết Blog
+        </a>
+        <li><hr class="dropdown-divider"></li>
+        <li><h6 class="dropdown-header text-primary">Sản phẩm</h6></li>
+        <a class="dropdown-item" asp-area="Product" asp-controller="CategoryProduct" asp-action="Index">
+            Quản lý loại sản phẩm
+        </a>
+        <a class="dropdown-item" asp-area="Product" asp-controller="Product" asp-action="Index">
+           Quản lý sản phẩm
+        </a>
+        <li><hr class="dropdown-divider"></li>
+        <li><h6 class="dropdown-header text-primary">File</h6></li>
+        <a class="dropdown-item" target="_blank" asp-area="Files" asp-controller="FileManager" asp-action="Index">
+            Quản lý files
+        </a>
+    </ul>
+  </div>
+}

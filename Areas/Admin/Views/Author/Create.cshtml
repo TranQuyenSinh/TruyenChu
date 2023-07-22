@@ -1,0 +1,26 @@
+@model truyenchu.Models.Author
+
+@{
+    ViewData["Title"] = "Thêm tác giả";
+    ViewData["ActivePage"] = ManageNavPages.Author;
+}
+
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div class="form-group">
+                <input asp-for="AuthorName" class="form-control" />
+                <span asp-validation-for="AuthorName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <a class="btn btn-secondary" asp-action="Index">
+                    <i class="bi bi-caret-left-fill"></i>Quay lại
+                </a>
+                <input type="submit" value="Tạo mới" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+

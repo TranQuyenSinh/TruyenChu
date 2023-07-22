@@ -1,0 +1,76 @@
+@{
+    ViewData["Title"] = "Tác giả";
+    ViewData["ActivePage"] = ManageNavPages.Author;
+}
+
+<div class="d-lg-flex align-items-center mb-2">
+    <a class="btn btn-success" asp-action="Create">+ Thêm mới</a>
+    <div
+        class="border mr-5 my-2 ml-lg-2 my-md-2 mw-100 navbar-search">
+        <div class="input-group">
+            <input id="searchAuthor" type="search" class="form-control border-0 bg-light w-100 small" placeholder="Tìm kiếm..."
+                aria-label="Search" aria-describedby="basic-addon2">
+        </div>
+    </div>
+    <partial name="_StatusMessage" />
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                STT
+            </th>
+            <th>
+                Tác giả
+            </th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+    </tbody>
+</table>
+<div id="paging"></div>
+
+
+
+@section Scripts {
+    <script>
+        const GetAuthors = (searchStr = '') => {
+            var url = '@Url.Action("GetAuthors")'
+            var formData = {
+                searchStr: searchStr,
+            }
+            Paging.CreatePaging("#paging", "table tbody", url, formData, (response) => {
+                var html = '';
+                var stt = (response.currentPage - 1) * "@Const.AUTHORS_FOUND_PER_PAGE"
+                for (let item of response.data) {
+                    html += `
+                        <tr>
+                            <td>
+                                ${++stt}
+                            </td>
+                            <td>
+                                ${item.authorName}
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Edit", new {Id=-1})" class="btn px-4 btn-warning" asp-action="Edit">Sửa</a>
+                                <a href="@Url.Action("Delete", new {Id=-1})" class="btn px-4 btn-danger" asp-action="Delete">Xóa</a>
+                            </td>
+                        </tr>
+                    `.replaceAll('-1', `${item.authorId}`)
+                }
+                return html;
+            }, true)
+        }
+        const AsignSearchEvent = () => {
+            $("#searchAuthor").change(function (e) {
+                GetAuthors(e.target.value)
+            })
+        }
+        $(document).ready(function() {
+            GetAuthors()
+            AsignSearchEvent()
+        })
+    </script>
+}
