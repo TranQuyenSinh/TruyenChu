@@ -67,16 +67,38 @@
                 <a class="nav-link collapsed" href="#collapseTwo" data-bs-toggle="collapse"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Danh mục</span>
+                    <span>Quản lý danh mục</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        @* <h6 class="collapse-header">Custom Components:</h6> *@
                         <a class="collapse-item @ManageNavPages.AuthorNavClass(actionPage)" asp-area="Admin" asp-controller="Author" asp-action="Index" >
                             <i class="fas fa-user-edit fa-lg"></i>
                             Tác giả
                         </a>
-                        <a class="collapse-item @ManageNavPages.StoryNavClass(actionPage)" href="cards.html">Truyện</a>
+                        <a class="collapse-item @ManageNavPages.CategoryNavClass(actionPage)" asp-area="Admin" asp-controller="Category" asp-action="Index" >
+                            <i class="bi bi-bookmarks-fill fa-lg"></i>
+                            Thể loại truyện
+                        </a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#collapseTwo" data-bs-toggle="collapse"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Quản lý truyện</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item @ManageNavPages.StoryNavClass(actionPage)" asp-area="Admin" asp-controller="Story" asp-action="Index" >
+                            <i class="bi bi-book-fill fa-lg"></i>
+                            Truyện
+                        </a>
+                        <a class="collapse-item @ManageNavPages.ChapterNavClass(actionPage)" asp-area="Admin" asp-controller="Chapter" asp-action="Index" >
+                            <i class="fa fa-list fa-lg" aria-hidden="true"></i>
+                            Chương
+                        </a>
                     </div>
                 </div>
             </li>

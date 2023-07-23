@@ -22,7 +22,6 @@ namespace truyenchu.Service
                                 .Include(x => x.Photo)
                                 .Include(x => x.StoryCategory)
                                 .ThenInclude(x => x.Category)
-                                .AsQueryable()
                                 .Where(x => x.StoryCategory.Select(c => c.Category).Contains(category));
             if (isFull)
                 qr = qr.Where(x => x.StoryState == true);
@@ -37,7 +36,6 @@ namespace truyenchu.Service
                             .Include(x => x.Photo)
                             .Include(x => x.StoryCategory)
                             .ThenInclude(x => x.Category)
-                            .AsQueryable()
                             .Where(story => story.StorySlug.Contains(searchSlug) || story.Author.AuthorSlug.Contains(searchString))
                             .ToList();
             return stories;
@@ -50,8 +48,7 @@ namespace truyenchu.Service
                             .Include(x => x.Photo)
                             .Include(x => x.StoryCategory)
                             .ThenInclude(x => x.Category)
-                            .AsQueryable()
-                            .Where(story => story.Author.AuthorSlug.Contains(searchAuthorSlug))
+                            .Where(story => story.Author.AuthorSlug == searchAuthorSlug)
                             .ToList();
             return stories;
         }
@@ -62,7 +59,6 @@ namespace truyenchu.Service
                                             .Include(x => x.Photo)
                                             .Include(x => x.StoryCategory)
                                             .ThenInclude(sc => sc.Category)
-                                            .AsQueryable()
                                             .ToList();
             return stories;
         }

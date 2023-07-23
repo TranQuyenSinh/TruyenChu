@@ -1,0 +1,29 @@
+@model truyenchu.Models.Category
+
+@{
+    ViewData["Title"] = "Sửa thể loại";
+    ViewData["ActivePage"] = ManageNavPages.Category;
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-route="EditCategory">
+            <input type="hidden" asp-for="CategoryId" />
+            <div class="form-group">
+                <input asp-for="CategoryName" class="form-control fw-bold text-primary" />
+                <span asp-validation-for="CategoryName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <textarea rows="10" asp-for="Description" class="form-control" ></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <a class="btn btn-secondary" asp-action="Index">
+                    <i class="bi bi-caret-left-fill"></i>Quay lại
+                </a>
+                <input type="submit" value="Lưu thay đổi" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+

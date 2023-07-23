@@ -1,6 +1,7 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.Identity.Client;
 using truyenchu.Data;
 
 namespace truyenchu.Models

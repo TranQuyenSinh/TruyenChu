@@ -10,7 +10,7 @@
     <h4 class="fw-bold text-danger">"@Model.AuthorName" <i>(@Model.AuthorSlug)</i></h4>
     
     <hr />
-    <form asp-route="Delete">
+    <form asp-route="DeleteAuthor">
         <input type="hidden" asp-for="AuthorId" />
         <a class="btn btn-secondary" asp-action="Index">
             <i class="bi bi-caret-left-fill"></i>Quay lại

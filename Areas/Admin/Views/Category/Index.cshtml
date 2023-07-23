@@ -1,7 +1,8 @@
 @{
-    ViewData["Title"] = "Tác giả";
-    ViewData["ActivePage"] = ManageNavPages.Author;
+    ViewData["Title"] = "Thể loại truyện";
+    ViewData["ActivePage"] = ManageNavPages.Category;
 }
+
 
 <div class="d-lg-flex align-items-center mb-2">
     <a class="btn btn-success" asp-action="Create">+ Thêm mới</a>
@@ -18,7 +19,7 @@
     <thead>
         <tr>
             <th>STT</th>
-            <th>Tác giả</th>
+            <th>Thể loại</th>
             <th>URL</th>
             <th>Hành động</th>
         </tr>
@@ -36,13 +37,13 @@
 @section Scripts {
     <script>
         const GetData = (searchStr = '') => {
-            var url = '@Url.Action("GetAuthors")'
+            var url = '@Url.Action("GetCategories")'
             var formData = {
                 searchStr: searchStr,
             }
             Paging.CreatePaging("#paging", "table tbody", url, formData, (response) => {
                 var html = '';
-                var stt = (response.currentPage - 1) * "@Const.AUTHORS_FOUND_PER_PAGE"
+                var stt = (response.currentPage - 1) * "@Const.CATEGORIES_FOUND_PER_PAGE"
                 for (let item of response.data) {
                     html += `
                         <tr>
@@ -50,17 +51,17 @@
                                 ${++stt}
                             </td>
                             <td>
-                                ${item.authorName}
+                                <a href="@Url.Action("Details", new {Id="replaceId"})">${item.categoryName}</a>
                             </td>
                             <td>
-                                ${item.authorSlug}
+                                ${item.categorySlug}
                             </td>
                             <td>
                                 <a href="@Url.Action("Edit", new {Id="replaceId"})" class="btn px-4 btn-warning" asp-action="Edit">Sửa</a>
                                 <a href="@Url.Action("Delete", new {Id="replaceId"})" class="btn px-4 btn-danger" asp-action="Delete">Xóa</a>
                             </td>
                         </tr>
-                    `.replaceAll('replaceId', `${item.authorId}`)
+                    `.replaceAll('replaceId', `${item.categoryId}`)
                 }
                 return html;
             }, true)

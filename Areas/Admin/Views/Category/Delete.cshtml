@@ -1,0 +1,20 @@
+@model truyenchu.Models.Category
+
+@{
+    ViewData["Title"] = "Xóa thể loại";
+    ViewData["ActivePage"] = ManageNavPages.Category;
+}
+
+<h3>Xác nhận xóa thể loại này?</h3>
+<div>
+    <h4 class="fw-bold text-danger">"@Model.CategoryName" <i>(@Model.CategorySlug)</i></h4>
+    
+    <hr />
+    <form asp-route="DeleteCategory">
+        <input type="hidden" asp-for="CategoryId" />
+        <a class="btn btn-secondary" asp-action="Index">
+            <i class="bi bi-caret-left-fill"></i>Quay lại
+        </a>
+        <input type="submit" value="Xác nhận" class="btn btn-danger" />
+    </form>
+</div>

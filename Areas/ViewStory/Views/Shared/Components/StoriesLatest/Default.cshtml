@@ -17,7 +17,12 @@
                 </td>
                 <td class="d-none d-sm-table-cell">
                     @{
-                        var catesOfStory = story.StoryCategory?.Select(x=>x.Category).ToList();
+                        var catesOfStory = (from c in story.StoryCategory
+                                            select new {
+                                                CategoryName = c.Category.CategoryName,
+                                                CategorySlug = c.Category.CategorySlug
+                                            })
+                                            .ToList();
                     }
                     @if (catesOfStory != null) 
                     {

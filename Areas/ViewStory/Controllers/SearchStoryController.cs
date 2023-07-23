@@ -129,7 +129,11 @@ namespace truyenchu.Area.ViewStory.Controllers
         {
             if (string.IsNullOrEmpty(authorSlug))
                 return NotFound();
-            var author = _context.Authors.FirstOrDefault(x => x.AuthorSlug.Contains(authorSlug));
+            var author = _context.Authors.FirstOrDefault(x => x.AuthorSlug == authorSlug);
+
+            if (author == null)
+                return NotFound();
+
             var totalItem = 0;
             List<Story> stories = _storyService.FindStoriesByAuthor(author);
             totalItem = stories.Count();
@@ -246,7 +250,6 @@ namespace truyenchu.Area.ViewStory.Controllers
             {
                 data = await qr.Where(x => x.StoryState == true).OrderByDescending(x => x.ViewCount).Take(count).ToListAsync();
             }
-            _logger.LogInformation(DateTime.Now.ToString());
 
             return Json(data);
         }

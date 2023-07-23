@@ -109,7 +109,7 @@ namespace truyenchu.Areas.Admin.Controllers
         // POST: Author/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost(Name = "Edit")]
+        [HttpPost(Name = "EditAuthor")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit([FromForm(Name = "AuthorId")] int id, [Bind("AuthorId,AuthorName")] Author author)
         {
@@ -161,7 +161,7 @@ namespace truyenchu.Areas.Admin.Controllers
         }
 
         // POST: Author/Delete/5
-        [HttpPost(Name = "Delete")]
+        [HttpPost(Name = "DeleteAuthor")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int authorId)
         {
