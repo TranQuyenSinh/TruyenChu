@@ -11,17 +11,20 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/contents/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/contents/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/contents/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
     
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" />
 
     <link href="~/lib/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="~/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="~/lib/typeahead/style.css" rel="stylesheet">
     <link href="~/css/main.admin.min.css" rel="stylesheet">
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/typeahead/bloodhound.min.js"></script>
+    <script src="~/lib/typeahead/typeahead.bundle.min.js"></script>
+    <script src="~/lib/typeahead/typeahead.jquery.min.js"></script>
     <script src="~/lib/jquery-easing/jquery.easing.min.js"></script>
     <script src="~/js/collapse.admin.js"></script>
     <script src="~/js/paging.js"></script>
@@ -84,12 +87,12 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#collapseTwo" data-bs-toggle="collapse"
-                    aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed" href="#collapseThree" data-bs-toggle="collapse"
+                    aria-expanded="true" aria-controls="collapseThree">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Quản lý truyện</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionSidebar">
+                <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item @ManageNavPages.StoryNavClass(actionPage)" asp-area="Admin" asp-controller="Story" asp-action="Index" >
                             <i class="bi bi-book-fill fa-lg"></i>

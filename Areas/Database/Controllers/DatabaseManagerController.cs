@@ -69,14 +69,19 @@ namespace truyenchu.Controllers
             //await SeedCategory();
             // await SeedCategoryAndStory();
             // await SeedChapter();
-            await seedAdmin();
+            // await seedAdmin();
+
+            Random rand = new Random();
+
+            _dbContext.Stories.ToList().ForEach(s => s.Published = rand.Next(0, 10) % 2 == 0);
+            _dbContext.SaveChanges();
             StatusMessage = "Seed database thành công";
             return RedirectToAction(nameof(Index));
         }
 
         private async Task seedAdmin()
         {
-           var rolenames = typeof(RoleName).GetFields().ToList();
+            var rolenames = typeof(RoleName).GetFields().ToList();
             foreach (var r in rolenames)
             {
                 var rolename = r.GetRawConstantValue().ToString();
@@ -165,9 +170,9 @@ namespace truyenchu.Controllers
             storyFaker.RuleFor(c => c.Description, fk => fk.Lorem.Paragraphs(7));
             storyFaker.RuleFor(c => c.StorySource, fk => fk.Internet.UrlWithPath());
             storyFaker.RuleFor(c => c.StoryState, fk => fk.Random.Bool());
-            storyFaker.RuleFor(c => c.DateCreated, fk => fk.Date.Between(new DateTime(2023, 1, 1), DateTime.Now.Subtract(new TimeSpan(90, 0 , 0))));
+            storyFaker.RuleFor(c => c.DateCreated, fk => fk.Date.Between(new DateTime(2023, 1, 1), DateTime.Now.Subtract(new TimeSpan(90, 0, 0))));
             storyFaker.RuleFor(c => c.Photo, fk => fk.PickRandom(photos));
-            
+
             var rand = new Random();
             List<Story> stories = new List<Story>();
             List<StoryCategory> storyCategories = new List<StoryCategory>();
@@ -186,7 +191,7 @@ namespace truyenchu.Controllers
                 var catesCount = rand.Next(1, 5);
                 var y = 0;
                 var randomIndex = 0;
-                while ( y < catesCount)
+                while (y < catesCount)
                 {
                     randomIndex = rand.Next(categoriesArr.Count() - 1);
                     if (addedCates.Contains(randomIndex))

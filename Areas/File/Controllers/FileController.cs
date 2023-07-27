@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Text.Json;
 using System.Threading.Tasks;
 using elFinder.NetCore;
 using elFinder.NetCore.Drivers.FileSystem;
@@ -10,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace truyenchu.Area.File.Controllers
 {
-    // [Authorize] - bỏ comment user phải đăng nhập mới dùng được
+    [Authorize]
     [Route("/file")]
     [Area("File")]
     public class FileController : Controller
@@ -28,7 +29,16 @@ namespace truyenchu.Area.File.Controllers
         public async Task<IActionResult> Connector()
         {
             var connector = GetConnector();
-            return await connector.ProcessAsync(Request);
+            var result = await connector.ProcessAsync(Request);
+            if (result is JsonResult)
+            {
+                var json = result as JsonResult;
+                return Content(JsonSerializer.Serialize(json.Value), json.ContentType);
+            }
+            else
+            {
+                return result;
+            }
         }
 
         // Địa chỉ để truy vấn thumbnail

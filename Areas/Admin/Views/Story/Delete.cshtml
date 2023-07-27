@@ -1,0 +1,28 @@
+@model truyenchu.Models.Story
+
+@{
+    ViewData["Title"] = "Xóa truyện";
+    ViewData["ActivePage"] = ManageNavPages.Story;
+}
+
+
+<div class="row">
+    <div class="col-lg-auto text-center col-md-12">
+        <img class="img-fluid img-thumbnail" style="max-width: 250px;" src="/contents/story_thumb/@Model.Photo.FileName" alt="@Model.StoryName">
+    </div>
+    <div class="col-lg-auto col-md-12">
+        <h3>Xác nhận xóa bộ truyện này?</h3>
+        <h4 class="fw-bold text-danger">"@Model.StoryName" <i>(@Model.StorySlug)</i></h4>
+        <p>Tác giả: @Model.Author.AuthorName</p>
+        <a asp-area="ViewStory" asp-controller="ViewStory" asp-action="DetailStory" asp-route-storySlug="@Model.StorySlug" target="_blank">Link</a>
+        <hr />
+        <form asp-route="DeleteStory">
+            <input type="hidden" asp-for="StoryId" />
+            <a class="btn btn-secondary" asp-action="Index">
+                <i class="bi bi-caret-left-fill"></i>Quay lại
+            </a>
+            <input type="submit" value="Xác nhận" class="btn btn-danger" />
+        </form>
+    </div>
+</div>
+

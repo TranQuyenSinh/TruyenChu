@@ -1,0 +1,117 @@
+@{
+    ViewData["Title"] = "Truyện";
+    ViewData["ActivePage"] = ManageNavPages.Story;
+}
+<div class="d-lg-flex align-items-center mb-2">
+    <a class="btn btn-success" asp-action="Create">+ Thêm mới</a>
+    <div
+        class="border mr-5 my-2 ml-lg-2 my-md-2 mw-100 navbar-search">
+        <div class="input-group">
+            <input id="search" type="search" class="form-control border-0 bg-light w-100 small" placeholder="Tìm kiếm..."
+                aria-label="Search" aria-describedby="basic-addon2">
+        </div>
+    </div>
+    <partial name="_StatusMessage" />
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Truyện</th>
+            <th class="d-none d-xl-table-cell">Ảnh bìa</th>
+            <th>Tác giả</th>
+            <th class="d-none d-xl-table-cell">URL</th>
+            <th class="d-none d-lg-table-cell">Lượt xem</th>
+            <th class="d-none d-lg-table-cell">Trạng thái</th>
+            <th class="d-none d-lg-table-cell">Chương mới nhất</th>
+            <th>Xuất bản</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @* Ajax call data here *@
+    </tbody>
+</table>
+<div id="paging">
+    @* Ajax call pagination here *@
+</div>
+
+
+@section Scripts {
+    <script>
+        const GetData = (searchStr = '') => {
+            var url = '@Url.Action("GetStories")'
+            var formData = {
+                searchStr: searchStr,
+            }
+            Paging.CreatePaging("#paging", "table tbody", url, formData, (response) => {
+                var html = '';
+                var stt = (response.currentPage - 1) * "@Const.STORIES_PER_PAGE_ADMIN"
+                for (let item of response.data) {
+                    let isChecked = item.published?"checked":""
+                    html += `
+                        <tr>
+                            <td>
+                                ${++stt}
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Details", new {Id="replaceId"})">${item.storyName}</a>
+                            </td>
+                            <td class="d-none d-xl-table-cell">
+                                <img class="img-fluid" style="height: 150px;" src="/contents/story_thumb/${item.fileName}" alt="${item.storyName}" />
+                            </td>
+                            <td>
+                                ${item.authorName}
+                            </td>
+                            <td class="d-none d-xl-table-cell">
+                                ${item.storySlug}
+                            </td>
+                            <td class="d-none d-lg-table-cell">
+                                ${item.viewCount}
+                            </td>
+                            <td class="d-none d-lg-table-cell">
+                                ${item.storyState ? "Full" : "Đang ra"}
+                            </td>
+                            <td class="d-none d-lg-table-cell">
+                                Chương ${item.latestChapterOrder}
+                            </td>
+                            <td>
+                                <div class="form-check form-switch">
+                                    <input onchange="handleChangePublished(event)" ${isChecked} data-storyid="${item.storyId}"  class="form-check-input m-0 story-published" type="checkbox" role="switch">
+                                </div>
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Edit", new {Id="replaceId"})" class="btn px-4 btn-warning mb-2" asp-action="Edit">Sửa</a>
+                                <a href="@Url.Action("Delete", new {Id="replaceId"})" class="btn px-4 btn-danger mb-2" asp-action="Delete">Xóa</a>
+                            </td>
+                        </tr>
+                    `.replaceAll('replaceId', `${item.storyId}`)
+                }
+                return html;
+            }, true)
+        }
+        const AsignSearchEvent = () => {
+            $("#search").change(function (e) {
+                GetData(e.target.value)
+            })
+        }
+        const handleChangePublished = (event) => {
+            let input = event.target;
+            let storyId = input.dataset.storyid;
+            let isPublished = input.checked;
+
+            $.ajax({
+                url: "@Url.Action("UpdatePublished")",
+                data: {
+                    storyId: storyId,
+                    isPublished: isPublished
+                },
+                method: "PUT",
+            })
+        }
+        $(document).ready(function() {
+            GetData()
+            AsignSearchEvent()
+        })
+    </script>
+}

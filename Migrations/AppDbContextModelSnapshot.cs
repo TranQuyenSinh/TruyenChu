@@ -341,13 +341,15 @@ namespace truyenchu.Migrations
                     b.Property<int?>("PhotoId")
                         .HasColumnType("int");
 
+                    b.Property<bool>("Published")
+                        .HasColumnType("bit");
+
                     b.Property<string>("StoryName")
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar");
 
                     b.Property<string>("StorySlug")
-                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
@@ -367,7 +369,8 @@ namespace truyenchu.Migrations
                     b.HasIndex("PhotoId");
 
                     b.HasIndex("StorySlug")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[StorySlug] IS NOT NULL");
 
                     b.ToTable("Story");
                 });

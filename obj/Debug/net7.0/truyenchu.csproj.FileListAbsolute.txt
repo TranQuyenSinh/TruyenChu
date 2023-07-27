@@ -274,3 +274,4 @@ D:\Code\Web\truyenchu\bin\Debug\net7.0\Microsoft.Extensions.FileProviders.Embedd
 D:\Code\Web\truyenchu\bin\Debug\net7.0\Microsoft.Extensions.Identity.Core.dll
 D:\Code\Web\truyenchu\bin\Debug\net7.0\Microsoft.Extensions.Identity.Stores.dll
 D:\Code\Web\truyenchu\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+D:\Code\Web\truyenchu\bin\Debug\net7.0\ImageProcessor.dll

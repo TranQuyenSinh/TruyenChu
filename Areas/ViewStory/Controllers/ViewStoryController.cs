@@ -47,7 +47,7 @@ namespace truyenchu.Area.ViewStory.Controllers
             if (storySlug == null)
                 return NotFound();
             var story = _context.Stories
-                        .Where(x => x.StorySlug == storySlug)
+                        .Where(x => x.Published && x.StorySlug == storySlug)
                         .Include(x => x.Author)
                         .Include(x => x.Photo)
                         .Include(x => x.StoryCategory)
@@ -81,7 +81,7 @@ namespace truyenchu.Area.ViewStory.Controllers
         public async Task<IActionResult> Chapter(string storySlug, int chapterOrder)
         {
             var vm = new ChapterViewModel();
-            var story = _context.Stories.FirstOrDefault(x => x.StorySlug == storySlug);
+            var story = _context.Stories.FirstOrDefault(x => x.Published && x.StorySlug == storySlug);
             if (story == null)
                 return NotFound();
 
@@ -110,7 +110,7 @@ namespace truyenchu.Area.ViewStory.Controllers
         [HttpGet]
         public async Task<IActionResult> GetChapterAPI(string storySlug, int pageNumber = 1)
         {
-            var story = await _context.Stories.FirstOrDefaultAsync(x => x.StorySlug == storySlug);
+            var story = await _context.Stories.FirstOrDefaultAsync(x => x.Published && x.StorySlug == storySlug);
             if (story == null)
                 return BadRequest();
 

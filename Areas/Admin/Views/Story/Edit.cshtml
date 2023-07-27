@@ -1,0 +1,125 @@
+@model truyenchu.Areas.Admin.Model.CreateViewModel
+@{
+    ViewData["Title"] = "Sửa truyện: " + Model.StoryName;
+    ViewData["ActivePage"] = ManageNavPages.Story;
+
+    var multiSelectItem = ViewBag.MultiSelectItem as MultiSelectList;
+}
+
+<form asp-route="EditStory" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-3 text-center">
+            <img src="/contents/story_thumb/@Model.Photo.FileName" onclick="clickInput()" style="cursor: pointer;" class="preview-thumb img-thumbnail mb-4"  alt="">
+            <input class="form-control" name="file" hidden value="null" type="file">
+        </div>
+        <div class="col-md-9">
+            <input type="hidden" asp-for="StoryId" />
+            <div class="form-group">
+                <label asp-for="StoryName" class="control-label"></label>
+                <input asp-for="StoryName" class="form-control" />
+                <span asp-validation-for="StoryName" class="text-danger"></span>
+            </div>
+            <div class="form-group row align-items-center">
+                @* Autocomplete Author *@
+                <div class="col-auto">
+                    <label asp-for="AuthorId" class="control-label"></label><br>
+                    <input class="d-block typeahead form-control" type="text" value="@Model.Author.AuthorName" placeholder="Chọn tác giả..."><br>
+                    <span asp-validation-for="AuthorId" class="text-danger"></span>
+                    <input type="hidden" asp-for="AuthorId">
+                </div>
+                @* Multiselect Category *@
+                <div class="col-auto flex-grow-1">
+                    <label asp-for="CategoryIds" class="control-label"></label>
+                    <select multiple asp-for="CategoryIds" asp-items="@multiSelectItem" class="w-100"></select>
+                    <span asp-validation-for="CategoryIds" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea rows="9" asp-for="Description" class="form-control" ></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StorySource" class="control-label"></label>
+                <input asp-for="StorySource" class="form-control" />
+                <span asp-validation-for="StorySource" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="StoryState" /> @Html.DisplayNameFor(model => model.StoryState)
+                </label>
+            </div>
+            <a class="btn btn-secondary" asp-action="Index">
+                <i class="bi bi-caret-left-fill"></i>Quay lại
+            </a>
+            <input type="submit" value="Lưu thay đổi" class="btn btn-primary" />
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @* Import Multi-select library *@
+    <script src="~/lib/multiple-select/multiple-select.min.js"></script>
+    <link rel="stylesheet" href="~/lib/multiple-select/multiple-select.min.css" />
+
+    <partial name="_ValidationScriptsPartial" />
+
+    <script type="text/javascript">
+
+        $("#CategoryIds").multipleSelect({
+            selectAll: false,
+            keepOpen: false,
+            isOpen: false,
+        });
+        // Image preview
+        function clickInput() {
+            $("input[type=file]").click();
+        }
+        function setEventInputChange(preview_url) {
+            $("input[type=file]").change(function(e) {
+                URL.revokeObjectURL(preview_url)
+                var file = e.target.files[0]
+                preview_url = URL.createObjectURL(file)
+                $(".preview-thumb").attr("src", URL.createObjectURL(file))    
+            })
+        }
+
+        // Select author
+        var $input = $("#authorInput");
+        var getAuthorApi = "@Url.Action("GetAuthor")"+ "/?query=%QUERY";
+
+        var engine = new Bloodhound({
+            queryTokenizer: Bloodhound.tokenizers.whitespace,
+            datumTokenizer: Bloodhound.tokenizers.obj.whitespace('authorName'),
+            remote: {
+                url: getAuthorApi,
+                wildcard: '%QUERY',
+            },
+        });
+
+        $('.typeahead').typeahead({
+            hint: true,
+            highlight: true,
+            minLength: 1
+        },
+        {
+            name: 'authors',
+            display: 'authorName',
+            source: engine.ttAdapter(),
+            templates: {
+                suggestion: function (result) {
+                    return '<div>' + result.authorId + ', ' + result.authorName + '</div>';
+                }
+            }
+        })
+        .on('typeahead:select', function(e, suggestion) {
+            $("#AuthorId").val(suggestion.authorId)
+        });
+        
+        $(document).ready(function() { 
+            var preview_url = "";
+            setEventInputChange(preview_url);
+        })
+    </script>
+}
+

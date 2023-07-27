@@ -19,6 +19,7 @@ namespace truyenchu.Components
         public IViewComponentResult Invoke()
         {
             var stories = _context.Stories
+                .Where(x => x.Published)
                .Include(x => x.StoryCategory)
                .ThenInclude(sc => sc.Category)
                .Select(s => new Story

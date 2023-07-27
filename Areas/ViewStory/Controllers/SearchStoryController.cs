@@ -77,6 +77,7 @@ namespace truyenchu.Area.ViewStory.Controllers
             if (string.IsNullOrEmpty(categorySlug))
             {
                 var qr = _context.Stories
+                        .Where(x => x.Published)
                         .Include(x => x.Author)
                         .Include(x => x.Photo)
                         .Include(x => x.StoryCategory)
@@ -218,6 +219,7 @@ namespace truyenchu.Area.ViewStory.Controllers
             if (categorySlug == "all")
             {
                 var qrAll = _context.Stories
+                            .Where(x => x.Published)
                             .Include(x => x.Photo)
                             .OrderByDescending(x => x.ViewCount)
                             .Select(x => new Story
@@ -240,7 +242,7 @@ namespace truyenchu.Area.ViewStory.Controllers
             if (category == null)
                 return BadRequest();
 
-            var qr = _context.Stories.Include(x => x.Photo).Where(s => s.StoryCategory.Any(sc => sc.CategoryId == category.CategoryId));
+            var qr = _context.Stories.Include(x => x.Photo).Where(s => s.Published && s.StoryCategory.Any(sc => sc.CategoryId == category.CategoryId));
 
             if (type == "hot_select")
             {

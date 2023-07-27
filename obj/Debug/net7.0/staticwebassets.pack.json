@@ -101,6 +101,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\html\\404.html",
+      "PackagePath": "staticwebassets\\html\\404.html"
+    },
+    {
       "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\js\\collapse.admin.js",
       "PackagePath": "staticwebassets\\js\\collapse.admin.js"
     },
@@ -17291,6 +17295,62 @@
     {
       "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\jqueryui\\themes\\vader\\theme.min.css",
       "PackagePath": "staticwebassets\\lib\\jqueryui\\themes\\vader\\theme.min.css"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\multiple-select\\multiple-select.css",
+      "PackagePath": "staticwebassets\\lib\\multiple-select\\multiple-select.css"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\multiple-select\\multiple-select.js",
+      "PackagePath": "staticwebassets\\lib\\multiple-select\\multiple-select.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\multiple-select\\multiple-select.min.css",
+      "PackagePath": "staticwebassets\\lib\\multiple-select\\multiple-select.min.css"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\multiple-select\\multiple-select.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\multiple-select\\multiple-select.min.css.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\multiple-select\\multiple-select.min.js",
+      "PackagePath": "staticwebassets\\lib\\multiple-select\\multiple-select.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\multiple-select\\multiple-select.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\multiple-select\\multiple-select.min.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\multiple-select\\multiple-select.png",
+      "PackagePath": "staticwebassets\\lib\\multiple-select\\multiple-select.png"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\typeahead\\bloodhound.js",
+      "PackagePath": "staticwebassets\\lib\\typeahead\\bloodhound.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\typeahead\\bloodhound.min.js",
+      "PackagePath": "staticwebassets\\lib\\typeahead\\bloodhound.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\typeahead\\style.css",
+      "PackagePath": "staticwebassets\\lib\\typeahead\\style.css"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\typeahead\\typeahead.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\typeahead\\typeahead.bundle.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\typeahead\\typeahead.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\typeahead\\typeahead.bundle.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\typeahead\\typeahead.jquery.js",
+      "PackagePath": "staticwebassets\\lib\\typeahead\\typeahead.jquery.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\typeahead\\typeahead.jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\typeahead\\typeahead.jquery.min.js"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.truyenchu.props",

@@ -56,8 +56,8 @@
                                 ${item.authorSlug}
                             </td>
                             <td>
-                                <a href="@Url.Action("Edit", new {Id="replaceId"})" class="btn px-4 btn-warning" asp-action="Edit">Sửa</a>
-                                <a href="@Url.Action("Delete", new {Id="replaceId"})" class="btn px-4 btn-danger" asp-action="Delete">Xóa</a>
+                            <a href="@Url.Action("Edit", new {Id="replaceId"})" class="btn px-4 btn-warning" asp-action="Edit">Sửa</a>
+                            <a href="@Url.Action("Delete", new {Id="replaceId"})" class="btn px-4 btn-danger" asp-action="Delete">Xóa</a>
                             </td>
                         </tr>
                     `.replaceAll('replaceId', `${item.authorId}`)

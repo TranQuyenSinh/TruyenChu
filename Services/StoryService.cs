@@ -22,7 +22,7 @@ namespace truyenchu.Service
                                 .Include(x => x.Photo)
                                 .Include(x => x.StoryCategory)
                                 .ThenInclude(x => x.Category)
-                                .Where(x => x.StoryCategory.Select(c => c.Category).Contains(category));
+                                .Where(x => x.Published && x.StoryCategory.Select(c => c.Category).Contains(category));
             if (isFull)
                 qr = qr.Where(x => x.StoryState == true);
             return qr.OrderByDescending(x => x.ViewCount).ToList();
@@ -36,7 +36,7 @@ namespace truyenchu.Service
                             .Include(x => x.Photo)
                             .Include(x => x.StoryCategory)
                             .ThenInclude(x => x.Category)
-                            .Where(story => story.StorySlug.Contains(searchSlug) || story.Author.AuthorSlug.Contains(searchString))
+                            .Where(story => (story.Published == true) && (story.StorySlug.Contains(searchSlug) || story.Author.AuthorSlug.Contains(searchString)))
                             .ToList();
             return stories;
         }
@@ -48,13 +48,13 @@ namespace truyenchu.Service
                             .Include(x => x.Photo)
                             .Include(x => x.StoryCategory)
                             .ThenInclude(x => x.Category)
-                            .Where(story => story.Author.AuthorSlug == searchAuthorSlug)
+                            .Where(story => story.Published && story.Author.AuthorSlug == searchAuthorSlug)
                             .ToList();
             return stories;
         }
         public List<Story> FindStoryByRangeChapter(int start, int end = int.MaxValue)
         {
-            var stories = _context.Stories.Where(x => x.LatestChapterOrder >= start && x.LatestChapterOrder <= end)
+            var stories = _context.Stories.Where(x => x.Published && x.LatestChapterOrder >= start && x.LatestChapterOrder <= end)
                                             .Include(x => x.Author)
                                             .Include(x => x.Photo)
                                             .Include(x => x.StoryCategory)

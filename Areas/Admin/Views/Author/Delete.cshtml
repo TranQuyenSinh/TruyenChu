@@ -5,9 +5,13 @@
     ViewData["ActivePage"] = ManageNavPages.Author;
 }
 
-<h3>Xác nhận xóa tác giả này?</h3>
+<h3>
+    Xác nhận xóa tác giả này?
+    <small class="text-reset">(Các truyện của tác giả này cũng sẽ bị xóa theo)</small>
+</h3>
 <div>
     <h4 class="fw-bold text-danger">"@Model.AuthorName" <i>(@Model.AuthorSlug)</i></h4>
+   
     
     <hr />
     <form asp-route="DeleteAuthor">
