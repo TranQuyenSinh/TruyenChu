@@ -17325,6 +17325,714 @@
       "PackagePath": "staticwebassets\\lib\\multiple-select\\multiple-select.png"
     },
     {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\font\\summernote.eot",
+      "PackagePath": "staticwebassets\\lib\\summernote\\font\\summernote.eot"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\font\\summernote.ttf",
+      "PackagePath": "staticwebassets\\lib\\summernote\\font\\summernote.ttf"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\font\\summernote.woff",
+      "PackagePath": "staticwebassets\\lib\\summernote\\font\\summernote.woff"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\font\\summernote.woff2",
+      "PackagePath": "staticwebassets\\lib\\summernote\\font\\summernote.woff2"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-ar-AR.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-ar-AR.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-ar-AR.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-ar-AR.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-ar-AR.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-ar-AR.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-az-AZ.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-az-AZ.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-az-AZ.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-az-AZ.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-az-AZ.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-az-AZ.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-bg-BG.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-bg-BG.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-bg-BG.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-bg-BG.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-bg-BG.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-bg-BG.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-bn-BD.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-bn-BD.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-bn-BD.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-bn-BD.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-bn-BD.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-bn-BD.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-ca-ES.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-ca-ES.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-ca-ES.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-ca-ES.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-ca-ES.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-ca-ES.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-cs-CZ.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-cs-CZ.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-cs-CZ.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-cs-CZ.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-cs-CZ.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-cs-CZ.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-da-DK.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-da-DK.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-da-DK.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-da-DK.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-da-DK.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-da-DK.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-de-CH.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-de-CH.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-de-CH.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-de-CH.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-de-CH.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-de-CH.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-de-DE.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-de-DE.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-de-DE.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-de-DE.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-de-DE.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-de-DE.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-el-GR.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-el-GR.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-el-GR.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-el-GR.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-el-GR.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-el-GR.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-en-US.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-en-US.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-en-US.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-en-US.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-en-US.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-en-US.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-es-ES.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-es-ES.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-es-ES.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-es-ES.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-es-ES.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-es-ES.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-es-EU.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-es-EU.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-es-EU.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-es-EU.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-es-EU.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-es-EU.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-fa-IR.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-fa-IR.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-fa-IR.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-fa-IR.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-fa-IR.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-fa-IR.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-fi-FI.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-fi-FI.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-fi-FI.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-fi-FI.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-fi-FI.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-fi-FI.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-fr-FR.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-fr-FR.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-fr-FR.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-fr-FR.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-fr-FR.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-fr-FR.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-gl-ES.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-gl-ES.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-gl-ES.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-gl-ES.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-gl-ES.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-gl-ES.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-he-IL.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-he-IL.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-he-IL.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-he-IL.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-he-IL.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-he-IL.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-hr-HR.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-hr-HR.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-hr-HR.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-hr-HR.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-hr-HR.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-hr-HR.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-hu-HU.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-hu-HU.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-hu-HU.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-hu-HU.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-hu-HU.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-hu-HU.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-id-ID.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-id-ID.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-id-ID.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-id-ID.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-id-ID.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-id-ID.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-it-IT.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-it-IT.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-it-IT.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-it-IT.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-it-IT.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-it-IT.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-ja-JP.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-ja-JP.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-ja-JP.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-ja-JP.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-ja-JP.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-ja-JP.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-ko-KR.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-ko-KR.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-ko-KR.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-ko-KR.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-ko-KR.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-ko-KR.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-lt-LT.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-lt-LT.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-lt-LT.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-lt-LT.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-lt-LT.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-lt-LT.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-lt-LV.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-lt-LV.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-lt-LV.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-lt-LV.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-lt-LV.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-lt-LV.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-mn-MN.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-mn-MN.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-mn-MN.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-mn-MN.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-mn-MN.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-mn-MN.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-nb-NO.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-nb-NO.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-nb-NO.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-nb-NO.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-nb-NO.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-nb-NO.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-nl-NL.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-nl-NL.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-nl-NL.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-nl-NL.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-nl-NL.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-nl-NL.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-pl-PL.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-pl-PL.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-pl-PL.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-pl-PL.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-pl-PL.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-pl-PL.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-pt-BR.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-pt-BR.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-pt-BR.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-pt-BR.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-pt-BR.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-pt-BR.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-pt-PT.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-pt-PT.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-pt-PT.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-pt-PT.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-pt-PT.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-pt-PT.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-ro-RO.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-ro-RO.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-ro-RO.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-ro-RO.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-ro-RO.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-ro-RO.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-ru-RU.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-ru-RU.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-ru-RU.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-ru-RU.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-ru-RU.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-ru-RU.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-sk-SK.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-sk-SK.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-sk-SK.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-sk-SK.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-sk-SK.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-sk-SK.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-sl-SI.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-sl-SI.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-sl-SI.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-sl-SI.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-sl-SI.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-sl-SI.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-sr-RS-Latin.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-sr-RS-Latin.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-sr-RS-Latin.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-sr-RS-Latin.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-sr-RS-Latin.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-sr-RS-Latin.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-sr-RS.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-sr-RS.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-sr-RS.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-sr-RS.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-sr-RS.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-sr-RS.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-sv-SE.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-sv-SE.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-sv-SE.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-sv-SE.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-sv-SE.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-sv-SE.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-ta-IN.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-ta-IN.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-ta-IN.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-ta-IN.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-ta-IN.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-ta-IN.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-th-TH.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-th-TH.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-th-TH.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-th-TH.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-th-TH.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-th-TH.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-tr-TR.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-tr-TR.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-tr-TR.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-tr-TR.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-tr-TR.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-tr-TR.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-uk-UA.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-uk-UA.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-uk-UA.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-uk-UA.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-uk-UA.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-uk-UA.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-uz-UZ.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-uz-UZ.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-uz-UZ.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-uz-UZ.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-uz-UZ.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-uz-UZ.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-vi-VN.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-vi-VN.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-vi-VN.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-vi-VN.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-vi-VN.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-vi-VN.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-zh-CN.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-zh-CN.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-zh-CN.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-zh-CN.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-zh-CN.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-zh-CN.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-zh-TW.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-zh-TW.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-zh-TW.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-zh-TW.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\lang\\summernote-zh-TW.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\lang\\summernote-zh-TW.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\plugin\\databasic\\summernote-ext-databasic.css",
+      "PackagePath": "staticwebassets\\lib\\summernote\\plugin\\databasic\\summernote-ext-databasic.css"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\plugin\\databasic\\summernote-ext-databasic.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\plugin\\databasic\\summernote-ext-databasic.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\plugin\\databasic\\summernote-ext-databasic.min.css",
+      "PackagePath": "staticwebassets\\lib\\summernote\\plugin\\databasic\\summernote-ext-databasic.min.css"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\plugin\\databasic\\summernote-ext-databasic.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\plugin\\databasic\\summernote-ext-databasic.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\plugin\\hello\\summernote-ext-hello.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\plugin\\hello\\summernote-ext-hello.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\plugin\\hello\\summernote-ext-hello.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\plugin\\hello\\summernote-ext-hello.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\plugin\\specialchars\\summernote-ext-specialchars.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\plugin\\specialchars\\summernote-ext-specialchars.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\plugin\\specialchars\\summernote-ext-specialchars.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\plugin\\specialchars\\summernote-ext-specialchars.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\summernote-bs4.css",
+      "PackagePath": "staticwebassets\\lib\\summernote\\summernote-bs4.css"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\summernote-bs4.css.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\summernote-bs4.css.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\summernote-bs4.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\summernote-bs4.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\summernote-bs4.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\summernote-bs4.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\summernote-bs4.min.css",
+      "PackagePath": "staticwebassets\\lib\\summernote\\summernote-bs4.min.css"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\summernote-bs4.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\summernote-bs4.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\summernote-bs5.css",
+      "PackagePath": "staticwebassets\\lib\\summernote\\summernote-bs5.css"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\summernote-bs5.css.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\summernote-bs5.css.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\summernote-bs5.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\summernote-bs5.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\summernote-bs5.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\summernote-bs5.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\summernote-bs5.min.css",
+      "PackagePath": "staticwebassets\\lib\\summernote\\summernote-bs5.min.css"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\summernote-bs5.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\summernote-bs5.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\summernote-lite.css",
+      "PackagePath": "staticwebassets\\lib\\summernote\\summernote-lite.css"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\summernote-lite.css.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\summernote-lite.css.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\summernote-lite.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\summernote-lite.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\summernote-lite.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\summernote-lite.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\summernote-lite.min.css",
+      "PackagePath": "staticwebassets\\lib\\summernote\\summernote-lite.min.css"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\summernote-lite.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\summernote-lite.min.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\summernote.css",
+      "PackagePath": "staticwebassets\\lib\\summernote\\summernote.css"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\summernote.css.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\summernote.css.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\summernote.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\summernote.js"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\summernote.js.map",
+      "PackagePath": "staticwebassets\\lib\\summernote\\summernote.js.map"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\summernote.min.css",
+      "PackagePath": "staticwebassets\\lib\\summernote\\summernote.min.css"
+    },
+    {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\summernote\\summernote.min.js",
+      "PackagePath": "staticwebassets\\lib\\summernote\\summernote.min.js"
+    },
+    {
       "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\lib\\typeahead\\bloodhound.js",
       "PackagePath": "staticwebassets\\lib\\typeahead\\bloodhound.js"
     },

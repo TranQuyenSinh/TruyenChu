@@ -14,7 +14,7 @@ namespace truyenchu.Areas.Admin.Controllers
 {
     [Authorize]
     [Area("Admin")]
-    [Route("Category/[action]")]
+    [Route("manage-category/[action]")]
     public class CategoryController : Controller
     {
         private readonly AppDbContext _context;

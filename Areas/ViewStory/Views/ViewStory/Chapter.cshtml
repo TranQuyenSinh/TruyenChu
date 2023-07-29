@@ -30,8 +30,10 @@
 @section Scripts {
     <script>
         $(document).ready(function() {
-            RetrieveTheme();
-            setEventSelectChange();
+            var chapterContent = $('.chapter-content *')
+            var selects = $(".dropdown-menu.story-setting select")
+            RetrieveTheme(chapterContent);
+            setEventSelectChange(selects, chapterContent);
         })
     </script>
 }

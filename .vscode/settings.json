@@ -6,7 +6,6 @@
     "obj": true,
     "ExtendMethods": true,
     "Controllers": true,
-    "node_modules": true,
     "Properties": true,
     "Services": true,
     ".vscode": true

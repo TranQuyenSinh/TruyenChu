@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\Code\\Web\\truyenchu\\truyenchu.csproj": {}
+    "D:\\Code\\Web\\truyenchu\\truyenchu.csproj": {}
   },
   "projects": {
-    "d:\\Code\\Web\\truyenchu\\truyenchu.csproj": {
+    "D:\\Code\\Web\\truyenchu\\truyenchu.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Code\\Web\\truyenchu\\truyenchu.csproj",
+        "projectUniqueName": "D:\\Code\\Web\\truyenchu\\truyenchu.csproj",
         "projectName": "truyenchu",
-        "projectPath": "d:\\Code\\Web\\truyenchu\\truyenchu.csproj",
+        "projectPath": "D:\\Code\\Web\\truyenchu\\truyenchu.csproj",
         "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "d:\\Code\\Web\\truyenchu\\obj\\",
+        "outputPath": "D:\\Code\\Web\\truyenchu\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages",

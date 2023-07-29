@@ -1,5 +1,5 @@
 @{
-    ViewData["Title"] = "Truyện";
+    ViewData["Title"] = "Quản lý truyện";
     ViewData["ActivePage"] = ManageNavPages.Story;
 }
 <div class="d-lg-flex align-items-center mb-2">
@@ -81,8 +81,9 @@
                                 </div>
                             </td>
                             <td>
-                                <a href="@Url.Action("Edit", new {Id="replaceId"})" class="btn px-4 btn-warning mb-2" asp-action="Edit">Sửa</a>
-                                <a href="@Url.Action("Delete", new {Id="replaceId"})" class="btn px-4 btn-danger mb-2" asp-action="Delete">Xóa</a>
+                                <a href="@Url.Action("Index", "Chapter", new {storyId="replaceId"})" class="btn px-4 w-100 btn-primary mb-2">DS chương</a>
+                                <a href="@Url.Action("Edit", new {Id="replaceId"})" class="btn px-4 w-100 btn-warning mb-2">Sửa</a>
+                                <a href="@Url.Action("Delete", new {Id="replaceId"})" class="btn px-4 w-100 btn-danger mb-2">Xóa</a>
                             </td>
                         </tr>
                     `.replaceAll('replaceId', `${item.storyId}`)

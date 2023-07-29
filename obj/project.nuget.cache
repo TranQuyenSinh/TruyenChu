@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cspbEDR6UVLKF8xOlX8UEM+7mZaDjDN1RvBryX1RsQmwdXs4VA8xjm5vsAD2zjsbMs4ZNKpfCHxNfQNOkm16Gw==",
+  "dgSpecHash": "LOMciZzS5SxWnaHW8IoUaIKQ3V9lG3DI4OZVUqmIFKzvQz72RFwSsPYtz1uFvWF3HwVo36NNiPrgvK1oy94ckg==",
   "success": true,
-  "projectFilePath": "d:\\Code\\Web\\truyenchu\\truyenchu.csproj",
+  "projectFilePath": "D:\\Code\\Web\\truyenchu\\truyenchu.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ACER\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

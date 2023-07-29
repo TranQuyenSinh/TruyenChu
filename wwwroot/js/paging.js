@@ -86,7 +86,7 @@ class Paging {
             }
         }
 
-        template += `<ul style="cursor:pointer;" class="pagination justify-content-center">`
+        template += `<ul style="cursor:pointer;" class="pagination justify-content-center m-0">`
         if (currentPage != 1)
             template += `<li class="page-item">
                             <a class="page-link" data-page=${FirstPage}>Trang đầu</a>

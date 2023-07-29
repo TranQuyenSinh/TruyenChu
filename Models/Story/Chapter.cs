@@ -18,17 +18,16 @@ namespace truyenchu.Models {
         public string Title { get; set; }
 
         [DisplayName("Nội dung")]
-        [Required(ErrorMessage = "{0} không được bỏ trống")]
-        public string Content { get; set; }
+        public string? Content { get; set; }
 
         [DisplayName("Ngày đăng")]
-        public DateTime DateCreated { get; set; }
+        public DateTime? DateCreated { get; set; }
         
         [DisplayName("Truyện")]
-        public int StoryId { get; set; }
+        public int? StoryId { get; set; }
 
         [DisplayName("Truyện")]
         [ForeignKey(nameof(StoryId))]
-        public Story Story { get; set; }
+        public Story? Story { get; set; }
     }
 }

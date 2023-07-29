@@ -19,7 +19,7 @@ namespace truyenchu.Areas.Admin.Controllers
 {
     [Authorize]
     [Area("Admin")]
-    [Route("Story/[action]")]
+    [Route("manage-story/[action]")]
     public class StoryController : Controller
     {
         private readonly AppDbContext _context;

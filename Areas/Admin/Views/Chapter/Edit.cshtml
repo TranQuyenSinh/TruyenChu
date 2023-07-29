@@ -1,0 +1,61 @@
+@model truyenchu.Models.Chapter
+
+@{
+    ViewData["Title"] = "Chỉnh sửa chương";
+    ViewData["ActivePage"] = ManageNavPages.Chapter;
+}
+
+<h2>@Model.Story.StoryName</h2>
+<h5>Chương @(Model.Order)</h5>
+<hr>
+<div class="row">
+    <div class="col-md-12">
+        <form asp-route="EditChapter" asp-route-oldOrder="@Model.Order">
+            <partial name="_ErrorMessage" />
+            <input type="hidden" asp-for="ChapterId" />
+            <input type="hidden" asp-for="StoryId" />
+            <input type="hidden" asp-for="DateCreated" />
+            
+            <div class="form-group">
+                <label for="Order" class="control-label">Thứ tự chương</label>
+                <input asp-for="Order" class="form-control" min="1" max="@Model.Story.LatestChapterOrder" />
+                <span asp-validation-for="Order" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control fw-bold" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Content" class="control-label"></label>
+                <textarea required id="summernote" asp-for="Content" class="form-control" ></textarea>
+                <span asp-validation-for="Content" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <a class="btn btn-secondary" asp-action="Index" asp-route-storyId="@Model.Story.StoryId">
+                    <i class="bi bi-caret-left-fill"></i>Quay lại
+                </a>
+                <input type="submit" value="Lưu thay đổi" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial.cshtml" />
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote({
+                height: 500,
+                spellCheck: false
+            });
+
+            $('form').on('submit', function(e) {
+                if($('#summernote').summernote('isEmpty')) {
+                    // cancel submit
+                    e.preventDefault();
+                }
+            })
+        })
+    </script>
+}

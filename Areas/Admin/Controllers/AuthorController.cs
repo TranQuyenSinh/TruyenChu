@@ -16,7 +16,7 @@ namespace truyenchu.Areas.Admin.Controllers
 {
     [Authorize]
     [Area("Admin")]
-    [Route("/Author/[action]")]
+    [Route("manage-author/[action]")]
     public class AuthorController : Controller
     {
         private readonly AppDbContext _context;

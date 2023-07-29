@@ -1,0 +1,39 @@
+<link href="~/lib/typeahead/style.css" rel="stylesheet">
+<form method="get" asp-area="ViewStory" asp-controller="SearchStory" asp-action="SearchStory" id="navbar-search" class="d-flex">
+    <input id="top-search" name="searchString"  class="typeahead form-control rounded-0 bg-dark" type="text" placeholder="Tìm kiếm ..." required>
+    <button class="btn btn-outline-success rounded-0" type="submit">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        </svg>
+    </button>
+</form>
+
+<script>
+     // Select author
+    var $input = $("#top-search");
+    var api = "@Url.Action("SearchStoriesApi", "SearchStory")"+ "/?query=%QUERY";
+
+    var engine = new Bloodhound({
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('storyName'),
+        remote: {
+            url: api,
+            wildcard: '%QUERY',
+        },
+    });
+
+    $('.typeahead').typeahead({
+        hint: true,
+        minLength: 1
+    },
+    {
+        name: 'stories',
+        display: 'storyName',
+        source: engine.ttAdapter(),
+        templates: {
+            suggestion: function (result) {
+                return `<div><a href="@Url.Action("DetailStory", "ViewStory", new {storySlug="replaceSlug"})">${result.storyName}</a></div>`.replace("replaceSlug", result.storySlug);
+            }
+        }
+    })
+</script>

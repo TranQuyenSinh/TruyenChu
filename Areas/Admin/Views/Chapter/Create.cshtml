@@ -1,0 +1,48 @@
+@model truyenchu.Models.Chapter
+
+@{
+    ViewData["Title"] = "Thêm chương mới";
+    ViewData["ActivePage"] = ManageNavPages.Chapter;
+
+    var story = ViewBag.Story as Story;
+    var storyId = story.StoryId;
+}
+
+<h2>@story.StoryName</h2>
+<h5>Chương @(story.LatestChapterOrder + 1)</h5>
+<hr>
+<form asp-route="CreateChapter" asp-route-storyId="@story.StoryId" method="POST">
+    <partial name="_ErrorMessage" />
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control fw-bold" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Content" class="control-label"></label>
+                <textarea required id="summernote" asp-for="Content" class="form-control" ></textarea>
+                <span asp-validation-for="Content" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <a class="btn btn-secondary" asp-action="Index" asp-route-storyId="@story.StoryId">
+                    <i class="bi bi-caret-left-fill"></i>Quay lại
+                </a>
+                <input type="submit" value="Tạo mới" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial.cshtml" />
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote({
+                height: 500,
+                spellCheck: false
+            });
+        })
+    </script>
+}

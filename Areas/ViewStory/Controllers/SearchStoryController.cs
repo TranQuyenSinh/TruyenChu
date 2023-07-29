@@ -256,6 +256,20 @@ namespace truyenchu.Area.ViewStory.Controllers
             return Json(data);
         }
 
+        public async Task<IActionResult> SearchStoriesApi(string query)
+        {
+            if (!string.IsNullOrEmpty(query))
+                query = AppUtilities.GenerateSlug(query);
+
+            var stories = await _context.Stories.Where(x => x.Published && x.StorySlug.Contains(query))
+                        .Select(x => new
+                        {
+                            x.StoryName,
+                            x.StorySlug
+                        }).ToListAsync();
+            return Json(stories);
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

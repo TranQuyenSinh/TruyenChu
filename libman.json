@@ -21,6 +21,10 @@
     {
       "library": "multiple-select@1.2.3",
       "destination": "wwwroot/lib/multiple-select"
+    },
+    {
+      "library": "summernote@0.8.20",
+      "destination": "wwwroot/lib/summernote"
     }
   ]
 }

@@ -1,0 +1,26 @@
+@model truyenchu.Models.Chapter
+
+@{
+    ViewData["Title"] = "Xóa chương";
+    ViewData["ActivePage"] = ManageNavPages.Chapter;
+}
+<h3>
+    Xác nhận xóa chương này?
+</h3>
+
+<div>
+    <div class="row">
+        <h4 class="fw-bold text-danger">Chương @Model.Order: @Model.Title</h4>
+        <div class="col-lg-auto col-md-12">
+            <a asp-area="ViewStory" asp-controller="ViewStory" asp-action="Chapter" asp-route-storySlug="@Model.Story.StorySlug" asp-route-chapterOrder="@Model.Order" target="_blank">Link</a>
+            <hr />
+            <form asp-route="DeleteChapter">
+                <input type="hidden" asp-for="ChapterId" />
+                <a class="btn btn-secondary" asp-action="Index" asp-route-storyId="@Model.Story.StoryId">
+                    <i class="bi bi-caret-left-fill"></i>Quay lại
+                </a>
+                <input type="submit" value="Xác nhận" class="btn btn-danger" />
+            </form>
+        </div>
+    </div>
+</div>

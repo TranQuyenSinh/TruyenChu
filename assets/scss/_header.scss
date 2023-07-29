@@ -26,7 +26,7 @@
                 display: flex;
                 align-items: baseline;
                 margin-bottom: 10px;
-                select{
+                select {
                     padding: 4px;
                     font-size: 14px;
                 }
@@ -41,11 +41,37 @@
     }
 }
 #navbar-search {
+    .twitter-typeahead {
+        width: 100%;
+    }
+
+    // Suggestion
+    .tt-menu {
+        width: max-content;
+        background-color: rgba(
+            var(--bs-dark-rgb),
+            var(--bs-bg-opacity)
+        ) !important;
+    }
+    .tt-suggestion.tt-selectable {
+        &:hover {
+            background-color: $secondary-color;
+        }
+        padding: 0;
+        a {
+            display: inline-block;
+            text-decoration: none;
+            padding: 10px 12px;
+            color: $text-color !important;
+        }
+    }
     input {
         padding: 0px 12px;
         box-shadow: none;
         border: none;
-        color: $text-color;
+        color: $text-color !important;
+        width: 100%;
+        height: 100%;
     }
     button {
         border-width: 1px;

@@ -1,0 +1,122 @@
+@model Story
+@{
+    ViewData["Title"] = "Quản lý chương";
+    ViewData["ActivePage"] = ManageNavPages.Chapter;
+
+    var cateNames = Model.StoryCategory.Select(x=>x.Category.CategoryName).ToArray();
+    var cateStr = String.Join(", ", cateNames);
+}
+
+<div class="row">
+    <div class="col-xl-2">
+        <div class="row">
+            <div class="col-xl-12 col-lg-3 text-center">
+                <img src="/contents/story_thumb/@Model.Photo.FileName" alt="" class="img-thumbnail ">
+            </div>
+            <div class="col-xl-12 col-lg-9">
+                <h4 class="text-center fs-6 text-uppercase fw-bold">@Model.StoryName</h4>
+                <div class="story-info my-4 ">
+                    <div class="mb-1">
+                        <strong>Tác giả: </strong>
+                        @Model.Author.AuthorName
+                    </div>
+                    <div class="mb-1">
+                        <strong>Thể loại: </strong>
+                        @cateStr
+                    </div>
+                    <div class="mb-1">
+                        <strong>Nguồn: </strong>
+                        <span class="text-break">
+                            @Model.StorySource
+                        </span>
+                    </div>
+                    <div class="mb-1">
+                        <strong>Trạng thái: </strong> 
+                        <span class="@(Model.StoryState == true? "text-success":"text-warning") fw-bold">
+                            @(Model.StoryState == true? "Full":"Đang ra")
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-10">
+        @* Top content *@
+        <partial name="_StatusMessage" />
+        <div class="d-lg-flex align-items-center mt-2 mb-2 gap-2">
+            <a class="btn btn-success" asp-action="Create" asp-route-storyId="@Model.StoryId">+ Thêm mới</a>
+
+            @* Top Pagination *@
+            <div class="paging">
+                @* Ajax call pagination here *@
+            </div>
+        </div>
+
+        @* List chapter *@
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Tiêu đề</th>
+                    <th>Ngày đăng</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                @* Ajax call data here *@
+            </tbody>
+        </table>
+
+        @* Bottom Pagination *@
+        <div class="paging">
+            @* Ajax call pagination here *@
+        </div>
+
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+        const GetData = () => {
+            var url = '@Url.Action("GetChapters")'
+            var formData = {
+                storyId: "@Model.StoryId",
+            }
+            Paging.CreatePaging(".paging", "table tbody", url, formData, (response) => {
+                var html = '';
+                for (let item of response.data) {
+                    let isChecked = item.published?"checked":""
+                    let options = { day: '2-digit', month: '2-digit', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true };
+                    let formattedDate = (new Date(item.dateCreated)).toLocaleString('vi-VN', options);
+                    html += `
+                        <tr>
+                            <td>
+                                Chương ${item.order}
+                            </td>
+                            <td>
+                                ${item.title}
+                            </td>
+                            <td>
+                                ${formattedDate}
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Edit", new {Id="replaceId"})" class="btn px-4 btn-warning mb-2">Sửa</a>
+                                <a href="@Url.Action("Delete", new {Id="replaceId"})" class="btn px-4 btn-danger mb-2">Xóa</a>
+                            </td>
+                        </tr>
+                `.replaceAll('replaceId', `${item.chapterId}`)
+                }
+                return html;
+            }, true)
+        }
+        @* const AsignSearchEvent = () => {
+            $("#search").change(function (e) {
+                GetData(e.target.value)
+            })
+        } *@
+        $(document).ready(function() {
+            GetData()
+        })
+    </script>
+}

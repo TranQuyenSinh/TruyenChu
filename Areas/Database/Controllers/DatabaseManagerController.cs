@@ -66,14 +66,14 @@ namespace truyenchu.Controllers
         public async Task<IActionResult> SeedDataAsync()
         {
             // await SeedAuthor();
-            //await SeedCategory();
+            // await SeedCategory();
             // await SeedCategoryAndStory();
-            // await SeedChapter();
+            await SeedChapter();
             // await seedAdmin();
 
             Random rand = new Random();
 
-            _dbContext.Stories.ToList().ForEach(s => s.Published = rand.Next(0, 10) % 2 == 0);
+            
             _dbContext.SaveChanges();
             StatusMessage = "Seed database thành công";
             return RedirectToAction(nameof(Index));

@@ -110,9 +110,11 @@ namespace truyenchu.Area.ViewStory.Controllers
         [HttpGet]
         public async Task<IActionResult> GetChapterAPI(string storySlug, int pageNumber = 1)
         {
-            var story = await _context.Stories.FirstOrDefaultAsync(x => x.Published && x.StorySlug == storySlug);
-            if (story == null)
+            var story = await _context.Stories.FirstOrDefaultAsync(x => x.StorySlug == storySlug);
+            if (story == null){
+                _logger.LogInformation("Story not found");
                 return BadRequest();
+            }
 
             var chapters = await _context.Chapters.Where(x => x.StoryId == story.StoryId)
                             .Select(x => new Chapter { Order = x.Order, Title = x.Title })
@@ -121,7 +123,6 @@ namespace truyenchu.Area.ViewStory.Controllers
             var pageSize = Const.CHAPTER_PER_PAGE;
             Pagination.PagingData<Chapter> pagedData = Pagination.PagedResults(chapters, pageNumber, pageSize);
             return Json(pagedData);
-
         }
 
         private string GenerateCookieJson(Story story, Chapter chapter)
