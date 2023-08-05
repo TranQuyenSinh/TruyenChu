@@ -1,0 +1,59 @@
+@model string
+<li class="nav-item dropdown no-arrow">
+    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        <span class="mr-2 text-dark d-none d-lg-inline">Xin chào <strong>@Model</strong></span>
+    </a>
+    <!-- Dropdown - User Information -->
+    <ul class="dropdown-menu  shadow animated--grow-in"
+        aria-labelledby="userDropdown">
+        <li>
+            <a class="dropdown-item" href="#">
+                <i class="fas fa-user fa-sm fa-fw mr-2 text-dark"></i>
+                Profile
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="#">
+                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-dark"></i>
+                Settings
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="#">
+                <i class="fas fa-list fa-sm fa-fw mr-2 text-dark"></i>
+                Activity Log
+            </a>
+        </li>
+        <div class="dropdown-divider"></div>
+        <li>
+            <a class="dropdown-item" href="#logoutModal" data-bs-toggle="modal">
+                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                Đăng xuất
+            </a>
+        </li>
+    </ul>
+</li>
+
+
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Đăng xuất?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Bạn có chắc muốn đăng xuất?.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Đóng</button>
+                <form asp-area="Identity" asp-controller="Account" asp-action="LogOff" method="post">
+                    <button type="submit" class="btn btn-primary">Đăng xuất</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

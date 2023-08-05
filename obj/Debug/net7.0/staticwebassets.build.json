@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "fhpNh9qqcSXG3MvWhz4qQDuoT+eHPz5BfW4fOInNZpg=",
+  "Hash": "90+AbLLE0Sd5qFSqy7ztU2SaFNEe0qXbd0RWvKmW5q4=",
   "Source": "truyenchu",
   "BasePath": "_content/truyenchu",
   "Mode": "Default",
@@ -1443,6 +1443,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\main.min.css"
+    },
+    {
+      "Identity": "D:\\Code\\Web\\truyenchu\\wwwroot\\css\\multiple-select-custom.css",
+      "SourceId": "truyenchu",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Code\\Web\\truyenchu\\wwwroot\\",
+      "BasePath": "_content/truyenchu",
+      "RelativePath": "css/multiple-select-custom.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\multiple-select-custom.css"
     },
     {
       "Identity": "D:\\Code\\Web\\truyenchu\\wwwroot\\css\\sb-admin-2.min.css",

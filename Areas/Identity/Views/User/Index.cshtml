@@ -1,44 +1,77 @@
-@model UserListModel
 @{
-    ViewData["Title"] = "Danh sách các thành viên";
+    ViewData["Title"] = "Tài khoản";
+    ViewData["ActivePage"] = ManageNavPages.User;
 }
-<h2>@ViewData["Title"]</h2>
-<partial name="_StatusMessage"></partial>
-<p>Tổng số thành viên: @Model.totalUsers</p>
-
+<div class="d-lg-flex align-items-center mb-2">
+    <a class="btn btn-success" asp-action="Create">+ Thêm mới</a>
+    <div
+        class="border mr-5 my-2 ml-lg-2 my-md-2 mw-100 navbar-search">
+        <div class="input-group">
+            <input id="search" type="search" class="form-control border-0 bg-light w-100 small" placeholder="Tìm kiếm..."
+                aria-label="Search" aria-describedby="basic-addon2">
+        </div>
+    </div>
+    <partial name="_StatusMessage" />
+</div>
 <table class="table">
-    <tr>
-        <th>Tên user</th>
-        <th>Vai trò (role)</th>
-        <th>Tác vụ</th>
-    </tr>
-    @foreach (var user in Model.users)
-    {
+    <thead>
         <tr>
-            <td>@user.UserName</td>
-            <td>
-                @if (string.IsNullOrEmpty(user.RoleNames))
-                {
-                    <a class="text-dark" asp-action="AddRole" asp-route-id="@user.Id">+ Thêm roles</a>
-                }
-                else
-                {
-                    <a asp-action="AddRole" asp-route-id="@user.Id">@user.RoleNames</a>
-                }
-            </td>
-            <td>
-                <a class="btn btn-success btn-sm" asp-action="SetPassword" asp-route-id="@user.Id">Đặt mật khẩu</a>
-            </td>
+            <th>STT</th>
+            <th>Tên user</th>
+            <th>Vai trò</th>
+            <th>Tác vụ</th>
         </tr>
-    }
-</table>
-@* @{
-    var pagingmodel = new PagingModel()
-    {
-        currentpage = Model.currentPage,
-        countpages = Model.countPages,
-        generateUrl = (int? p) => Url.Action("Index", new { p = p})
-    };
-}
+    </thead>
+    <tbody>
 
-<partial name="_Paging" model="@pagingmodel" /> *@
+    </tbody>
+</table>
+
+<div id="paging"></div>
+
+@section Scripts {
+    <script type="text/javascript">
+        const GetData = (searchStr = '') => {
+            var url = '@Url.Action("GetUsersApi")'
+            var formData = {
+                searchStr: searchStr,
+            }
+            Paging.CreatePaging("#paging", "table tbody", url, formData, (response) => {
+                var html = '';
+                var stt = (response.currentPage - 1) * "@Const.USERS_PER_PAGE_ADMIN"
+                for (let item of response.data) {
+                    html += `
+                        <tr>
+                            <td>
+                                ${++stt}
+                            </td>
+                            <td>
+                                ${item.userName}
+                            </td>
+                            <td>
+                                ${item.roles == "" ? 
+                                `<a href="@Url.Action("AddRole", new {Id="replaceId"})" class="text-dark">+ Thêm quyền</a>`:
+                                `<a href="@Url.Action("AddRole", new {Id="replaceId"})" >${item.roles}</a>`}
+                            </td>
+                            <td>
+                                <a href="@Url.Action("ChangePassword", new {Id="replaceId"})" class="btn px-4 btn-primary">Đổi mật khẩu</a>
+                                <a href="@Url.Action("Delete", new {Id="replaceId"})" class="btn px-4 btn-danger">Xóa</a>
+                            </td>
+                        </tr>
+                    `.replaceAll('replaceId', `${item.id}`)
+                }
+                return html;
+            }, true)
+        }       
+
+        const AsignSearchEvent = () => {
+            $("#search").change(function (e) {
+                GetData(e.target.value)
+            })
+        }
+        $(document).ready(function() {
+            GetData();
+            AsignSearchEvent();
+        })
+    </script>
+}

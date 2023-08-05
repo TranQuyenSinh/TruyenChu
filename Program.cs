@@ -33,7 +33,7 @@ builder.Services.Configure<IdentityOptions>(options =>
     // Cấu hình về User.
     options.User.AllowedUserNameCharacters = // các ký tự đặt tên user
         "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
-    options.User.RequireUniqueEmail = true;  // Email là duy nhất
+    options.User.RequireUniqueEmail = false;  // Email là duy nhất
 
     // Cấu hình đăng nhập.
     options.SignIn.RequireConfirmedEmail = false;            // Cấu hình xác thực địa chỉ email (email phải tồn tại, xác thực rồi mới cho login)

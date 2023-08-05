@@ -1,0 +1,42 @@
+@model CreateUserModel
+@{
+    ViewData["Title"] = "Tạo tài khoản";
+    ViewData["ActivePage"] = ManageNavPages.User;
+
+    var multiSelectItem = new MultiSelectList(ViewBag.AllRoles as List<string>);
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PassWord" class="control-label"></label>
+                <input asp-for="PassWord" class="form-control" />
+                <span asp-validation-for="PassWord" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Roles" class="control-label"></label>
+                <select multiple asp-for="Roles" asp-items="@multiSelectItem" id="rolesSelect" class="w-100"></select>
+                <span asp-validation-for="Roles" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <a class="btn btn-secondary" asp-action="Index">
+                    <i class="bi bi-caret-left-fill"></i>Quay lại
+                </a>
+                <input type="submit" value="Tạo mới" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{await Html.RenderPartialAsync("_MultiSelectScriptsPartial", "#rolesSelect");}
+}

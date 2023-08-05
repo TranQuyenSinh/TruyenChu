@@ -15,6 +15,7 @@ namespace truyenchu.Data
 
         /* ================ Admin ================ */
         public static int AUTHORS_FOUND_PER_PAGE = 8;
+        public static int USERS_PER_PAGE_ADMIN = 8;
         public static int CATEGORIES_FOUND_PER_PAGE = 8;
         public static int STORIES_PER_PAGE_ADMIN = 8;
         public static int CHAPTERS_PER_PAGE_ADMIN = 8;

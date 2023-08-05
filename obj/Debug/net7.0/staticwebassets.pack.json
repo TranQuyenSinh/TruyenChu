@@ -93,6 +93,10 @@
       "PackagePath": "staticwebassets\\css\\main.min.css"
     },
     {
+      "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\css\\multiple-select-custom.css",
+      "PackagePath": "staticwebassets\\css\\multiple-select-custom.css"
+    },
+    {
       "Id": "D:\\Code\\Web\\truyenchu\\wwwroot\\css\\sb-admin-2.min.css",
       "PackagePath": "staticwebassets\\css\\sb-admin-2.min.css"
     },

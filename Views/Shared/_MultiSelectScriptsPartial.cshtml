@@ -1,0 +1,12 @@
+@model string
+<link rel="stylesheet" href="~/css/multiple-select-custom.css">
+<link rel="stylesheet" href="~/lib/multiple-select/multiple-select.min.css" />
+<script src="~/lib/multiple-select/multiple-select.min.js"></script>
+
+<script>
+    $("@Model").multipleSelect({
+        selectAll: false,
+        keepOpen: false,
+        isOpen: false,
+    });
+</script>

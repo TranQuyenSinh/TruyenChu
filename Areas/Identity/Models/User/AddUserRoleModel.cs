@@ -14,8 +14,5 @@ namespace truyenchu.Areas.Identity.Models.UserViewModels
     [DisplayName("Các role gán cho user")]
     public string[]? RoleNames { get; set; } = new string[] {};
 
-    public List<IdentityRoleClaim<string>> claimsInRole { get; set; }
-    public List<IdentityUserClaim<string>> claimsInUserClaim { get; set; }
-
   }
 }
