@@ -2,6 +2,8 @@ namespace truyenchu.Data
 {
     public class Const
     {
+        public static string PASSWORD_TO_SEED_ADMIN = "Kz_Faker1103";
+
         // directory path
         public static string STORY_THUMB_PATH = Path.Combine("Uploads", "story_thumb");
 

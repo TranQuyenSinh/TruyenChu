@@ -141,7 +141,7 @@ namespace truyenchu.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var photo = new StoryPhoto();
-                photo.FileName = file != null ? UploadPhoto(file) : Const.STORY_THUMB_NO_IMAGE;
+                photo.FileName = file != null ? AppUtilities.UploadPhoto(file) : Const.STORY_THUMB_NO_IMAGE;
                 story.Photo = photo;
                 _context.StoryPhotos.Add(photo);
 
@@ -239,13 +239,13 @@ namespace truyenchu.Areas.Admin.Controllers
                         if (photo != null && photo.FileName != Const.STORY_THUMB_NO_IMAGE)
                         {
                             _context.Remove(photo);
-                            DeletePhoto(photo.FileName);
+                            AppUtilities.DeletePhoto(photo.FileName);
                         }
 
                         // Upload mới
                         var newPhoto = new StoryPhoto()
                         {
-                            FileName = UploadPhoto(file)
+                            FileName = AppUtilities.UploadPhoto(file)
                         };
                         story.Photo = newPhoto;
                         _context.StoryPhotos.Add(newPhoto);
@@ -333,7 +333,7 @@ namespace truyenchu.Areas.Admin.Controllers
             if (story != null)
             {
                 if (story.Photo.FileName != Const.STORY_THUMB_NO_IMAGE)
-                    DeletePhoto(story.Photo.FileName);
+                    AppUtilities.DeletePhoto(story.Photo.FileName);
 
                 _context.Stories.Remove(story);
                 StatusMessage = "Xóa truyện thành công";
@@ -351,36 +351,6 @@ namespace truyenchu.Areas.Admin.Controllers
         private bool StoryExists(int id)
         {
             return (_context.Stories?.Any(e => e.StoryId == id)).GetValueOrDefault();
-        }
-
-        /**
-            return fileName when successful, otherwise return null
-        */
-        private string UploadPhoto(IFormFile file)
-        {
-            string imgName = null;
-            if (file != null)
-            {
-                imgName = Path.GetFileName(Path.GetRandomFileName()) + Path.GetExtension(file.FileName);
-                var uploadPath = Path.Combine(Const.STORY_THUMB_PATH, imgName);
-
-                // resize the image
-                var width = Const.STORY_THUMB_WIDTH;
-                var height = Const.STORY_THUMB_HEIGHT;
-                Image img = Image.FromStream(file.OpenReadStream());
-                var cutImg = new Bitmap(img, width, height);
-
-                using (var fs = new FileStream(uploadPath, FileMode.Create))
-                {
-                    cutImg.Save(fs, System.Drawing.Imaging.ImageFormat.Jpeg);
-                }
-            }
-            return imgName;
-        }
-
-        private void DeletePhoto(string fileName)
-        {
-            System.IO.File.Delete(Path.Combine(Const.STORY_THUMB_PATH, fileName));
         }
 
         private async Task<MultiSelectList> GetMultiSelectList()

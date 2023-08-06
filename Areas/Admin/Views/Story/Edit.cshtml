@@ -9,7 +9,7 @@
 <form asp-route="EditStory" enctype="multipart/form-data">
     <div class="row">
         <div class="col-md-3 text-center">
-            <img src="/contents/story_thumb/@Model.Photo.FileName" onclick="clickInput()" style="cursor: pointer;" class="preview-thumb img-thumbnail mb-4"  alt="">
+            <img src="/contents/story_thumb/@Model.Photo.FileName" onclick="clickInput()" style="cursor: pointer;" class="preview-thumb img-thumbnail mb-4"  alt="Thumbnail not found!">
             <input class="form-control" name="file" hidden value="null" type="file">
         </div>
         <div class="col-md-9">

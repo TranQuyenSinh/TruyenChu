@@ -9,6 +9,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"]</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/contents/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/contents/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/contents/favicon/favicon-16x16.png">
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="~/css/main.min.css" asp-append-version="true" />
@@ -66,16 +70,6 @@
                                 <li><a class="dropdown-item" asp-controller="SearchStory" asp-action="SearchRange" asp-route-rangeSlug="500-1000-chuong">Từ 500 đến 1000 chương</a></li>
                                 <li><a class="dropdown-item" asp-controller="SearchStory" asp-action="SearchRange" asp-route-rangeSlug="tren-1000-chuong">Trên 1000 chương</a></li>
                             </ul>
-                        </li>
-                         <li class="nav-item">
-                            <a class="nav-link" asp-area="Database" asp-controller="DatabaseManager" asp-action="Index">
-                                Database Manager
-                            </a>
-                        </li>
-                         <li class="nav-item">
-                            <a class="nav-link" asp-area="ViewStory" asp-controller="ViewStory" asp-action="Test">
-                                Test
-                            </a>
                         </li>
                         <partial name="_SettingPartial" />
                     </ul>

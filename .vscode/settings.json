@@ -2,7 +2,6 @@
   "dotnet.defaultSolution": "truyenchu.sln",
   "files.exclude": {
     "truyenchu.sln": true,
-    "bin": true,
     "obj": true,
     "ExtendMethods": true,
     "Controllers": true,

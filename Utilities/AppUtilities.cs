@@ -1,5 +1,7 @@
+using System.Drawing;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
+using truyenchu.Data;
 
 namespace truyenchu.Utilities
 {
@@ -113,6 +115,35 @@ namespace truyenchu.Utilities
 
             return "Vừa xong";
         }
-        
+
+        /**
+            return fileName when successful, otherwise return null
+        */
+        public static string UploadPhoto(IFormFile file)
+        {
+            string imgName = null;
+            if (file != null)
+            {
+                imgName = Path.GetFileName(Path.GetRandomFileName()) + Path.GetExtension(file.FileName);
+                var uploadPath = Path.Combine(Const.STORY_THUMB_PATH, imgName);
+
+                // resize the image
+                var width = Const.STORY_THUMB_WIDTH;
+                var height = Const.STORY_THUMB_HEIGHT;
+                Image img = Image.FromStream(file.OpenReadStream());
+                var cutImg = new Bitmap(img, width, height);
+
+                using (var fs = new FileStream(uploadPath, FileMode.Create))
+                {
+                    cutImg.Save(fs, System.Drawing.Imaging.ImageFormat.Jpeg);
+                }
+            }
+            return imgName;
+        }
+
+        public static void DeletePhoto(string fileName)
+        {
+            System.IO.File.Delete(Path.Combine(Const.STORY_THUMB_PATH, fileName));
+        }
     }
 }
