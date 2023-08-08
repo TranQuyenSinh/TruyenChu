@@ -20,6 +20,9 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
+    @* Font awesome *@
+    <link href="~/lib/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
     @* AutoComplete *@
     <script src="~/lib/typeahead/bloodhound.min.js"></script>
     <script src="~/lib/typeahead/typeahead.bundle.min.js"></script>
@@ -113,10 +116,21 @@
 
     <footer class="footer text-muted">
         <div class="container">
-            &copy; 2023 - truyenchu - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-            <p>
-                <a target="_blank" asp-area="File" asp-controller="File" asp-action="Index">File</a>
-            </p>
+            <div class="row justify-content-between align-items-center">
+                <div class="col-md-6">
+                    truyenchu.somee.com - Copyright &copy;2023. 
+                </div>
+                <div class="col-md-6 text-lg-end">
+                    Design by Tran Quyen Sinh <br>
+                    <div class="mb-2"></div>
+                    <a href="https://facebook.com/tranquyensinh" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>   
+                    <a href="malto:vn.quyensinh@gmail.com">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </footer>
    

@@ -32,12 +32,13 @@
                 text-decoration: underline !important;
             }
         }
-
     }
 }
 
 .pagination {
     a {
+        font-size: 12px;
+        padding: 5px 10px;
         background-color: #fff0 !important;
         border-color: rgb(255 255 255 / 33%);
         color: $text-color !important;
@@ -58,6 +59,17 @@
 @media only screen and (max-width: 768px) {
     .detail-title {
         width: 100%;
+    }
+    .list-chapter {
+        columns: unset;
+    }
+}
+@media only screen and (max-width: 576px) {
+    .pagination {
+        li:last-child,
+        li:first-child {
+            display: none;
+        }
     }
 }
 
@@ -89,7 +101,7 @@
 }
 
 .inner-book:before {
-    content: "";
+    content: '';
     width: 100%;
     position: absolute;
     height: 0;
@@ -117,7 +129,7 @@
 }
 
 .inner-book .img:before {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     top: 0;

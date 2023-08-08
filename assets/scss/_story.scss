@@ -1,12 +1,13 @@
 .story {
-    width: 170px !important;
+    min-width: 150px !important;
     margin: 10px 12px;
     position: relative;
     color: $text-color;
-    transition: .05s;
+    transition: all 0.2s ease-in-out;
     &:hover {
         color: $text-color;
-        transform: scale(1.04);
+        transform: scale(1.06);
+        box-shadow: 5px 9px 12px 2px #2f2f2f;
     }
     .badge {
         position: absolute;
@@ -14,11 +15,10 @@
         right: -17px;
     }
     img {
-        height: 260px; 
+        height: 225px;
         width: 100%;
     }
     p {
-
     }
     .story-title {
         background-color: rgb(0 0 0 / 62%);

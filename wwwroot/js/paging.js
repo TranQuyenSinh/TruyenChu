@@ -47,7 +47,7 @@ class Paging {
 
         var PageNumberArray = Array()
 
-        var delta = 3 // Số trang mở rộng về mỗi bên trang hiện tại
+        var delta = 2 // Số trang mở rộng về mỗi bên trang hiện tại
         var remain = delta * 2 // Số trang hai bên trang hiện tại
         PageNumberArray.push(currentPage)
         // Các trang phát triển về hai bên trang hiện tại
