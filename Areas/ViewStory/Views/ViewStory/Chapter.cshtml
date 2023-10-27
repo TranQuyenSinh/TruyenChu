@@ -17,7 +17,7 @@
                                 new {Chapter = Model.Chapter, Story = Model.Story})
 
     @* Content *@
-    <div class="chapter-content">
+    <div class="chapter-content mb-4">
         @Html.Raw(Model.Chapter.Content)
     </div>
 
@@ -30,7 +30,7 @@
 @section Scripts {
     <script>
         $(document).ready(function() {
-            var chapterContent = $('.chapter-content *')
+            var chapterContent = $('.chapter-content, .chapter-content *')
             var selects = $(".dropdown-menu.story-setting select")
             RetrieveTheme(chapterContent);
             setEventSelectChange(selects, chapterContent);

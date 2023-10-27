@@ -6,7 +6,8 @@ $chapter-nav-primary-color: rgb(34 202 0 / 67%);
             border-color: $chapter-nav-primary-color;
             box-shadow: none !important;
             outline: none !important;
-            padding: 10px 20px;
+            padding: 5px 10px;
+            font-size: 12px;
             cursor: pointer;
             &:hover {
                 border-color: rgb(128, 255, 1);
@@ -19,7 +20,7 @@ $chapter-nav-primary-color: rgb(34 202 0 / 67%);
         p {
             font-size: 25px;
             line-height: 40px;
-            font-family: Georgia, "Times New Roman", Times, serif;
+            font-family: Georgia, 'Times New Roman', Times, serif;
         }
     }
 }
@@ -46,6 +47,7 @@ body {
             }
 
             .chapter-content {
+                color: $text-secondary-color;
                 p {
                     color: $text-secondary-color;
                 }
@@ -75,6 +77,7 @@ body {
             }
 
             .chapter-content {
+                color: $text-dark-color;
                 p {
                     color: $text-dark-color;
                 }

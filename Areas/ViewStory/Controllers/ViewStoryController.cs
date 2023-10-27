@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using truyenchu.Area.ViewStory.Model;
-using truyenchu.Components;
 using truyenchu.Data;
 using truyenchu.Models;
 using truyenchu.Service;
@@ -111,7 +110,8 @@ namespace truyenchu.Area.ViewStory.Controllers
         public async Task<IActionResult> GetChapterAPI(string storySlug, int pageNumber = 1)
         {
             var story = await _context.Stories.FirstOrDefaultAsync(x => x.StorySlug == storySlug);
-            if (story == null){
+            if (story == null)
+            {
                 _logger.LogInformation("Story not found");
                 return BadRequest();
             }
@@ -160,12 +160,41 @@ namespace truyenchu.Area.ViewStory.Controllers
             return JsonConvert.SerializeObject(list);
         }
 
-        [Route("test.html")]
-        public IActionResult Test()
-        {
+        // private void GetContent(int chap)
+        // {
+        //     var baseUrl = $"https://truyenfull.vn/thinh-the-dich-phi/chuong-{chap}/";
 
-            return ViewComponent(nameof(Trash));
-        }
+        //     var doc = new HtmlAgilityPack.HtmlDocument();
+        //     doc.LoadHtml(new System.Net.WebClient().DownloadString(baseUrl));
+        //     var root = doc.DocumentNode;
+
+        //     var title = root.Descendants()
+        //                 .Where(n => n.GetAttributeValue("class", "").Equals("chapter-title")).Single().InnerText.Substring(10);
+        //     var chapterContent = root.Descendants()
+        //                 .Where(n => n.GetAttributeValue("class", "").Equals("chapter-c"))
+        //                 .Single().InnerHtml;
+            
+        //     _context.Chapters.Add(new Chapter() {
+        //         Title = title,
+        //         Order = chap,
+        //         DateCreated = DateTime.Now,
+        //         StoryId = 403,
+        //         Content = chapterContent
+        //     });
+        //     _context.SaveChanges();
+        // }
+
+        // [HttpGet("test.html")]
+        // public IActionResult Test(int start, int end)
+        // {
+        //     for (int i = start; i <= end; i++)
+        //     {
+        //         GetContent(i);
+        //         _logger.LogInformation("Get chapter " + i + "successfully");
+        //     }
+
+        //     return Ok();
+        // }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

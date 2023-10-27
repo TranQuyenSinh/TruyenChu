@@ -8,6 +8,8 @@
     ".NETCoreApp,Version=v7.0": {
       "truyenchu/1.0.0": {
         "dependencies": {
+          "Fizzler": "1.3.0",
+          "HtmlAgilityPack": "1.11.51",
           "ImageProcessor": "2.9.1",
           "Microsoft.AspNetCore.Authentication": "2.2.0",
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
@@ -80,6 +82,22 @@
           "lib/netcoreapp3.1/elFinder.NetCore.dll": {
             "assemblyVersion": "1.3.6.0",
             "fileVersion": "1.3.6.0"
+          }
+        }
+      },
+      "Fizzler/1.3.0": {
+        "runtime": {
+          "lib/netstandard2.0/Fizzler.dll": {
+            "assemblyVersion": "1.3.0.0",
+            "fileVersion": "1.3.0.0"
+          }
+        }
+      },
+      "HtmlAgilityPack/1.11.51": {
+        "runtime": {
+          "lib/netstandard2.0/HtmlAgilityPack.dll": {
+            "assemblyVersion": "1.11.51.0",
+            "fileVersion": "1.11.51.0"
           }
         }
       },
@@ -2871,6 +2889,20 @@
       "sha512": "sha512-IRonnEAryYn8o7g8cwcHWFFDk652KOVC47Mn23HvOPxCyYbdJS9gQeE3UY4ZeQGe0yIqno/WWWw/OfMeL2nKSA==",
       "path": "elfinder.netcore/1.3.6",
       "hashPath": "elfinder.netcore.1.3.6.nupkg.sha512"
+    },
+    "Fizzler/1.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-B5FdOC8YrFU6nUYnxF1UcGrt2dMBVaf9tnbiG/PD2gB8FyuoZj0WSGr7+OxdrjreyYu7L2pgPYpbNMFkot2otw==",
+      "path": "fizzler/1.3.0",
+      "hashPath": "fizzler.1.3.0.nupkg.sha512"
+    },
+    "HtmlAgilityPack/1.11.51": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-yRn0Vd6Smu69xGyRWIZVl/Ley2OMMCMwC9tZRR/GdXfxGYj1sGMT4KskWd8OP9dGlqaXPkyB0NzBHKejtZdbow==",
+      "path": "htmlagilitypack/1.11.51",
+      "hashPath": "htmlagilitypack.1.11.51.nupkg.sha512"
     },
     "Humanizer/2.14.1": {
       "type": "package",

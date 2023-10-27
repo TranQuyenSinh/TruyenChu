@@ -13,6 +13,8 @@ D:\Code\Web\truyenchu\bin\Debug\net7.0\Azure.Core.dll
 D:\Code\Web\truyenchu\bin\Debug\net7.0\Azure.Identity.dll
 D:\Code\Web\truyenchu\bin\Debug\net7.0\Bogus.dll
 D:\Code\Web\truyenchu\bin\Debug\net7.0\elFinder.NetCore.dll
+D:\Code\Web\truyenchu\bin\Debug\net7.0\Fizzler.dll
+D:\Code\Web\truyenchu\bin\Debug\net7.0\HtmlAgilityPack.dll
 D:\Code\Web\truyenchu\bin\Debug\net7.0\Humanizer.dll
 D:\Code\Web\truyenchu\bin\Debug\net7.0\ImageProcessor.dll
 D:\Code\Web\truyenchu\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.Internal.dll
